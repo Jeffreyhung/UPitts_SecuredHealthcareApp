@@ -1,58 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Home</title>
+	<head>
+		<meta charset="utf-8">
+		<title>Home</title>
+		<!-- Sets initial viewport load and disables zooming  -->
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<!-- Include the CSS and JavaScript for ratchet and fontawesome -->
+		<script src="js/ratchet.js"></script>
+		<link href="css/ratchet.css" rel="stylesheet">
+		<link href="css/fontawesome.css" rel="stylesheet">
+		<link href="css/loader.css" rel="stylesheet">
+	</head>
+	<body onload="myFunction()" style="margin:0;">
+		<div id="loader"></div>
 
-    <!-- Sets initial viewport load and disables zooming  -->
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<div style="display:none;" id="myDiv" class="animate-bottom">
+		  <h2>Tada!</h2>
+		  <p>Some text in my newly loaded page..</p>
+		</div>
 
-    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<script>
+		var myVar;
+		
+		// Check login status, if login, direct to home, else direct to login
+		function myFunction() {
+			myVar = setTimeout(showPage, 3000);
+		}
 
-    <!-- Include the compiled Ratchet CSS -->
-    <link href="css/ratchet.css" rel="stylesheet">
-	<link href="css/fontawesome.css" rel="stylesheet">
+		function showPage() {
+		  document.getElementById("loader").style.display = "none";
+		  document.getElementById("myDiv").style.display = "block";
+		}
+		</script>
 
-    <!-- Include the compiled Ratchet JS -->
-    <script src="js/ratchet.js"></script>
-  </head>
-  <body>
-
-    <!-- Make sure all your bars are the first things in your <body> -->
-    <header class="bar bar-nav">
-		<a class="icon icon-bars pull-left"></a>
-		<h1 class="title"><b>Healthcare App<b></h1>
-    </header>
-
-    <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
-    <div class="content">
-
-    </div>
-	
-	<nav class="bar bar-tab">
-		<a class="tab-item active" href="#">
-			<span class="fas fa-band-aid "></span>
-			<span class="tab-label">Home</span>
-		</a>
-		<a class="tab-item" href="#">
-			<span class="icon icon-person"></span>
-			<span class="tab-label">Profile</span>
-		</a>
-		<a class="tab-item " href="#">
-			<span class="icon icon-plus"></span>
-			<span class="tab-label">Add</span>
-		</a>
-		<a class="tab-item" href="#">
-			<span class="icon icon-search"></span>
-			<span class="tab-label">Search</span>
-		</a>
-		<a class="tab-item" href="#">
-			<span class="icon icon-gear"></span>
-			<span class="tab-label">Settings</span>
-		</a>
-	</nav>
-
-  </body>
+	</body>
 </html>

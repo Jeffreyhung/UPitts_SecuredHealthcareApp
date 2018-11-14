@@ -248,7 +248,7 @@ body {
 }
 
 a {
-  color: #428bca;
+  color: #10ac84;
   text-decoration: none;
 
   -webkit-tap-highlight-color: transparent;
@@ -384,8 +384,8 @@ p {
 
 .btn-primary {
   color: #fff;
-  background-color: #428bca;
-  border: 1px solid #428bca;
+  background-color: #10ac84;
+  border: 1px solid #10ac84;
 }
 .btn-primary:active, .btn-primary.active {
   color: #fff;
@@ -419,7 +419,7 @@ p {
   background-color: transparent;
 }
 .btn-outlined.btn-primary {
-  color: #428bca;
+  color: #10ac84;
 }
 .btn-outlined.btn-positive {
   color: #5cb85c;
@@ -434,7 +434,7 @@ p {
 .btn-link {
   padding-top: 6px;
   padding-bottom: 6px;
-  color: #428bca;
+  color: #10ac84;
   background-color: transparent;
   border: 0;
 }
@@ -535,7 +535,7 @@ input[type="button"] {
   font-size: 17px;
   font-weight: 500;
   line-height: 44px;
-  color: #000;
+  color: #10ac84;
   text-align: center;
   white-space: nowrap;
 }
@@ -563,7 +563,7 @@ input[type="button"] {
   vertical-align: middle;
 }
 .bar-tab .tab-item.active, .bar-tab .tab-item:active {
-  color: #428bca;
+  color: #10ac84;
 }
 .bar-tab .tab-item .icon {
   top: 3px;
@@ -597,7 +597,7 @@ input[type="button"] {
   padding: 0;
   font-size: 16px;
   line-height: 44px;
-  color: #428bca;
+  color: #10ac84;
   border: 0;
 }
 .bar .btn-link:active, .bar .btn-link.active {
@@ -669,10 +669,10 @@ input[type="button"] {
 
 .badge-primary {
   color: #fff;
-  background-color: #428bca;
+  background-color: #10ac84;
 }
 .badge-primary.badge-inverted {
-  color: #428bca;
+  color: #10ac84;
 }
 
 .badge-positive {
@@ -954,10 +954,10 @@ select {
 }
 
 .segmented-control-primary {
-  border-color: #428bca;
+  border-color: #10ac84;
 }
 .segmented-control-primary .control-item {
-  color: #428bca;
+  color: #10ac84;
   border-color: inherit;
 }
 .segmented-control-primary .control-item:active {
@@ -965,7 +965,7 @@ select {
 }
 .segmented-control-primary .control-item.active {
   color: #fff;
-  background-color: #428bca;
+  background-color: #10ac84;
 }
 
 .segmented-control-positive {
