@@ -4,7 +4,8 @@
     <title>Test</title>
 	<script src="cordova.js"></script>      
     <script type="text/javascript" charset="utf-8">
-
+	var writetext = "helloworld";
+	var filename = "test.txt";
     // Wait for PhoneGap to load
     document.addEventListener("deviceready", onDeviceReady, false);
 
@@ -13,13 +14,12 @@
     function onDeviceReady() {
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
     }
-
     function gotFS(fileSystem) {
-        fileSystem.root.getFile("mynameisjeffrey.txt", {create: true, exclusive: false}, gotFileEntry, fail);
+        fileSystem.root.getFile(filename, {create: true, exclusive: false}, gotFileEntry, fail);
     }
-
     function gotFileEntry(fileEntry) {
         fileEntry.createWriter(gotFileWriter, fail);
+		fileEntry.file(gotFile, fail);
     }
 
     function gotFileWriter(writer) {
@@ -35,20 +35,27 @@
                 }
             };
         };
-        writer.write("some sample text");
+        writer.write(writetext);
+    }
+	function gotFile(file){
+        readAsText(file);
     }
 
     function fail(error) {
         console.log(error.code);
     }
-	function readAsText(file) {
+
+    function readAsText(file) {
         var reader = new FileReader();
         reader.onloadend = function(evt) {
             console.log("Read as text");
-            console.log(evt.target.result);
+            //console.log(evt.target.result);
+			writetext = evt.target.result;
+			alert(writetext);
         };
         reader.readAsText(file);
     }
+	
     </script>
   </script>
   </head>
