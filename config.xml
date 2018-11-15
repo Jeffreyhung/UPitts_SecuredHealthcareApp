@@ -2,10 +2,9 @@
 <widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>SecuredHealthcareApp</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="jeffreyhung@hotmail.com.tw" href="https://github.com/Jeffreyhung">
+        Chi-Heng Hung
     </author>
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />

@@ -8,10 +8,9 @@
     </feature>
     <name>SecuredHealthcareApp</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="jeffreyhung@hotmail.com.tw" href="https://github.com/Jeffreyhung">
+        Chi-Heng Hung
     </author>
     <content src="index.html" />
     <access origin="*" />
