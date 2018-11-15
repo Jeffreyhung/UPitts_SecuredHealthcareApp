@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Test</title>
+	<script src="cordova.js"></script>      
+    <script type="text/javascript" charset="utf-8">
+	var filesystem = null;
+	var dirEntry = null;	//DirectoryEntry
+	//start request after the device is ready
+	document.addEventListener("deviceready", requestFS, false);	
+	//check if filesystem is supported
+	function requestFS() {
+		window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
+		// 測式瀏覽器是否支援 FileSystem
+		if (window.requestFileSystem) {
+			initFileSystem();
+		} else {
+			alert("Sorry! Your browser doesn\'t support the FileSystem API :(");
+		}
+	}
+	//initial FileSystem
+	function initFileSystem() {
+		window.requestFileSystem(LocalFileSystem.PERSISTENT, 1024 * 1024 * 5 /* 5MB */, function(fs) {
+			filesystem = fs;	//init filesystem
+			dirEntry = fs.root;	//init entry directory
+			onLoadFunction();	//自行撰寫此function
+		}, errorHandler);
+	}
+	//set directory
+	function setDirectory(dir) {
+		filesystem.root.getDirectory(dir, {create: true}, function(entry) {
+			dirEntry = entry;	//set directory
+			afterSetDirectory();	//自行撰寫此function
+		}, errorHandler);
+	}
+	//save file
+	function saveFile(filename, content) {
+		dirEntry.getFile(filename, {create: true, exclusive: false}, function(fileEntry) {
+			fileEntry.createWriter(function(fileWriter) {
+				fileWriter.onwriteend = function(e) {	//設定寫入成功事件
+					saveFileSuccess(filename);	//自行撰寫此function
+				};
+				fileWriter.onerror = function(e) {	//error
+					console.log('Write error: ' + e.toString());
+					alert('Unable to save file');
+				};
+				fileWriter.write(content);	//開始寫入內容
+			}, errorHandler);
+		}, errorHandler);
+	}
+	// read file
+	function loadFile(filename) {
+		dirEntry.getFile(filename, {}, function(fileEntry) {
+			fileEntry.file(function(file) {
+				var reader = new FileReader();
+	 
+				reader.onload = function(e) {
+					loadFileSuccess(this.result);	//自行撰寫此function
+				};
+				reader.readAsText(file);
+	 
+			}, errorHandler);
+		}, errorHandler);
+	}
+	//delete file
+	function deleteFile(filename) {
+		dirEntry.getFile(filename, {create: false}, function(fileEntry) {
+			fileEntry.remove(function(e) {
+				deleteFileSuccess();	//自行撰寫此function
+			}, errorHandler);
+		}, errorHandler);
+	}
+	// list files
+	function listFiles() {
+		var dirReader = dirEntry.createReader();
+		var entries = [];
+	 
+		var fetchEntries = function() {
+			dirReader.readEntries(function(results) {
+				if (!results.length) {	//讀取結束
+					displayEntries(entries);	//自行撰寫此function
+					//回傳Entry陣列
+				} else {
+					entries = entries.concat(results);
+					fetchEntries();	//讀取下一筆
+				}
+			}, errorHandler);
+		};
+	 
+		fetchEntries();
+	}
+	
+	function errorHandler(error) {
+		var message = '';
+	 
+		switch (error.code) {
+			case FileError.SECURITY_ERR:
+				message = 'Security Error';
+				break;
+			case FileError.NOT_FOUND_ERR:
+				message = 'Not Found Error';
+				break;
+			case FileError.QUOTA_EXCEEDED_ERR:
+				message = 'Quota Exceeded Error';
+				break;
+			case FileError.INVALID_MODIFICATION_ERR:
+				message = 'Invalid Modification Error';
+				break;
+			case FileError.INVALID_STATE_ERR:
+				message = 'Invalid State Error';
+				break;
+			default:
+				message = 'Unknown Error';
+				break;
+		}
+	 
+		console.log(message);
+	}
+	
+	function onLoadFunction(){
+		console.log("DIRENtry");
+		console.log(filesystem);
+		listFiles();
+		setDirectory("UserData");	
+	}
+	function afterSetDirectory() {
+		listFiles();
+		saveFile("testfile1", "this is the content");
+		
+	}
+	function saveFileSuccess(filename) {
+	/* 儲存檔案成功時呼叫，參照saveFile() */ 
+		console.log("saveFileSuccess");
+		listFiles();
+		loadFile(filename);
+		setTimeout(deleteFile(filename), 5000);
+		
+	}
+	function loadFileSuccess(content) {
+	/* 讀取檔案成功時呼叫，參照loadFile() */
+		
+		console.log(content);
+	}
+	function deleteFileSuccess() { 
+		console.log("deleteFileSuccess");
+		listFiles();
+	/* 刪除檔案成功時呼叫，參照deleteFile() */ 
+	}
+	function displayEntries(entries) {
+		console.log("listfiles");
+		console.log(entries);
+	/* 讀取檔案清單完成時呼叫，參照listFiles() */ 
+	}
+	
+    </script>
+  </script>
+  </head>
+  <body>
+    <h1>Example</h1>
+    <p>Read File</p>
+  </body>
+</html>
