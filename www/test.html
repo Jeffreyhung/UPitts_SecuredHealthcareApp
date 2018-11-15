@@ -5,6 +5,7 @@
 
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
+	
 
     // Wait for Cordova to load
     //
@@ -15,7 +16,7 @@
     // Cordova is ready
     //
     function onDeviceReady() {
-        window.requestFileSystem([LocalFileSystem](../localfilesystem/localfilesystem.html).PERSISTENT, 0, gotFS, fail);
+        window.requestFileSystem([LocalFileSystem](test.html).PERSISTENT, 0, gotFS, fail);
     }
 
     function gotFS(fileSystem) {
