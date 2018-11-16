@@ -2,65 +2,20 @@
 <html>
   <head>
     <title>Test</title>
-	<script src="cordova.js"></script>      
+	<script src="cordova.js"></script>    
+	<script src="bower_components/argon2-browser/lib/argon2.js"></script>    
     <script type="text/javascript" charset="utf-8">
-	var writetext = "helloworld";
-	var filename = "test.txt";
-    // Wait for PhoneGap to load
-    document.addEventListener("deviceready", onDeviceReady, false);
-
-    // PhoneGap is ready
-    //
-    function onDeviceReady() {
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
-    }
-    function gotFS(fileSystem) {
-        fileSystem.root.getFile(filename, {create: true, exclusive: false}, gotFileEntry, fail);
-    }
-    function gotFileEntry(fileEntry) {
-        fileEntry.createWriter(gotFileWriter, fail);
-		fileEntry.file(gotFile, fail);
-    }
-
-    function gotFileWriter(writer) {
-        writer.onwriteend = function(evt) {
-            console.log("contents of file now 'some sample text'");
-            writer.truncate(11);  
-            writer.onwriteend = function(evt) {
-                console.log("contents of file now 'some sample'");
-                writer.seek(4);
-                writer.write(" different text");
-                writer.onwriteend = function(evt){
-                    console.log("contents of file now 'some different text'");
-                }
-            };
-        };
-        writer.write(writetext);
-    }
-	function gotFile(file){
-        readAsText(file);
-    }
-
-    function fail(error) {
-        console.log(error.code);
-    }
-
-    function readAsText(file) {
-        var reader = new FileReader();
-        reader.onloadend = function(evt) {
-            console.log("Read as text");
-            //console.log(evt.target.result);
-			writetext = evt.target.result;
-			alert(writetext);
-        };
-        reader.readAsText(file);
-    }
-	
+		function onload(){
+			argon2.hash({ pass: 'password', salt: 'somesalt' })
+			.then(h => console.log(h.hashHex))
+			.catch(e => console.error(e.message, e.code))
+		}
+		
     </script>
   </script>
   </head>
-  <body>
-    <h1>Example</h1>
+  <body onload="onload()">
+    <h1>password hash test</h1>
     <p>Read File</p>
   </body>
 </html>
