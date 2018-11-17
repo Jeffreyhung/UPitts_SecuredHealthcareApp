@@ -13,10 +13,10 @@
 		<script src="bower_components/argon2-browser/lib/argon2.js"></script>    
 		<script src="js/filesystem.js"></script>
 		<script type="text/javascript">
+			var userinfo;
 			document.addEventListener("deviceready", requestFS, false);	
 			
 			function onLoadFunction(){ // called on load
-				listFiles();
 				setDirectory("UserData");	
 			}
 			function afterSetDirectory(){
@@ -30,13 +30,14 @@
 				argon2.hash({ pass: password, salt: somesalt })
 				.then(h => {
 					hashresult = h.hashHex;
+					userinfo = '{ "email":"'+ somesalt + '" , "password":"' + password + '"}';
 					saveFile("session", hashresult);
-					listFiles();
+					saveFile("userinfo", userinfo);
 				})
 				.catch(e => console.error(e.message, e.code))
 			}
 			function saveFileSuccess() {
-				location.replace("home.html");
+				//location.replace("home.html");
 			}
 		</script>
 		
