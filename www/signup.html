@@ -9,6 +9,7 @@
 		<script src="js/ratchet.js"></script>
 		<link href="css/ratchet.css" rel="stylesheet">
 		<link href="css/fontawesome.css" rel="stylesheet">
+		<link href="css/general.css" rel="stylesheet">
 		<script src="cordova.js" type="text/javascript"></script>
 		<script src="bower_components/argon2-browser/lib/argon2.js"></script>    
 		<script src="js/filesystem.js"></script>
@@ -38,25 +39,38 @@
 			function saveFileSuccess() {
 				//location.replace("home.html");
 			}
+			function showPW() {
+				var x = document.getElementById("password");
+				if (x.type === "password") {
+					x.type = "text";
+				} else {
+					x.type = "password";
+				}
+			}
 		</script>
 		
 		
 	</head>
 	<body>
-		
-
     <!-- Make sure all your bars are the first things in your <body> -->
 		<header class="bar bar-nav">
 			<h1 class="title"><b>Healthcare App<b></h1>
 		</header>
-
 		<!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
 		<div class="content" id="main">
 		<p>
 			<form style="margin: 10px 10px 10px 10px ;" action="javascript:submit()">
 				<h3><center> Create account <center></h3>
-				<input type="text" id="email" placeholder="E-mail">
-				<input type="password" id="password" placeholder="Password">
+				<input type="text" id="email" placeholder="E-mail" required>
+				<input type="password" id="password" placeholder="Password"  required>
+				<!-- <input type="checkbox" >Show Password -->
+				
+				<label class="switch">
+					<input type="checkbox" onclick="showPW()">
+					<span class="slider"></span>
+				</label>
+				<span>Show Password</span>
+				<br><br>
 				<button class="btn btn-positive btn-block">Submit</button>
 			</form>
 		</p>

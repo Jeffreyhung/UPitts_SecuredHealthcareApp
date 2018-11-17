@@ -4,15 +4,11 @@
     <title>Test</title>
 	<script src="cordova.js"></script>    
 	<script src="bower_components/argon2-browser/lib/argon2.js"></script>    
+	<script src="js/validation.js"></script>
     <script type="text/javascript" charset="utf-8">
-		var hashresult;
 		function onload(){
-			argon2.hash({ pass: 'password', salt: 'somesalt' })
-			.then(h => {
-				hashresult = h.hashHex;
-				//alert(hashresult);
-			})
-			.catch(e => console.error(e.message, e.code))
+			console.log("validation result");
+			console.log(validatePassword(""));
 		}
 		
 		
