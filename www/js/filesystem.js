@@ -5,8 +5,10 @@ function requestFS() {
 	window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
 	if (window.requestFileSystem) {
 		initFileSystem(); // call initFileSystem if supported
+		
 	} else {
 		alert("Sorry! Your browser doesn\'t support the FileSystem API");
+		console.log("test");
 	}
 }
 function initFileSystem() { //initial FileSystem
@@ -71,7 +73,29 @@ function listFiles() {// list filesa
  
 	fetchEntries();
 }
-
+function displayEntries(entries) { //called when listfiles is success
+	var waitDir = [];
+	console.log("listfiles");
+	console.log(entries);
+	entries.forEach(function(entry, i) {
+		if(!entry.isFile) waitDir.push(entry.name);	//儲存目錄
+		else {
+			//列出檔案
+			console.log(entry.isFile)	//此entry是否為檔案
+			console.log(entry.name)	//取得名稱
+			console.log(entry.toURL())	//取得位置
+			//$("#fileList").append("<li><a onClick=\"#\"><h3>"+entry.name+"</h3><p>"+entry.toURL()+"</p></li>");
+		}
+	});
+	if(waitDir.length != 0) {	//有目錄未讀取
+		dir = waitDir.pop();	//取出未讀取目錄
+		setDirectory(dir);	//指定檔案目錄
+	}
+	else {
+		//結束讀取檔案清單
+		//$("#fileList").listview('refresh');
+	}
+}
 function errorHandler(error) {
 	var message = '';
  

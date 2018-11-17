@@ -9,27 +9,34 @@
 		<script src="js/ratchet.js"></script>
 		<link href="css/ratchet.css" rel="stylesheet">
 		<link href="css/fontawesome.css" rel="stylesheet">
+		<script src="cordova.js" type="text/javascript"></script>
+		<script src="bower_components/argon2-browser/lib/argon2.js"></script>    
 		<script src="js/filesystem.js"></script>
 		<script type="text/javascript">
 			document.addEventListener("deviceready", requestFS, false);	
-		
+			
 			function onLoadFunction(){ // called on load
 				listFiles();
 				setDirectory("UserData");	
 			}
-			
+			function afterSetDirectory(){
+			}			
 			function submit(){
 				//document.getElementById('email').value
 				hash(document.getElementById('password').value, document.getElementById('email').value);
 			}
-			function hash(password, salt){
+			function hash(password, somesalt){
 				var hashresult;
 				argon2.hash({ pass: password, salt: somesalt })
 				.then(h => {
 					hashresult = h.hashHex;
+					saveFile("session", hashresult);
+					listFiles();
 				})
 				.catch(e => console.error(e.message, e.code))
-				saveFile("session", hashresult);
+			}
+			function saveFileSuccess() {
+				location.replace("home.html");
 			}
 		</script>
 		
