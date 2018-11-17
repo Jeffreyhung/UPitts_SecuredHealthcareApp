@@ -11,8 +11,25 @@
 		<link href="css/fontawesome.css" rel="stylesheet">
 		<script src="js/filesystem.js"></script>
 		<script type="text/javascript">
+			document.addEventListener("deviceready", requestFS, false);	
+		
+			function onLoadFunction(){ // called on load
+				listFiles();
+				setDirectory("UserData");	
+			}
+			
 			function submit(){
-				alert("test");
+				//document.getElementById('email').value
+				hash(document.getElementById('password').value, document.getElementById('email').value);
+			}
+			function hash(password, salt){
+				var hashresult;
+				argon2.hash({ pass: password, salt: somesalt })
+				.then(h => {
+					hashresult = h.hashHex;
+				})
+				.catch(e => console.error(e.message, e.code))
+				saveFile("session", hashresult);
 			}
 		</script>
 		
@@ -31,8 +48,8 @@
 		<p>
 			<form style="margin: 10px 10px 10px 10px ;" action="javascript:submit()">
 				<h3><center> Create account <center></h3>
-				<input type="text" placeholder="E-mail">
-				<input type="password" placeholder="Password">
+				<input type="text" id="email" placeholder="E-mail">
+				<input type="password" id="password" placeholder="Password">
 				<button class="btn btn-positive btn-block">Submit</button>
 			</form>
 		</p>
