@@ -6,3 +6,7 @@ function validatePassword(pass) {
 	var regex = RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
 	return regex.test(pass);
 }
+function regularInput(words) {
+	var regex = /[a-zA-Z0-9.,?]*/;
+	return regex.test(words)
+}
