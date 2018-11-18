@@ -10,6 +10,7 @@
 		<link href="css/sidebar.css" rel="stylesheet">
 		<script src="cordova.js"></script>
 		<script src="js/filesystem.js"></script>
+		<script src="js/validation.js"></script>
 		<script type="text/javascript">
 			var userinfo;
 			document.addEventListener("deviceready", requestFS, false);	
@@ -18,9 +19,57 @@
 				setDirectory("UserData");	
 			}
 			function afterSetDirectory(){
-			}			
+			}
+			function validate(){
+				var name = document.getElementById('name').value;
+				var dob = document.getElementById('dob').value;
+				var blood_type = document.getElementById('blood_type').value;
+				var weight_integer = document.getElementById('weight_integer').value;
+				var weight_decimal = document.getElementById('weight_decimal').value;
+				var height_ft = document.getElementById('height_ft').value;
+				var height_in = document.getElementById('height_in').value;
+				var allergies = document.getElementById('allergies').value;
+				var contact_name = document.getElementById('contact_name').value;
+				var contact_phone = document.getElementById('contact_phone').value;
+				console.log(dob);
+				if(!validateStictInput(name)){
+					alert("Name included invalid characters");
+					return;
+				}else if(!validateDate(dob)){
+					alert("Date of Birth included invalid characters");
+					return;
+				}else if(!validateInput(blood_type)){
+					alert("Blood Type included invalid characters");
+					return;
+				}else if(!validateNumbers(weight_integer)){
+					alert("Weight included invalid characters");
+					return;
+				}else if(!validateNumbers(weight_decimal)){
+					alert("Weight included invalid characters");
+					return;
+				}else if(!validateNumbers(height_ft)){
+					alert("Height included invalid characters");
+					return;
+				}else if(!validateNumbers(height_in)){
+					alert("Height included invalid characters");
+					return;
+				}else if(!validateInput(allergies)){
+					alert("Allergies included invalid characters");
+					return;
+				}else if(!validateStictInput(contact_name)){
+					alert("Contact Name included invalid characters");
+					return;
+				}else if(!validatePhone(contact_phone)){
+					alert("Contact Phone included invalid characters");
+					return;
+				}else {
+					save();
+				}
+				
+			}
 			function save(){
-				hash(document.getElementById('password').value, document.getElementById('email').value);
+				var contactinfo;
+				contactinfo = '{ "name":"'+ name + '" , "dob":"' + dob + '", "":"' +  + '" , "":"' +  + '"}';
 			}
 			function hash(password, somesalt){
 				var hashresult;
@@ -34,13 +83,11 @@
 				.catch(e => console.error(e.message, e.code))
 			}
 			function saveFileSuccess() {
-				location.replace("home.html");
+				location.replace("contact.html");
 			}
 		</script>
 	</head>
 	<body>
-
-    <!-- Make sure all your bars are the first things in your <body> -->
 		<header class="bar bar-nav">
 			<a class="icon icon-bars pull-left" onclick="SBtrigger()"></a>
 			<h1 class="title"><b>Emergency Contact<b></h1>
@@ -51,68 +98,69 @@
 			<a href="#"><i class="fas fa-sign-out-alt"></i>&nbsp &nbsp Sign-out</a>
 		</div>
 
-		<!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
 		<div class="content" id="main">
 			<div class="card">
-				<form class="input-group" action="save">
+				<form class="input-group" name="contact_form">
 					<ul class="table-view">
 						<li class="table-view-cell table-view-divider">User Info</li>
 						<li class="input-row">
 							<label>Name: </label>
-							<input type="text" placeholder="Full Name">
+							<input type="text" id="name" placeholder="Full Name" required>
 						</li>
 						<li class="input-row">
 							<label>D.o.B. : </label>
-							<input type="date">
+							<input type="date" id="dob">
 						</li>
 						<li class="input-row">
 							<label>Blood type:</label>
-							<label style="width:61%;"><select  style="width:50%;">
-							  <option value="O-positive">O+</option>
-							  <option value="O-negative">O-</option>
-							  <option value="A-positive">A+</option>
-							  <option value="A-negative">A-</option>
-							  <option value="B-positive">B+</option>
-							  <option value="B-negative">B-</option>
-							  <option value="AB-positive">AB+</option>
-							  <option value="AB-negative">AB-</option>
-							</select></label>
+							<label style="width:61%;">
+								<select id="blood_type" style="width:50%;" required>
+								  <option value="O-positive">O+</option>
+								  <option value="O-negative">O-</option>
+								  <option value="A-positive">A+</option>
+								  <option value="A-negative">A-</option>
+								  <option value="B-positive">B+</option>
+								  <option value="B-negative">B-</option>
+								  <option value="AB-positive">AB+</option>
+								  <option value="AB-negative">AB-</option>
+								</select>
+							</label>
 						</li>
 						<li class="input-row">
 							<label>Weight: </label>
 							<label style="width:61%;">
-								<select id="weight_integer" style="width:40%;">
+								<select id="weight_integer" style="width:40%;" required>
 								</select> 
-								<select id="weight_decimal" style="width:30%;">
+								<select id="weight_decimal" style="width:30%;" required>
 								</select> lbs
 							</label>
 						</li>
 						<li class="input-row">
 							<label>Height: </label>
 							<label style="width:61%;">
-								<select id="height_ft" style="width:30%;">
+								<select id="height_ft" style="width:30%;" required>
 								</select> ft.
-								<select id="height_in" style="width:30%;">
+								<select id="height_in" style="width:30%;" required>
 								</select> in.
 							</label>
 						</li>
 						<li class="input-row">
 							<label>Allergies: </label>
-							<input type="text" placeholder="Allergies">
+							<input type="text" id="allergies" placeholder="Allergies" required>
 						</li>
 						<li class="table-view-cell table-view-divider">Emergency Contact</li>
 						<li class="input-row">
 							<label>Name: </label>
-							<input type="text" placeholder="Name">
+							<input type="text" id="contact_name" placeholder="Name" required>
 						</li>
 						<li class="input-row">
 							<label>Phone: </label>
-							<input type="text" placeholder="000-000-0000">
+							<input type="text" id="contact_phone" placeholder="000-000-0000" required>
 						</li>
 					</ul>
 				</form>
 			</div>
-			<button class="btn btn-positive btn-block" id="save_button">Save</button>
+			<button class="btn btn-positive btn-block" id="save_button" type="submit"  onclick="validate()">Save</button>
 		</div>
 		
 		<nav class="bar bar-tab">
