@@ -18,8 +18,9 @@
 			function onLoadFunction(){ // called on load
 				setDirectory("UserData");	
 			}
-			function afterSetDirectory(){
-			}
+			
+			function afterSetDirectory(){}
+			
 			function validate(){
 				var name = document.getElementById('name').value;
 				var dob = document.getElementById('dob').value;
@@ -27,7 +28,7 @@
 				var weight_integer = document.getElementById('weight_integer').value;
 				var weight_decimal = document.getElementById('weight_decimal').value;
 				var height_ft = document.getElementById('height_ft').value;
-				var height_in = document.getElementById('height_in').value;
+				var height_int = document.getElementById('height_int').value;
 				var allergies = document.getElementById('allergies').value;
 				var contact_name = document.getElementById('contact_name').value;
 				var contact_phone = document.getElementById('contact_phone').value;
@@ -50,7 +51,7 @@
 				}else if(!validateNumbers(height_ft)){
 					alert("Height included invalid characters");
 					return;
-				}else if(!validateNumbers(height_in)){
+				}else if(!validateNumbers(height_int)){
 					alert("Height included invalid characters");
 					return;
 				}else if(!validateInput(allergies)){
@@ -63,27 +64,35 @@
 					alert("Contact Phone included invalid characters");
 					return;
 				}else {
-					save();
+					save(name, dob, blood_type, weight_integer, weight_decimal, height_ft, height_int, allergies, contact_name, contact_phone);
 				}
 				
 			}
-			function save(){
+			
+			function save(name, dob, blood_type, weight_integer, weight_decimal, height_ft, height_int, allergies, contact_name, contact_phone){
 				var contactinfo;
-				contactinfo = '{ "name":"'+ name + '" , "dob":"' + dob + '", "":"' +  + '" , "":"' +  + '"}';
+				contactinfo = '{ "name":"'+ name +
+							'" , "dob":"' + dob + 
+							'" , "blood_type":"' + blood_type + 
+							'" , "weight_integer":"' + weight_integer + 
+							'" , "weight_decimal":"' + weight_decimal + 
+							'" , "height_ft":"' + height_ft + 
+							'" , "height_int":"' + height_int + 
+							'" , "allergies":"' + allergies + 
+							'" , "contact_name":"' + contact_name + 
+							'" , "contact_phone":"' + contact_phone + 
+							'"}';
+				console.log(contactinfo);
+				saveFile("contact", contactinfo);
 			}
-			function hash(password, somesalt){
-				var hashresult;
-				argon2.hash({ pass: password, salt: somesalt })
-				.then(h => {
-					hashresult = h.hashHex;
-					userinfo = '{ "email":"'+ somesalt + '" , "password":"' + password + '"}';
-					saveFile("session", hashresult);
-					saveFile("userinfo", userinfo);
-				})
-				.catch(e => console.error(e.message, e.code))
+			function saveFileSuccess(filename) { // called when saved file success 
+				//console.log("saveFileSuccess");
+				//listFiles();
+				//loadFile(filename);	
+				location.replace("contact.html");				
 			}
-			function saveFileSuccess() {
-				location.replace("contact.html");
+			function loadFileSuccess(filename, content) { //called when load file success
+				//console.log(content);
 			}
 		</script>
 	</head>
@@ -140,7 +149,7 @@
 							<label style="width:61%;">
 								<select id="height_ft" style="width:30%;" required>
 								</select> ft.
-								<select id="height_in" style="width:30%;" required>
+								<select id="height_int" style="width:30%;" required>
 								</select> in.
 							</label>
 						</li>
@@ -202,7 +211,7 @@
 			opt.innerHTML = i;
 			select.appendChild(opt);
 		}
-		select = document.getElementById('height_in');
+		select = document.getElementById('height_int');
 		for (var i = 0; i<=11; i++){
 			var opt = document.createElement('option');
 			opt.value = i;

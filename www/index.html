@@ -12,14 +12,13 @@
 		<script src="cordova.js" type="text/javascript"></script>
 		<script src="js/filesystem.js"></script>
 		<script type="text/javascript" charset="utf-8">
-			var session
 			//start request after the device is ready
 			document.addEventListener("deviceready", requestFS, false);	
 			function onLoadFunction(){ // called on load
 				setDirectory("UserData");	
 			}
 			function afterSetDirectory() { // called when directory is set
-				session = checkIfFileExists("session");
+				checkIfFileExists("session");
 			}
 			function checkIfFileExists(path){
 				dirEntry.getFile(path, { create: false }, fileExists, fileDoesNotExist);
