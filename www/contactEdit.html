@@ -19,7 +19,7 @@
 			}
 			function afterSetDirectory(){
 			}			
-			function submit(){
+			function save(){
 				hash(document.getElementById('password').value, document.getElementById('email').value);
 			}
 			function hash(password, somesalt){
@@ -54,7 +54,7 @@
 		<!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
 		<div class="content" id="main">
 			<div class="card">
-				<form class="input-group" action="submit">
+				<form class="input-group" action="save">
 					<ul class="table-view">
 						<li class="table-view-cell table-view-divider">User Info</li>
 						<li class="input-row">
@@ -67,37 +67,52 @@
 						</li>
 						<li class="input-row">
 							<label>Blood type:</label>
-							<label><select style="width:100%;">
-							  <option value="volvo">Volvo</option>
-							  <option value="saab">Saab</option>
-							  <option value="opel">Opel</option>
-							  <option value="audi">Audi</option>
+							<label style="width:61%;"><select  style="width:50%;">
+							  <option value="O-positive">O+</option>
+							  <option value="O-negative">O-</option>
+							  <option value="A-positive">A+</option>
+							  <option value="A-negative">A-</option>
+							  <option value="B-positive">B+</option>
+							  <option value="B-negative">B-</option>
+							  <option value="AB-positive">AB+</option>
+							  <option value="AB-negative">AB-</option>
 							</select></label>
 						</li>
 						<li class="input-row">
 							<label>Weight: </label>
-							<input type="text" placeholder="">
+							<label style="width:61%;">
+								<select id="weight_integer" style="width:40%;">
+								</select> 
+								<select id="weight_decimal" style="width:30%;">
+								</select> lbs
+							</label>
 						</li>
 						<li class="input-row">
 							<label>Height: </label>
-							<input type="text" placeholder="">
+							<label style="width:61%;">
+								<select id="height_ft" style="width:30%;">
+								</select> ft.
+								<select id="height_in" style="width:30%;">
+								</select> in.
+							</label>
 						</li>
 						<li class="input-row">
 							<label>Allergies: </label>
-							<input type="text" placeholder="">
+							<input type="text" placeholder="Allergies">
 						</li>
 						<li class="table-view-cell table-view-divider">Emergency Contact</li>
 						<li class="input-row">
 							<label>Name: </label>
-							<input type="text" placeholder="">
+							<input type="text" placeholder="Name">
 						</li>
 						<li class="input-row">
 							<label>Phone: </label>
-							<input type="text" placeholder="">
+							<input type="text" placeholder="000-000-0000">
 						</li>
 					</ul>
 				</form>
 			</div>
+			<button class="btn btn-positive btn-block" id="save_button">Save</button>
 		</div>
 		
 		<nav class="bar bar-tab">
@@ -118,6 +133,34 @@
 			</a>
 		</nav>
 		<script>
+		var select = document.getElementById('weight_integer');
+		for (var i = 0; i<=100; i++){
+			var opt = document.createElement('option');
+			opt.value = i;
+			opt.innerHTML = i;
+			select.appendChild(opt);
+		}
+		select = document.getElementById('weight_decimal');
+		for (var i = 0; i<=9; i++){
+			var opt = document.createElement('option');
+			opt.value = i;
+			opt.innerHTML = "."+i;
+			select.appendChild(opt);
+		}
+		select = document.getElementById('height_ft');
+		for (var i = 0; i<=10; i++){
+			var opt = document.createElement('option');
+			opt.value = i;
+			opt.innerHTML = i;
+			select.appendChild(opt);
+		}
+		select = document.getElementById('height_in');
+		for (var i = 0; i<=11; i++){
+			var opt = document.createElement('option');
+			opt.value = i;
+			opt.innerHTML = i;
+			select.appendChild(opt);
+		}
 			function SBtrigger() {
 				var sb = document.getElementById("Sidebar");
 				if (sb.style.width == '150px') {
