@@ -396,8 +396,8 @@ p {
 
 .btn-positive {
   color: #fff;
-  background-color: #5cb85c;
-  border: 1px solid #5cb85c;
+  background-color: #10ac84;
+  border: 1px solid #10ac84;
 }
 .btn-positive:active, .btn-positive.active {
   color: #fff;
@@ -423,7 +423,7 @@ p {
   color: #10ac84;
 }
 .btn-outlined.btn-positive {
-  color: #5cb85c;
+  color: #10ac84;
 }
 .btn-outlined.btn-negative {
   color: #d9534f;
@@ -907,7 +907,7 @@ select {
 
 .input-row label {
   float: left;
-  width: 35%;
+  width: 39%;
   padding: 8px 15px;
   font-family: "Helvetica Neue", Helvetica, sans-serif;
   line-height: 1.1;
@@ -915,7 +915,7 @@ select {
 
 .input-row input {
   float: right;
-  width: 65%;
+  width: 61%;
   padding-left: 0;
   margin-bottom: 0;
   border: 0;

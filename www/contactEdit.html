@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Home</title>
+		<title>Contact</title>
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 		<script src="js/ratchet.js"></script>
 		<link href="css/ratchet.css" rel="stylesheet">
@@ -15,13 +15,26 @@
 			document.addEventListener("deviceready", requestFS, false);	
 			
 			function onLoadFunction(){ // called on load
-				setDirectory("UserData");
+				setDirectory("UserData");	
 			}
-			function afterSetDirectory(){ // called after directory is set
-				loadFile("contact");
-			}	
-			function loadFileSuccess(filename, content) { //called when load file success
-				
+			function afterSetDirectory(){
+			}			
+			function submit(){
+				hash(document.getElementById('password').value, document.getElementById('email').value);
+			}
+			function hash(password, somesalt){
+				var hashresult;
+				argon2.hash({ pass: password, salt: somesalt })
+				.then(h => {
+					hashresult = h.hashHex;
+					userinfo = '{ "email":"'+ somesalt + '" , "password":"' + password + '"}';
+					saveFile("session", hashresult);
+					saveFile("userinfo", userinfo);
+				})
+				.catch(e => console.error(e.message, e.code))
+			}
+			function saveFileSuccess() {
+				location.replace("home.html");
 			}
 		</script>
 	</head>
@@ -30,7 +43,6 @@
     <!-- Make sure all your bars are the first things in your <body> -->
 		<header class="bar bar-nav">
 			<a class="icon icon-bars pull-left" onclick="SBtrigger()"></a>
-			<a class="icon icon-compose pull-right" href="contactEdit.html"></a>
 			<h1 class="title"><b>Emergency Contact<b></h1>
 		</header>
 		<div id="Sidebar" class="sidebar">
@@ -42,41 +54,46 @@
 		<!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
 		<div class="content" id="main">
 			<div class="card">
-				<form class="input-group">
+				<form class="input-group" action="submit">
 					<ul class="table-view">
 						<li class="table-view-cell table-view-divider">User Info</li>
 						<li class="input-row">
-							<label>Full name: </label>
-							<label></label>
+							<label>Name: </label>
+							<input type="text" placeholder="Full Name">
 						</li>
 						<li class="input-row">
 							<label>D.o.B. : </label>
-							<label></label>
+							<input type="date">
 						</li>
 						<li class="input-row">
-							<label>Blood Type: </label>
-							<label></label>
+							<label>Blood type:</label>
+							<label><select style="width:100%;">
+							  <option value="volvo">Volvo</option>
+							  <option value="saab">Saab</option>
+							  <option value="opel">Opel</option>
+							  <option value="audi">Audi</option>
+							</select></label>
 						</li>
 						<li class="input-row">
 							<label>Weight: </label>
-							<label></label>
+							<input type="text" placeholder="">
 						</li>
 						<li class="input-row">
 							<label>Height: </label>
-							<label></label>
+							<input type="text" placeholder="">
 						</li>
 						<li class="input-row">
 							<label>Allergies: </label>
-							<label></label>
+							<input type="text" placeholder="">
 						</li>
 						<li class="table-view-cell table-view-divider">Emergency Contact</li>
 						<li class="input-row">
 							<label>Name: </label>
-							<label></label>
+							<input type="text" placeholder="">
 						</li>
 						<li class="input-row">
 							<label>Phone: </label>
-							<label></label>
+							<input type="text" placeholder="">
 						</li>
 					</ul>
 				</form>

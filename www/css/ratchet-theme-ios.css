@@ -62,8 +62,8 @@ p {
 
 .btn-positive {
   color: #fff;
-  background-color: #4cd964;
-  border: 1px solid #4cd964;
+  background-color: #10ac84;
+  border: 1px solid #10ac84;
 }
 .btn-positive:active, .btn-positive.active {
   background-color: #2ac845;
@@ -87,7 +87,7 @@ p {
   color: #007aff;
 }
 .btn-outlined.btn-positive {
-  color: #4cd964;
+  color: #10ac84;
 }
 .btn-outlined.btn-negative {
   color: #dd524d;

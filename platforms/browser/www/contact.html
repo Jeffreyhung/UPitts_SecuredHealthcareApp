@@ -3,23 +3,35 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Home</title>
-		<!-- Sets initial viewport load and disables zooming  -->
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-		<!-- Include the CSS and JavaScript for ratchet and fontawesome -->
 		<script src="js/ratchet.js"></script>
 		<link href="css/ratchet.css" rel="stylesheet">
 		<link href="css/fontawesome.css" rel="stylesheet">
 		<link href="css/sidebar.css" rel="stylesheet">
-		<style>
-		
-		</style>
+		<script src="cordova.js"></script>
+		<script src="js/filesystem.js"></script>
+		<script type="text/javascript">
+			var userinfo;
+			document.addEventListener("deviceready", requestFS, false);	
+			
+			function onLoadFunction(){ // called on load
+				setDirectory("UserData");
+			}
+			function afterSetDirectory(){ // called after directory is set
+				loadFile("contact");
+			}	
+			function loadFileSuccess(filename, content) { //called when load file success
+				
+			}
+		</script>
 	</head>
 	<body>
 
     <!-- Make sure all your bars are the first things in your <body> -->
 		<header class="bar bar-nav">
 			<a class="icon icon-bars pull-left" onclick="SBtrigger()"></a>
-			<h1 class="title"><b>Healthcare App<b></h1>
+			<a class="icon icon-compose pull-right" href="contactEdit.html"></a>
+			<h1 class="title"><b>Emergency Contact<b></h1>
 		</header>
 		<div id="Sidebar" class="sidebar">
 			<a href="setting.html"><i class="fas fa-cog"></i>&nbsp &nbsp Setting</a>
@@ -30,19 +42,44 @@
 		<!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
 		<div class="content" id="main">
 			<div class="card">
-				<ul class="table-view">
-					<li class="table-view-cell table-view-divider"><b>User Info</b></li>
-					<li class="table-view-cell">Name:</li>
-					<li class="table-view-cell">Date of Birth:</li>
-					<li class="table-view-cell">Blood Type:</li>
-					<li class="table-view-cell">Weight:</li>
-					<li class="table-view-cell">Height:</li>
-					<li class="table-view-cell">Allergies / Reactions:</li>
-					<li class="table-view-cell table-view-divider">Emergency Contact</li>
-					<li class="table-view-cell">Name:</li>
-					<li class="table-view-cell">Phone:</li>
-					<li class="table-view-cell">Address:</li>
-				</ul>
+				<form class="input-group">
+					<ul class="table-view">
+						<li class="table-view-cell table-view-divider">User Info</li>
+						<li class="input-row">
+							<label>Full name: </label>
+							<label></label>
+						</li>
+						<li class="input-row">
+							<label>D.o.B. : </label>
+							<label></label>
+						</li>
+						<li class="input-row">
+							<label>Blood Type: </label>
+							<label></label>
+						</li>
+						<li class="input-row">
+							<label>Weight: </label>
+							<label></label>
+						</li>
+						<li class="input-row">
+							<label>Height: </label>
+							<label></label>
+						</li>
+						<li class="input-row">
+							<label>Allergies: </label>
+							<label></label>
+						</li>
+						<li class="table-view-cell table-view-divider">Emergency Contact</li>
+						<li class="input-row">
+							<label>Name: </label>
+							<label></label>
+						</li>
+						<li class="input-row">
+							<label>Phone: </label>
+							<label></label>
+						</li>
+					</ul>
+				</form>
 			</div>
 		</div>
 		
@@ -59,7 +96,7 @@
 			<a class="tab-item" href="insurance.html">
 				<i class="fas fa-money-check"></i>
 			</a>
-			<a class="tab-item" href="contact.html">
+			<a class="tab-item active" href="contact.html" >
 				<i class="fas fa-address-book"></i>
 			</a>
 		</nav>

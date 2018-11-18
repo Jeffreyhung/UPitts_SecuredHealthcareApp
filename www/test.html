@@ -2,21 +2,57 @@
 <html>
   <head>
     <title>Test</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		
 	<script src="cordova.js"></script>    
 	<script src="bower_components/argon2-browser/lib/argon2.js"></script>    
 	<script src="js/validation.js"></script>
-    <script type="text/javascript" charset="utf-8">
-		function onload(){
-			console.log("validation result");
-			console.log(validatePassword(""));
-		}
-		
-		
-    </script>
-  </script>
+	<script src="js/ratchet.js"></script>
+	<link href="css/ratchet.css" rel="stylesheet">	
+    
   </head>
-  <body onload="onload()">
-    <h1>password hash test</h1>
-    <p>Read File</p>
+  <body>
+    <div class="content" id="main">
+			<div class="card">
+				<form class="input-group">
+					<ul class="table-view">
+						<li class="table-view-cell table-view-divider">User Info</li>
+						<li class="input-row">
+							<label>Full name: </label>
+							<label></label>
+						</li>
+						<li class="input-row">
+							<label>D.o.B. : </label>
+							<label></label>
+						</li>
+						<li class="input-row">
+							<label>Blood Type: </label>
+							<label></label>
+						</li>
+						<li class="input-row">
+							<label>Weight: </label>
+							<label></label>
+						</li>
+						<li class="input-row">
+							<label>Height: </label>
+							<label></label>
+						</li>
+						<li class="input-row">
+							<label>Allergies: </label>
+							<label></label>
+						</li>
+						<li class="table-view-cell table-view-divider">Emergency Contact</li>
+						<li class="input-row">
+							<label>Name: </label>
+							<label></label>
+						</li>
+						<li class="input-row">
+							<label>Phone: </label>
+							<label></label>
+						</li>
+					</ul>
+				</form>
+			</div>
+		</div>
   </body>
 </html>
