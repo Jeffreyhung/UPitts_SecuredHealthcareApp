@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Home</title>
+		<title>Contact</title>
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 		<script src="js/ratchet.js"></script>
 		<link href="css/ratchet.css" rel="stylesheet">
@@ -10,40 +10,7 @@
 		<link href="css/sidebar.css" rel="stylesheet">
 		<script src="cordova.js"></script>
 		<script src="js/filesystem.js"></script>
-		<script type="text/javascript">
-			var contact;
-			function onLoadFunction(){ // called on load
-				setDirectory("UserData");
-			}
-			function afterSetDirectory(){
-				checkIfFileExists("contact");
-			}
-			function onload(){
-				document.addEventListener("deviceready", requestFS, false);	
-			}
-			function checkIfFileExists(path){
-				dirEntry.getFile(path, { create: false }, fileExists, fileDoesNotExist);
-			}
-			function fileExists(fileEntry){
-				console.log("fileexist");
-				loadFile("contact");
-			}
-			function fileDoesNotExist(){
-				location.replace("contactEdit.html");
-			}
-			function loadFileSuccess(filename, content) { //called when load file success
-				console.log("load success");
-				var contact = JSON.parse(content);
-				document.getElementById("name").innerHTML = contact.name;
-				document.getElementById("dob").innerHTML = contact.dob;
-				document.getElementById("blood_type").innerHTML = contact.blood_type;
-				document.getElementById("weight").innerHTML = contact.weight_integer+'.'+contact.weight_decimal+' lbs';
-				document.getElementById("height").innerHTML = contact.height_ft+' \' '+contact.height_int+' \"';
-				document.getElementById("allergies").innerHTML = contact.allergies;
-				document.getElementById("contact_name").innerHTML = contact.contact_name;
-				document.getElementById("contact_phone").innerHTML = contact.contact_phone;
-			}
-		</script>
+		
 	</head>
 	<body onload="onload()">
 
@@ -130,6 +97,40 @@
 					document.getElementById("Sidebar").style.width = "150px";
 					//document.getElementById("main").style.marginLeft = "150px";
 				}
+			}
+		</script>
+		<script type="text/javascript">
+			var contact;
+			function onLoadFunction(){ // called on load
+				setDirectory("UserData");
+			}
+			function afterSetDirectory(){
+				checkIfFileExists("contact");
+			}
+			function onload(){
+				document.addEventListener("deviceready", requestFS, false);	
+			}
+			function checkIfFileExists(path){
+				dirEntry.getFile(path, { create: false }, fileExists, fileDoesNotExist);
+			}
+			function fileExists(fileEntry){
+				console.log("fileexist");
+				loadFile("contact");
+			}
+			function fileDoesNotExist(){
+				location.replace("contactEdit.html");
+			}
+			function loadFileSuccess(filename, content) { //called when load file success
+				console.log("load success");
+				var contact = JSON.parse(content);
+				document.getElementById("name").innerHTML = contact.name;
+				document.getElementById("dob").innerHTML = contact.dob;
+				document.getElementById("blood_type").innerHTML = contact.blood_type;
+				document.getElementById("weight").innerHTML = contact.weight_integer+'.'+contact.weight_decimal+' lbs';
+				document.getElementById("height").innerHTML = contact.height_ft+' \' '+contact.height_int+' \"';
+				document.getElementById("allergies").innerHTML = contact.allergies;
+				document.getElementById("contact_name").innerHTML = contact.contact_name;
+				document.getElementById("contact_phone").innerHTML = contact.contact_phone;
 			}
 		</script>
 	</body>
