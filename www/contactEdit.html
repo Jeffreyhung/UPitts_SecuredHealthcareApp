@@ -11,11 +11,9 @@
 		<script src="cordova.js"></script>
 		<script src="js/filesystem.js"></script>
 		<script src="js/validation.js"></script>
-		<script src="js/contactEdit.js"></script>
 		<script type="text/javascript">
 			var userinfo;
 			window.onload = function(){
-				console.log("test");
 				document.addEventListener("deviceready", requestFS, false);
 			}
 			function onLoadFunction(){ // called on load
@@ -28,7 +26,7 @@
 				dirEntry.getFile(path, { create: false }, fileExists, fileDoesNotExist);
 			}
 			function fileExists(fileEntry){
-				console.log("fileexists");
+				//console.log("fileexists");
 				loadFile("contact");
 			}
 			function fileDoesNotExist(){
@@ -36,19 +34,15 @@
 			}
 		</script>
 	</head>
-	<body >
-		<script>
-			console.log("body test");
-		</script>
-		
+	<body>
 		<header class="bar bar-nav">
 			<a class="icon icon-bars pull-left" onclick="SBtrigger()"></a>
 			<h1 class="title"><b>Emergency Contact<b></h1>
 		</header>
 		<div id="Sidebar" class="sidebar">
-			<a href="setting.html"><i class="fas fa-cog"></i>&nbsp &nbsp Setting</a>
-			<a href="support.html"><i class="fas fa-headset"></i>&nbsp &nbsp Support</a>
-			<a href="#"><i class="fas fa-sign-out-alt"></i>&nbsp &nbsp Sign-out</a>
+			<a onclick="window.location = 'setting.html';"><i class="fas fa-cog"></i>&nbsp &nbsp Setting</a>
+			<a onclick="window.location = 'support.html';"><i class="fas fa-headset"></i>&nbsp &nbsp Support</a>
+			<a onclick="window.location = '#.html';"><i class="fas fa-sign-out-alt"></i>&nbsp &nbsp Sign-out</a>
 		</div>
 
 		<div class="content" id="main">
@@ -117,25 +111,26 @@
 		</div>
 		
 		<nav class="bar bar-tab">
-			<a class="tab-item" href="health.html">
+			<a class="tab-item"  onclick="window.location = 'health.html';">
 				<i class="fas fa-hospital"></i>
 			</a>
-			<a class="tab-item" href="medical.html">
+			<a class="tab-item" onclick="window.location = 'medical.html';">
 				<i class="fas fa-pills"></i>
 			</a>
 			<a class="tab-item " href="#">
 				<i class="fas fa-plus"></i>
 			</a>
-			<a class="tab-item" href="insurance.html">
+			<a class="tab-item" onclick="window.location = 'insurance.html';">
 				<i class="fas fa-money-check"></i>
 			</a>
-			<a class="tab-item active" href="contact.html" >
+			<a class="tab-item active" onclick="window.location = 'contact.html';"
 				<i class="fas fa-address-book"></i>
 			</a>
 		</nav>
+		<script src="js/contactEdit.js"></script>
 		<script>
 			function loadFileSuccess(filename, content) { //called when load file success
-				console.log("load success");
+				//console.log("load success");
 				var contact = JSON.parse(content);
 				document.getElementById("name").value = contact.name;
 				document.getElementById("dob").value = contact.dob;
