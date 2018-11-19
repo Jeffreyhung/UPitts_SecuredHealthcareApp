@@ -12,13 +12,14 @@
 		<script src="js/filesystem.js"></script>
 		<script type="text/javascript">
 			var contact;
-			document.addEventListener("deviceready", requestFS, false);	
-			
 			function onLoadFunction(){ // called on load
 				setDirectory("UserData");
 			}
-			function afterSetDirectory(){ // called after directory is set
+			function afterSetDirectory(){
 				checkIfFileExists("contact");
+			}
+			function onload(){
+				document.addEventListener("deviceready", requestFS, false);	
 			}
 			function checkIfFileExists(path){
 				dirEntry.getFile(path, { create: false }, fileExists, fileDoesNotExist);
@@ -36,15 +37,15 @@
 				document.getElementById("name").innerHTML = contact.name;
 				document.getElementById("dob").innerHTML = contact.dob;
 				document.getElementById("blood_type").innerHTML = contact.blood_type;
-				document.getElementById("weight").innerHTML = contact.weight_integer+'.'+contact.weight_decimal+'lbs';
-				document.getElementById("height").innerHTML = contact.height_ft+'\''+contact.height_int+'\"';
+				document.getElementById("weight").innerHTML = contact.weight_integer+'.'+contact.weight_decimal+' lbs';
+				document.getElementById("height").innerHTML = contact.height_ft+' \' '+contact.height_int+' \"';
 				document.getElementById("allergies").innerHTML = contact.allergies;
 				document.getElementById("contact_name").innerHTML = contact.contact_name;
 				document.getElementById("contact_phone").innerHTML = contact.contact_phone;
 			}
 		</script>
 	</head>
-	<body>
+	<body onload="onload()">
 
     <!-- Make sure all your bars are the first things in your <body> -->
 		<header class="bar bar-nav">
@@ -66,36 +67,36 @@
 						<li class="table-view-cell table-view-divider">User Info</li>
 						<li class="input-row">
 							<label>Full name: </label>
-							<label id="name"></label>
+							<label id="name" style="width:61%;"></label>
 						</li>
 						<li class="input-row">
 							<label>D.o.B. : </label>
-							<label id="dob"></label>
+							<label id="dob" style="width:61%;"></label>
 						</li>
 						<li class="input-row">
-							<label>Blood Type: </label>
-							<label id="blood_type"></label>
+							<label style="width:40%;">Blood Type:</label>
+							<label id="blood_type" style="width:60%;"></label>
 						</li>
 						<li class="input-row">
 							<label>Weight: </label>
-							<label id="weight"></label>
+							<label id="weight" style="width:61%;"></label>
 						</li>
 						<li class="input-row">
 							<label>Height: </label>
-							<label id="height"></label>
+							<label id="height" style="width:61%;"></label>
 						</li>
 						<li class="input-row">
 							<label>Allergies: </label>
-							<label id="allergies"></label>
+							<label id="allergies" style="width:61%;"></label>
 						</li>
 						<li class="table-view-cell table-view-divider">Emergency Contact</li>
 						<li class="input-row">
 							<label>Name: </label>
-							<label id="contact_name"></label>
+							<label id="contact_name" style="width:61%;"></label>
 						</li>
 						<li class="input-row">
 							<label>Phone: </label>
-							<label id="contact_phone"></label>
+							<label id="contact_phone" style="width:61%;"></label>
 						</li>
 					</ul>
 				</form>
