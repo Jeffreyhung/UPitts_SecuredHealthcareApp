@@ -101,15 +101,15 @@
 		</script>
 		<script type="text/javascript">
 			var contact;
+			function onload(){
+				document.addEventListener("deviceready", requestFS, false);	
+			}
 			function onLoadFunction(){ // called on load
 				setDirectory("UserData");
 			}
 			function afterSetDirectory(){
 				checkIfFileExists("contact");
-			}
-			function onload(){
-				document.addEventListener("deviceready", requestFS, false);	
-			}
+			}			
 			function checkIfFileExists(path){
 				dirEntry.getFile(path, { create: false }, fileExists, fileDoesNotExist);
 			}
@@ -121,7 +121,6 @@
 				location.replace("contactEdit.html");
 			}
 			function loadFileSuccess(filename, content) { //called when load file success
-				console.log("load success");
 				var contact = JSON.parse(content);
 				document.getElementById("name").innerHTML = contact.name;
 				document.getElementById("dob").innerHTML = contact.dob;

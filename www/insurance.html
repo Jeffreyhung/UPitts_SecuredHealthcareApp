@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Contact</title>
+		<title>Insurance</title>
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 		<script src="js/ratchet.js"></script>
 		<link href="css/ratchet.css" rel="stylesheet">
@@ -17,8 +17,8 @@
     <!-- Make sure all your bars are the first things in your <body> -->
 		<header class="bar bar-nav">
 			<a class="icon icon-bars pull-left" onclick="SBtrigger()"></a>
-			<a class="icon icon-compose pull-right" onclick="window.location = 'contactEdit.html';"></a>
-			<h1 class="title"><b>Emergency Contact<b></h1>
+			<a class="icon icon-compose pull-right" onclick="window.location = 'insuranceEdit.html';"></a>
+			<h1 class="title"><b>Insurance Info<b></h1>
 		</header>
 		<div id="Sidebar" class="sidebar">
 			<a href="setting.html"><i class="fas fa-cog"></i>&nbsp &nbsp Setting</a>
@@ -31,40 +31,31 @@
 			<div class="card">
 				<form class="input-group">
 					<ul class="table-view">
-						<li class="table-view-cell table-view-divider">User Info</li>
 						<li class="input-row">
-							<label>Full name: </label>
+							<label>Company: </label>
 							<label id="name" style="width:61%;"></label>
 						</li>
 						<li class="input-row">
-							<label>D.o.B. : </label>
-							<label id="dob" style="width:61%;"></label>
+							<label>Company Phone: </label>
+							<label id="name" style="width:61%;"></label>
 						</li>
 						<li class="input-row">
-							<label style="width:40%;">Blood Type:</label>
-							<label id="blood_type" style="width:60%;"></label>
+							<label>Policy Type: </label>
+							<label id="name" style="width:61%;"></label>
 						</li>
 						<li class="input-row">
-							<label>Weight: </label>
-							<label id="weight" style="width:61%;"></label>
+							<label>Member Name: </label>
+							<label id="name" style="width:61%;"></label>
 						</li>
 						<li class="input-row">
-							<label>Height: </label>
-							<label id="height" style="width:61%;"></label>
+							<label>Member ID: </label>
+							<label id="name" style="width:61%;"></label>
 						</li>
 						<li class="input-row">
-							<label>Allergies: </label>
-							<label id="allergies" style="width:61%;"></label>
+							<label>Co-pay: </label>
+							<label id="name" style="width:61%;"></label>
 						</li>
-						<li class="table-view-cell table-view-divider">Emergency Contact</li>
-						<li class="input-row">
-							<label>Name: </label>
-							<label id="contact_name" style="width:61%;"></label>
-						</li>
-						<li class="input-row">
-							<label>Phone: </label>
-							<label id="contact_phone" style="width:61%;"></label>
-						</li>
+						
 					</ul>
 				</form>
 			</div>
@@ -77,13 +68,13 @@
 			<a class="tab-item" onclick="window.location = 'medical.html';">
 				<i class="fas fa-pills"></i>
 			</a>
-			<a class="tab-item " onclick="window.location = 'medical.html';">
+			<a class="tab-item" onclick="window.location = 'medical.html';">
 				<i class="fas fa-plus"></i>
 			</a>
-			<a class="tab-item" onclick="window.location = 'insurance.html';">
+			<a class="tab-item active" onclick="window.location = 'insurance.html';">
 				<i class="fas fa-money-check"></i>
 			</a>
-			<a class="tab-item active" onclick="window.location = 'contact.html';">
+			<a class="tab-item" onclick="window.location = 'contact.html';">
 				<i class="fas fa-address-book"></i>
 			</a>
 		</nav>
@@ -108,19 +99,20 @@
 				setDirectory("UserData");
 			}
 			function afterSetDirectory(){
-				checkIfFileExists("contact");
-			}			
+				checkIfFileExists("insurance");
+			}
 			function checkIfFileExists(path){
 				dirEntry.getFile(path, { create: false }, fileExists, fileDoesNotExist);
 			}
 			function fileExists(fileEntry){
 				console.log("fileexist");
-				loadFile("contact");
+				loadFile("insurance");
 			}
 			function fileDoesNotExist(){
-				location.replace("contactEdit.html");
+				//location.replace("insuranceEdit.html");
 			}
 			function loadFileSuccess(filename, content) { //called when load file success
+				console.log("load success");
 				var contact = JSON.parse(content);
 				document.getElementById("name").innerHTML = contact.name;
 				document.getElementById("dob").innerHTML = contact.dob;
