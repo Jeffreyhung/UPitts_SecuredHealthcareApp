@@ -55,7 +55,7 @@ function save(company, phone, policy, copay, name, memberId){
 				'" , "policy":"' + policy + 
 				'" , "copay":"' + copay + 
 				'" , "name":"' + name + 
-				'" , "memberId":"' + memberId
+				'" , "memberId":"' + memberId +
 				'"}';
 	saveFile("insurance", insurnaceInfo);
 }

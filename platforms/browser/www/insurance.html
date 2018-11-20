@@ -8,9 +8,13 @@
 		<link href="css/ratchet.css" rel="stylesheet">
 		<link href="css/fontawesome.css" rel="stylesheet">
 		<link href="css/sidebar.css" rel="stylesheet">
+		<style>
+			.input-row label {
+				width: 41%;
+			}
+		</style>
 		<script src="cordova.js"></script>
 		<script src="js/filesystem.js"></script>
-		
 	</head>
 	<body onload="onload()">
 		<header class="bar bar-nav">
@@ -30,29 +34,29 @@
 					<ul class="table-view">
 						<li class="table-view-cell table-view-divider">Company Info</li>
 						<li class="input-row">
-							<label  style="width:41%;">Company: </label>
-							<label id="name" style="width:59%;"></label>
+							<label>Company: </label>
+							<label id="company" style="width:59%;"></label>
 						</li>
 						<li class="input-row">
-							<label  style="width:41%;">Phone: </label>
-							<label id="name" style="width:59%;"></label>
+							<label>Phone: </label>
+							<label id="phone" style="width:59%;"></label>
 						</li>
 						<li class="input-row">
-							<label  style="width:41%;">Policy Type: </label>
-							<label id="name" style="width:59%;"></label>
+							<label>Policy Type: </label>
+							<label id="policy" style="width:59%;"></label>
 						</li>
 						<li class="input-row">
-							<label  style="width:41%;">Co-pay: </label>
-							<label id="name" style="width:59%;"></label>
+							<label>Co-pay: </label>
+							<label id="copay" style="width:59%;"></label>
 						</li>
 						<li class="table-view-cell table-view-divider">Member Info</li>
 						<li class="input-row">
-							<label  style="width:41%;">Name: </label>
+							<label>Name: </label>
 							<label id="name" style="width:59%;"></label>
 						</li>
 						<li class="input-row">
-							<label  style="width:41%;">Member ID: </label>
-							<label id="name" style="width:59%;"></label>
+							<label>Member ID: </label>
+							<label id="memberId" style="width:59%;"></label>
 						</li>						
 					</ul>
 				</form>
@@ -104,12 +108,13 @@
 				//location.replace("insuranceEdit.html");
 			}
 			function loadFileSuccess(filename, content) { //called when load file success
+				console.log(content);
 				var insurance = JSON.parse(content);
 				document.getElementById("company").innerHTML = insurance.company;
 				document.getElementById("phone").innerHTML = insurance.phone;
 				document.getElementById("policy").innerHTML = insurance.policy;
 				document.getElementById("copay").innerHTML = insurance.copay;
-				document.getElementById("name").innerHTML = insurance.name;';
+				document.getElementById("name").innerHTML = insurance.name;
 				document.getElementById("memberId").innerHTML = insurance.memberId;
 			}
 		</script>

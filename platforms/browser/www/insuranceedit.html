@@ -8,6 +8,14 @@
 		<link href="css/ratchet.css" rel="stylesheet">
 		<link href="css/fontawesome.css" rel="stylesheet">
 		<link href="css/sidebar.css" rel="stylesheet">
+		<style>
+		.input-row label {
+			width: 41%;
+		}
+		.input-row input {
+			width: 59%;
+		}
+		</style>
 		<script src="cordova.js"></script>
 		<script src="js/filesystem.js"></script>
 		<script src="js/validation.js"></script>
@@ -50,29 +58,29 @@
 					<ul class="table-view">
 						<li class="table-view-cell table-view-divider">Company Info</li>
 						<li class="input-row">
-							<label  style="width:41%;">Company: </label>
-							<input type="text" id="company" placeholder="Full Name" required>
+							<label >Company: </label>
+							<input type="text" id="company" placeholder="Company Name" required>
 						</li>
 						<li class="input-row">
-							<label  style="width:41%;">Phone: </label>
-							<input type="text" id="phone" placeholder="Full Name" required>
+							<label >Phone: </label>
+							<input type="text" id="phone" placeholder="123-456-7890" required>
 						</li>
 						<li class="input-row">
-							<label  style="width:41%;">Policy Type: </label>
-							<input type="text" id="policy" placeholder="Full Name" required>
+							<label >Policy Type: </label>
+							<input type="text" id="policy" placeholder="Type" required>
 						</li>
 						<li class="input-row">
-							<label  style="width:41%;">Co-pay: </label>
-							<input type="text" id="copay" placeholder="Full Name" required>
+							<label >Co-pay: </label>
+							<input type="text" id="copay" placeholder="Co-pay" required>
 						</li>
 						<li class="table-view-cell table-view-divider">Member Info</li>
 						<li class="input-row">
-							<label  style="width:41%;">Name: </label>
+							<label >Name: </label>
 							<input type="text" id="name" placeholder="Full Name" required>
 						</li>
 						<li class="input-row">
-							<label  style="width:41%;">Member ID: </label>
-							<input type="text" id="memberId" placeholder="Full Name" required>
+							<label >Member ID: </label>
+							<input type="text" id="memberId" placeholder="ID number" required>
 						</li>		
 					</ul>
 				</form>
@@ -90,10 +98,10 @@
 			<a class="tab-item " onclick="window.location = 'medical.html';">
 				<i class="fas fa-plus"></i>
 			</a>
-			<a class="tab-item" onclick="window.location = 'insurance.html';">
+			<a class="tab-item active" onclick="window.location = 'insurance.html';">
 				<i class="fas fa-money-check"></i>
 			</a>
-			<a class="tab-item active" onclick="window.location = 'contact.html';">
+			<a class="tab-item" onclick="window.location = 'contact.html';">
 				<i class="fas fa-address-book"></i>
 			</a>
 		</nav>

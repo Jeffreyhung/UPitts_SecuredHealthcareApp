@@ -23,64 +23,47 @@ function validate(){
 	var phone = document.getElementById("phone").value;
 	var policy = document.getElementById("policy").value;
 	var copay = document.getElementById("copay").value;
-	car name = document.getElementById("name").value;
+	var name = document.getElementById("name").value;
 	var memberId = document.getElementById("memberId").value;
-	if(!validateStictInput(name)){
+	if(!validateInput(company)){
+		alert("Company included invalid characters");
+		return;
+	}else if(!validatePhone(phone)){
+		alert("Phone included invalid characters");
+		return;
+	}else if(!validateInput(policy)){
+		alert("Policy included invalid characters");
+		return;
+	}else if(!validateInput(copay)){
+		alert("Copay included invalid characters");
+		return;
+	}else if(!validateStictInput(name)){
 		alert("Name included invalid characters");
 		return;
-	}else if(!validateDate(dob)){
-		alert("Date of Birth included invalid characters");
-		return;
-	}else if(!validateInput(blood_type)){
-		alert("Blood Type included invalid characters");
-		return;
-	}else if(!validateNumbers(weight_integer)){
-		alert("Weight included invalid characters");
-		return;
-	}else if(!validateNumbers(weight_decimal)){
-		alert("Weight included invalid characters");
-		return;
-	}else if(!validateNumbers(height_ft)){
-		alert("Height included invalid characters");
-		return;
-	}else if(!validateNumbers(height_int)){
-		alert("Height included invalid characters");
-		return;
-	}else if(!validateInput(allergies)){
-		alert("Allergies included invalid characters");
-		return;
-	}else if(!validateStictInput(contact_name)){
-		alert("Contact Name included invalid characters");
-		return;
-	}else if(!validatePhone(contact_phone)){
-		alert("Contact Phone included invalid characters");
+	}else if(!validateInput(memberId)){
+		alert("Member ID included invalid characters");
 		return;
 	}else {
-		save(name, dob, blood_type, weight_integer, weight_decimal, height_ft, height_int, allergies, contact_name, contact_phone);
+		save(company, phone, policy, copay, name, memberId);
 	}
 }
 	
-function save(name, dob, blood_type, weight_integer, weight_decimal, height_ft, height_int, allergies, contact_name, contact_phone){
-	var contactinfo;
-	contactinfo = '{ "name":"'+ name +
-				'" , "dob":"' + dob + 
-				'" , "blood_type":"' + blood_type + 
-				'" , "weight_integer":"' + weight_integer + 
-				'" , "weight_decimal":"' + weight_decimal + 
-				'" , "height_ft":"' + height_ft + 
-				'" , "height_int":"' + height_int + 
-				'" , "allergies":"' + allergies + 
-				'" , "contact_name":"' + contact_name + 
-				'" , "contact_phone":"' + contact_phone + 
+function save(company, phone, policy, copay, name, memberId){
+	var insurnaceInfo;
+	insurnaceInfo = '{ "company":"'+ company +
+				'" , "phone":"' + phone + 
+				'" , "policy":"' + policy + 
+				'" , "copay":"' + copay + 
+				'" , "name":"' + name + 
+				'" , "memberId":"' + memberId +
 				'"}';
-	console.log(contactinfo);
-	saveFile("contact", contactinfo);
+	saveFile("insurance", insurnaceInfo);
 }
 function saveFileSuccess(filename) { // called when saved file success 
 	//console.log("saveFileSuccess");
 	//listFiles();
 	//loadFile(filename);	
-	location.replace("contact.html");				
+	location.replace("insurance.html");				
 }
 function loadFileSuccess(filename, content) { //called when load file success
 	//console.log(content);
