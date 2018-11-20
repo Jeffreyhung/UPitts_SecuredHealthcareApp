@@ -3,8 +3,6 @@
   <head>
     <title>Test</title>
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-		
-	
 	<!-- 
 	<script src="cordova.js"></script>    
 	<script src="bower_components/argon2-browser/lib/argon2.js"></script>    
@@ -14,25 +12,15 @@
 	-->
 	<script src="js/aes.js"></script>
     <script type="text/javascript">
-		var plaintText = 'aaaaaaaaaaaaaaaa'; // 明文
+		var plaintText = '{ "company":"UPMC" , "phone":"123-456-7890" , "policy":"Pro Plan" , "copay":"0 30" , "name":"Jeffrey Hung" , "memberId":"1234567890"}';
 		var key = 'bbbbbbbbbbbbbbbb'; // 一般key为一个字符串
-		//var key = CryptoJS.enc.Utf8.parse(keyStr);
 		var encryptedData = CryptoJS.AES.encrypt(plaintText, key);
-		console.log("encrypted");
 		console.log(encryptedData);
-		var encryptedBase64Str = encryptedData.toString();
-		console.log("encryptedBase64Str");
-		console.log(encryptedBase64Str);
 		var encryptedStr = encryptedData.ciphertext.toString();
 		console.log("encryptedStr");
 		console.log(encryptedStr);
-		var encryptedHexStr = CryptoJS.enc.Hex.parse(encryptedStr);
-		var encryptedBase64Str = CryptoJS.enc.Base64.stringify(encryptedHexStr);
-		var decryptedData = CryptoJS.AES.decrypt(encryptedBase64Str, key);
-		var decryptedStr = decryptedData.toString(CryptoJS.enc.Utf8);
-		console.log("decrypted");
-		console.log(decryptedData);
-		console.log(decryptedStr);
+		var decrypted = CryptoJS.AES.decrypt(encryptedData, key);
+		console.log(decrypted.toString(CryptoJS.enc.Utf8));
 	</script>
   </head>
   <body>
