@@ -49,6 +49,17 @@ function loadFile(filename) { // read file
 		}, errorHandler);
 	}, errorHandler);
 }
+function loadSession() { // read file
+	dirEntry.getFile(session, {}, function(fileEntry) {
+		fileEntry.file(function(file) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				loadSessionSuccessSuccess(session, this.result);	//called after loadSession
+			};
+			reader.readAsText(file);
+		}, errorHandler);
+	}, errorHandler);
+}
 function deleteFile(filename) { //delete file
 	dirEntry.getFile(filename, {create: false}, function(fileEntry) {
 		fileEntry.remove(function(e) {

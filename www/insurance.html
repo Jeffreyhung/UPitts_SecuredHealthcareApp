@@ -90,12 +90,13 @@
 				}
 			}
 			function onload(){
-				document.addEventListener("deviceready", requestFS, false);	
+				document.addEventListener("deviceready", requestFS, false);
 			}
 			function onLoadFunction(){ // called on load
 				setDirectory("UserData");
 			}
 			function afterSetDirectory(){
+				
 				checkIfFileExists("insurance");
 			}
 			function checkIfFileExists(path){
