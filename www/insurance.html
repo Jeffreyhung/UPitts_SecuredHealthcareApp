@@ -13,8 +13,6 @@
 		
 	</head>
 	<body onload="onload()">
-
-    <!-- Make sure all your bars are the first things in your <body> -->
 		<header class="bar bar-nav">
 			<a class="icon icon-bars pull-left" onclick="SBtrigger()"></a>
 			<a class="icon icon-compose pull-right" onclick="window.location = 'insuranceEdit.html';"></a>
@@ -26,36 +24,36 @@
 			<a href="#"><i class="fas fa-sign-out-alt"></i>&nbsp &nbsp Sign-out</a>
 		</div>
 
-		<!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
 		<div class="content" id="main">
 			<div class="card">
 				<form class="input-group">
 					<ul class="table-view">
+						<li class="table-view-cell table-view-divider">Company Info</li>
 						<li class="input-row">
-							<label>Company: </label>
-							<label id="name" style="width:61%;"></label>
+							<label  style="width:41%;">Company: </label>
+							<label id="name" style="width:59%;"></label>
 						</li>
 						<li class="input-row">
-							<label>Company Phone: </label>
-							<label id="name" style="width:61%;"></label>
+							<label  style="width:41%;">Phone: </label>
+							<label id="name" style="width:59%;"></label>
 						</li>
 						<li class="input-row">
-							<label>Policy Type: </label>
-							<label id="name" style="width:61%;"></label>
+							<label  style="width:41%;">Policy Type: </label>
+							<label id="name" style="width:59%;"></label>
 						</li>
 						<li class="input-row">
-							<label>Member Name: </label>
-							<label id="name" style="width:61%;"></label>
+							<label  style="width:41%;">Co-pay: </label>
+							<label id="name" style="width:59%;"></label>
+						</li>
+						<li class="table-view-cell table-view-divider">Member Info</li>
+						<li class="input-row">
+							<label  style="width:41%;">Name: </label>
+							<label id="name" style="width:59%;"></label>
 						</li>
 						<li class="input-row">
-							<label>Member ID: </label>
-							<label id="name" style="width:61%;"></label>
-						</li>
-						<li class="input-row">
-							<label>Co-pay: </label>
-							<label id="name" style="width:61%;"></label>
-						</li>
-						
+							<label  style="width:41%;">Member ID: </label>
+							<label id="name" style="width:59%;"></label>
+						</li>						
 					</ul>
 				</form>
 			</div>
@@ -83,15 +81,10 @@
 				var sb = document.getElementById("Sidebar");
 				if (sb.style.width == '150px') {
 					document.getElementById("Sidebar").style.width = "0";
-					//document.getElementById("main").style.marginLeft= "0";
 				} else {
 					document.getElementById("Sidebar").style.width = "150px";
-					//document.getElementById("main").style.marginLeft = "150px";
 				}
 			}
-		</script>
-		<script type="text/javascript">
-			var contact;
 			function onload(){
 				document.addEventListener("deviceready", requestFS, false);	
 			}
@@ -105,23 +98,19 @@
 				dirEntry.getFile(path, { create: false }, fileExists, fileDoesNotExist);
 			}
 			function fileExists(fileEntry){
-				console.log("fileexist");
 				loadFile("insurance");
 			}
 			function fileDoesNotExist(){
 				//location.replace("insuranceEdit.html");
 			}
 			function loadFileSuccess(filename, content) { //called when load file success
-				console.log("load success");
-				var contact = JSON.parse(content);
-				document.getElementById("name").innerHTML = contact.name;
-				document.getElementById("dob").innerHTML = contact.dob;
-				document.getElementById("blood_type").innerHTML = contact.blood_type;
-				document.getElementById("weight").innerHTML = contact.weight_integer+'.'+contact.weight_decimal+' lbs';
-				document.getElementById("height").innerHTML = contact.height_ft+' \' '+contact.height_int+' \"';
-				document.getElementById("allergies").innerHTML = contact.allergies;
-				document.getElementById("contact_name").innerHTML = contact.contact_name;
-				document.getElementById("contact_phone").innerHTML = contact.contact_phone;
+				var insurance = JSON.parse(content);
+				document.getElementById("company").innerHTML = insurance.company;
+				document.getElementById("phone").innerHTML = insurance.phone;
+				document.getElementById("policy").innerHTML = insurance.policy;
+				document.getElementById("copay").innerHTML = insurance.copay;
+				document.getElementById("name").innerHTML = insurance.name;';
+				document.getElementById("memberId").innerHTML = insurance.memberId;
 			}
 		</script>
 	</body>

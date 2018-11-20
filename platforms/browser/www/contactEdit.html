@@ -130,7 +130,6 @@
 		<script src="js/contactEdit.js"></script>
 		<script>
 			function loadFileSuccess(filename, content) { //called when load file success
-				//console.log("load success");
 				var contact = JSON.parse(content);
 				document.getElementById("name").value = contact.name;
 				document.getElementById("dob").value = contact.dob;

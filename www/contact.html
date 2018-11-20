@@ -98,9 +98,6 @@
 					//document.getElementById("main").style.marginLeft = "150px";
 				}
 			}
-		</script>
-		<script type="text/javascript">
-			var contact;
 			function onload(){
 				document.addEventListener("deviceready", requestFS, false);	
 			}
@@ -114,7 +111,6 @@
 				dirEntry.getFile(path, { create: false }, fileExists, fileDoesNotExist);
 			}
 			function fileExists(fileEntry){
-				console.log("fileexist");
 				loadFile("contact");
 			}
 			function fileDoesNotExist(){

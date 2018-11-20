@@ -26,20 +26,19 @@ for (var i = 0; i<=11; i++){
 	opt.innerHTML = i;
 	select.appendChild(opt);
 }
-	function SBtrigger() {
-		var sb = document.getElementById("Sidebar");
-		if (sb.style.width == '150px') {
-			document.getElementById("Sidebar").style.width = "0";
-			//document.getElementById("main").style.marginLeft= "0";
-		} else {
-			document.getElementById("Sidebar").style.width = "150px";
-			//document.getElementById("main").style.marginLeft = "150px";
-		}
+function SBtrigger() {
+	var sb = document.getElementById("Sidebar");
+	if (sb.style.width == '150px') {
+		document.getElementById("Sidebar").style.width = "0";
+		//document.getElementById("main").style.marginLeft= "0";
+	} else {
+		document.getElementById("Sidebar").style.width = "150px";
+		//document.getElementById("main").style.marginLeft = "150px";
 	}
+}
 function loadFileSuccess(filename, content) { //called when load file success
 	console.log("load success");
 	var contact = JSON.parse(content);
-	console.log(contact);
 	document.getElementById("name").value = contact.name;
 	document.getElementById("dob").value = contact.dob;
 	document.getElementById("blood_type").value = contact.blood_type;
@@ -62,7 +61,6 @@ function validate(){
 	var allergies = document.getElementById('allergies').value;
 	var contact_name = document.getElementById('contact_name').value;
 	var contact_phone = document.getElementById('contact_phone').value;
-	console.log(dob);
 	if(!validateStictInput(name)){
 		alert("Name included invalid characters");
 		return;
@@ -111,7 +109,6 @@ function save(name, dob, blood_type, weight_integer, weight_decimal, height_ft, 
 				'" , "contact_name":"' + contact_name + 
 				'" , "contact_phone":"' + contact_phone + 
 				'"}';
-	console.log(contactinfo);
 	saveFile("contact", contactinfo);
 }
 function saveFileSuccess(filename) { // called when saved file success 
