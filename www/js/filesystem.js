@@ -5,7 +5,6 @@ function requestFS() {
 	window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
 	if (window.requestFileSystem) {
 		initFileSystem(); // call initFileSystem if supported
-		
 	} else {
 		alert("Sorry! Your browser doesn\'t support the FileSystem API");
 	}
