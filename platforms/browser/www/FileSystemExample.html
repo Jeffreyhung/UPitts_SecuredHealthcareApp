@@ -6,13 +6,13 @@
 	<script src="js/filesystem.js"></script>
     <script type="text/javascript" charset="utf-8">
 	//start request after the device is ready
-	document.addEventListener("deviceready", requestFS, false);	
+	document.addEventListener("deviceready", requestFS(), false);	
 	
 	function onLoadFunction(){ // called on load
 		console.log("DIRENtry");
 		console.log(filesystem);
 		listFiles();
-		setDirectory("UserData");	
+		setDirectory("UserData", afterSetDirectory);	
 	}
 	function afterSetDirectory() { // called when directory is set
 		listFiles();

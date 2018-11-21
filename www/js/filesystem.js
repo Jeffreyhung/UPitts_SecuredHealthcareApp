@@ -8,7 +8,6 @@ function requestFS() {
 		
 	} else {
 		alert("Sorry! Your browser doesn\'t support the FileSystem API");
-		console.log("test");
 	}
 }
 function initFileSystem() { //initial FileSystem
