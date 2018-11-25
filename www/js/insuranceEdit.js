@@ -44,6 +44,7 @@ function validate(){
 		alert("Member ID included invalid characters");
 		return;
 	}else {
+		loadSession();
 		save(company, phone, policy, copay, name, memberId);
 	}
 }
