@@ -13,13 +13,7 @@
 		<script src="js/filesystem.js" type="text/javascript"></script>
 		<script type="text/javascript">
 			var userinfo;
-			document.addEventListener("deviceready", requestFS, false);	
 			
-			function onLoadFunction(){ // called on load
-				setDirectory("UserData");	
-			}
-			function afterSetDirectory(){
-			}			
 			function submit(){
 				hash(document.getElementById('password').value, document.getElementById('email').value);
 			}
