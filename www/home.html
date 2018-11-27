@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Home</title>
 		<!-- Sets initial viewport load and disables zooming  -->
-		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 		<!-- Include the CSS and JavaScript for ratchet and fontawesome -->
 		<script src="js/ratchet.js"></script>
 		<link href="css/ratchet.css" rel="stylesheet">
@@ -20,12 +20,12 @@
     <!-- Make sure all your bars are the first things in your <body> -->
 		<header class="bar bar-nav">
 			<a class="icon icon-bars pull-left" onclick="SBtrigger()"></a>
-			<h1 class="title"><b>Healthcare App<b></h1>
+			<h1 class="title"><b>Healthcare App</b></h1>
 		</header>
 		<div id="Sidebar" class="sidebar">
-			<a onclick="window.location = 'setting.html';"><i class="fas fa-cog"></i>&nbsp &nbsp Setting</a>
-			<a onclick="window.location = 'support.html';"><i class="fas fa-headset"></i>&nbsp &nbsp Support</a>
-			<a onclick="window.location = '#.html';"><i class="fas fa-sign-out-alt"></i>&nbsp &nbsp Sign-out</a>
+			<a onclick="window.location = 'setting.html';"><i class="fas fa-cog"></i>&nbsp; &nbsp; Setting</a>
+			<a onclick="window.location = 'support.html';"><i class="fas fa-headset"></i>&nbsp; &nbsp; Support</a>
+			<a onclick="window.location = '#.html';"><i class="fas fa-sign-out-alt"></i>&nbsp; &nbsp; Sign-out</a>
 		</div>
 
 		<!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
