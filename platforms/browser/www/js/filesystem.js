@@ -1,29 +1,22 @@
 var filesystem = null;
-var dirEntry = null;	//DirectoryEntry
+var fs.root = null;	//DirectoryEntry
 //check if filesystem is supported
-function requestFS() {
+function requestPFS() {
 	window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
-	if (window.requestFileSystem) {
-		initFileSystem(); // call initFileSystem if supported
-	} else {
-		alert("Sorry! Your browser doesn\'t support the FileSystem API");
-	}
-}
-function initFileSystem() { //initial FileSystem
-	window.requestFileSystem(LocalFileSystem.PERSISTENT, 1024 * 1024 * 5 /* 5MB */, function(fs) {
-		filesystem = fs;	//init filesystem
-		dirEntry = fs.root;	//init entry directory
+	window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
+	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
 		onLoadFunction();	//call after initFileSystem
 	}, errorHandler);
 }
+
 function setDirectory(dir) {  //set directory
-	filesystem.root.getDirectory(dir, {create: true}, function(entry) {
-		dirEntry = entry;	//set directory
+	fs.root.getDirectory(dir, {create: true}, function(entry) {
+		fs.root = entry;	//set directory
 		afterSetDirectory();	//called after setDirectory
 	}, errorHandler);
 }
 function saveFile(filename, content) {  //save file
-	dirEntry.getFile(filename, {create: true, exclusive: false}, function(fileEntry) {
+	fs.root.getFile(filename, {create: true, exclusive: false}, function(fileEntry) {
 		fileEntry.createWriter(function(fileWriter) {
 			fileWriter.onwriteend = function(e) {
 				saveFileSuccess(filename);	//called after saveFile
@@ -37,7 +30,7 @@ function saveFile(filename, content) {  //save file
 	}, errorHandler);
 }
 function loadFile(filename) { // read file
-	dirEntry.getFile(filename, {}, function(fileEntry) {
+	fs.root.getFile(filename, {}, function(fileEntry) {
 		fileEntry.file(function(file) {
 			var reader = new FileReader();
 			reader.onload = function(e) {
@@ -48,7 +41,7 @@ function loadFile(filename) { // read file
 	}, errorHandler);
 }
 function loadSession() { // read file
-	dirEntry.getFile(session, {}, function(fileEntry) {
+	fs.root.getFile(session, {}, function(fileEntry) {
 		fileEntry.file(function(file) {
 			var reader = new FileReader();
 			reader.onload = function(e) {
@@ -59,14 +52,14 @@ function loadSession() { // read file
 	}, errorHandler);
 }
 function deleteFile(filename) { //delete file
-	dirEntry.getFile(filename, {create: false}, function(fileEntry) {
+	fs.root.getFile(filename, {create: false}, function(fileEntry) {
 		fileEntry.remove(function(e) {
 			deleteFileSuccess();	//called after deletefile
 		}, errorHandler);
 	}, errorHandler);
 }
 function listFiles() {// list filesa
-	var dirReader = dirEntry.createReader();
+	var dirReader = fs.root.createReader();
 	var entries = [];
  
 	var fetchEntries = function() {

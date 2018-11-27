@@ -23,6 +23,8 @@
 				checkIfFileExists("contact");
 			}
 			function checkIfFileExists(path){
+				console.log(cordova.file.dataDirectory);
+				console.log(cordova.file.cacheDirectory);
 				dirEntry.getFile(path, { create: false }, fileExists, fileDoesNotExist);
 			}
 			function fileExists(fileEntry){

@@ -2,22 +2,14 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<!-- Sets initial viewport load and disables zooming  -->
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-		<!-- Include the CSS and JavaScript for ratchet and fontawesome -->
-		<script src="js/ratchet.js"></script>
-		<link href="css/ratchet.css" rel="stylesheet">
-		<link href="css/fontawesome.css" rel="stylesheet">
-		<link href="css/loader.css" rel="stylesheet">
 		<script src="cordova.js" type="text/javascript"></script>
+		<!-- <link href="css/loader.css" rel="stylesheet"> -->
 		<script src="js/filesystem.js"></script>
 		<script type="text/javascript" charset="utf-8">
 			//start request after the device is ready
 			document.addEventListener("deviceready", requestFS, false);	
 			function onLoadFunction(){ // called on load
-				setDirectory("UserData");	
-			}
-			function afterSetDirectory() { // called when directory is set
 				checkIfFileExists("session");
 			}
 			function checkIfFileExists(path){
@@ -31,7 +23,7 @@
 			}
 		</script>
 	</head>
-	<body style="margin:0;">
-		<div id="loader"></div>
+	<body>
+		<!-- <div id="loader"></div> -->
 	</body>
 </html>
