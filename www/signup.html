@@ -14,26 +14,27 @@
 			var userinfo, hashresult;
 			function submit(){
 				requestPFS();
+			}
+			function afterRPFS(){
 				requestTFS();
-				//console.log(cordova.file.dataDirectory);
+			}
+			function afterRTFS(){
 				hash(document.getElementById('password').value, document.getElementById('email').value);
 			}
-			function onLoadFunction(){
-				
-			}
-			function afterRTFS(){}
-			function afterRPFS(){}
 			function hash(password, somesalt){
 				argon2.hash({ pass: password, salt: somesalt })
 				.then(h => {
 					hashresult = h.hashHex;
 					userinfo = '{ "email":"'+ somesalt + '" , "password":"' + hashresult + '"}';
-					saveFile("session", hashresult, TFS);
-					saveFile("userinfo", userinfo, PFS);
+					savePersistentFile("userinfo", userinfo, PFS);
 				})
 				.catch(e => console.error(e.message, e.code))
 			}
-			function saveFileSuccess(fsDir) {
+			function savePersistentFileSuccess() {
+				saveTemporaryFile("session", hashresult, TFS);
+			}
+			function saveTemporaryFileSuccess() {
+				location.replace("home.html");
 			}
 		</script>
 	</head>

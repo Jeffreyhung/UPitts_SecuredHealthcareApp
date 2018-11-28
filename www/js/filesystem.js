@@ -25,11 +25,25 @@ function setDirectory(dir) {  //set directory
 		afterSetDirectory();	//called after setDirectory
 	}, errorHandler);
 }
-function saveFile(filename, content, fsDir) {  //save file
-	fsDir.getFile(filename, {create: true, exclusive: false}, function(fileEntry) {
+function savePersistentFile(filename, content) {  //save file
+	PFS.getFile(filename, {create: true, exclusive: false}, function(fileEntry) {
 		fileEntry.createWriter(function(fileWriter) {
 			fileWriter.onwriteend = function(e) {
-				saveFileSuccess(filename, fsDir);	//called after saveFile
+				savePersistentFileSuccess(filename);	//called after saveFile
+			};
+			fileWriter.onerror = function(e) {	//error
+				console.log('Write error: ' + e.toString());
+				alert('Unable to save file');
+			};
+			fileWriter.write(content);	//start writing
+		}, errorHandler);
+	}, errorHandler);
+}
+function saveTemporaryFile(filename, content) {  //save file
+	TFS.getFile(filename, {create: true, exclusive: false}, function(fileEntry) {
+		fileEntry.createWriter(function(fileWriter) {
+			fileWriter.onwriteend = function(e) {
+				saveTemporaryFileSuccess(filename);	//called after saveFile
 			};
 			fileWriter.onerror = function(e) {	//error
 				console.log('Write error: ' + e.toString());
