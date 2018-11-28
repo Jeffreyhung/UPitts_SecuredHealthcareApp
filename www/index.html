@@ -8,12 +8,12 @@
 		<script src="js/filesystem.js"></script>
 		<script type="text/javascript" charset="utf-8">
 			//start request after the device is ready
-			document.addEventListener("deviceready", requestFS, false);	
-			function onLoadFunction(){ // called on load
-				checkIfFileExists("session");
+			document.addEventListener("deviceready", requestTFS, false);	
+			function afterRTFS(){ // called on load
+				checkIfFileExists("session", TFS);
 			}
-			function checkIfFileExists(path){
-				dirEntry.getFile(path, { create: false }, fileExists, fileDoesNotExist);
+			function checkIfFileExists(path, fsDir){
+				fsDir.getFile(path, { create: false }, fileExists, fileDoesNotExist);
 			}
 			function fileExists(fileEntry){
 				location.replace("home.html");
