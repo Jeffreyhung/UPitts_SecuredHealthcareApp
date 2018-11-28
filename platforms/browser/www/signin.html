@@ -13,17 +13,19 @@
 		<script src="js/filesystem.js"></script>
 		<script type="text/javascript">
 			var userinfo;
-			document.addEventListener("deviceready", requestFS, false);	
-			
-			function onLoadFunction(){ // called on load
-				setDirectory("UserData");	
+			window.onload = function(){
+				requestPFS();
 			}
-			function afterSetDirectory(){
-				loadFile("usrinfo");
+			function afterRPFS(){
+				requestTFS();
+			}
+			function afterRTFS(){
+				loadFile("userinfo", PFS);
 			}
 			function loadFileSuccess(filename, content) { //called when load file success
 				userinfo = JSON.parse(content);
-				
+				console.log(userinfo);
+				document.getElementById("email").value = userinfo.email;
 			}
 			function submit(){
 				hash(document.getElementById('password').value, document.getElementById('email').value);
