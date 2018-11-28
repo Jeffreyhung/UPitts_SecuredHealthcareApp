@@ -10,9 +10,13 @@
 		<link href="css/sidebar.css" rel="stylesheet">
 		<script src="cordova.js"></script>
 		<script src="js/filesystem.js"></script>
-		
+		<script type="text/javascript">
+			window.onload = function(){
+					requestPFS();
+				}
+		</script>
 	</head>
-	<body onload="onload()">
+	<body>
 
     <!-- Make sure all your bars are the first things in your <body> -->
 		<header class="bar bar-nav">
@@ -98,20 +102,11 @@
 					//document.getElementById("main").style.marginLeft = "150px";
 				}
 			}
-			function onload(){
-				document.addEventListener("deviceready", requestFS, false);	
-			}
-			function onLoadFunction(){ // called on load
-				setDirectory("UserData");
-			}
-			function afterSetDirectory(){
-				checkIfFileExists("contact");
+			function afterRPFS(){ // called after persistent file system loaded, check if contact file exist
+				PFS.getFile("contact", { create: false }, fileExists, fileDoesNotExist);
 			}			
-			function checkIfFileExists(path){
-				dirEntry.getFile(path, { create: false }, fileExists, fileDoesNotExist);
-			}
 			function fileExists(fileEntry){
-				loadFile("contact");
+				loadFile("contact", PFS);
 			}
 			function fileDoesNotExist(){
 				location.replace("contactEdit.html");

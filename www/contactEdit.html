@@ -14,26 +14,15 @@
 		<script type="text/javascript">
 			var userinfo;
 			window.onload = function(){
-				document.addEventListener("deviceready", requestFS, false);
+				requestPFS();
 			}
-			function onLoadFunction(){ // called on load
-				setDirectory("UserData");	
-			}
-			function afterSetDirectory(){
-				checkIfFileExists("contact");
-			}
-			function checkIfFileExists(path){
-				console.log(cordova.file.dataDirectory);
-				console.log(cordova.file.cacheDirectory);
-				dirEntry.getFile(path, { create: false }, fileExists, fileDoesNotExist);
+			function afterRPFS(){ // called on load
+				PFS.getFile("contact", { create: false }, fileExists, fileDoesNotExist);
 			}
 			function fileExists(fileEntry){
-				//console.log("fileexists");
-				loadFile("contact");
+				loadFile("contact", PFS);
 			}
-			function fileDoesNotExist(){
-				console.log("error loading file");
-			}
+			function fileDoesNotExist(){}
 		</script>
 	</head>
 	<body>

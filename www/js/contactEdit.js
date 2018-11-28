@@ -109,9 +109,9 @@ function save(name, dob, blood_type, weight_integer, weight_decimal, height_ft, 
 				'" , "contact_name":"' + contact_name + 
 				'" , "contact_phone":"' + contact_phone + 
 				'"}';
-	saveFile("contact", contactinfo);
+	savePersistentFile("contact", contactinfo);
 }
-function saveFileSuccess(filename) { // called when saved file success 
+function savePersistentFileSuccess(filename) { // called when saved file success 
 	//console.log("saveFileSuccess");
 	//listFiles();
 	//loadFile(filename);	
