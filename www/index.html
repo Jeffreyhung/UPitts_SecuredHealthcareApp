@@ -10,15 +10,11 @@
     <script type="text/javascript" charset="utf-8">
     //start request after the device is ready
     window.onload = function() {
-        document.addEventListener("deviceready", requestTFS, false);
+        document.addEventListener("deviceready", requestPFS, false);
     }
 
-    function afterRTFS() { // called on load
-        checkIfFileExists("session", TFS);
-    }
-
-    function checkIfFileExists(path, fsDir) {
-        fsDir.getFile(path, { create: false }, fileExists, fileDoesNotExist);
+    function afterRPFS() { // called on load
+        PFS.getFile("userinfo", { create: false }, fileExists, fileDoesNotExist);
     }
 
     function fileExists(fileEntry) {

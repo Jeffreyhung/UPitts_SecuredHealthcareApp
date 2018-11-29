@@ -6,13 +6,15 @@
     <script src="cordova.js"></script>
     <script src="js/filesystem.js"></script>
     <script type="text/javascript" charset="utf-8">
-    //start request after the device is ready
     document.addEventListener("deviceready", requestPFS(), false);
 
-    function afterRTFS() { // called on load
-        console.log("DIRENtry");
-        console.log(filesystem);
-        //listFiles();
+    function afterRPFS() {
+        requestTFS();
+    }
+
+    function afterRTFS() {
+        loadFile("session", TFS);
+        loadFile("userinfo", PFS);
     }
 
     function saveFileSuccess(filename) { // called when saved file success
@@ -22,7 +24,7 @@
     }
 
     function loadFileSuccess(filename, content) { //called when load file success
-        deleteFile(filename)
+        console.log(filename);
         console.log(content);
     }
 

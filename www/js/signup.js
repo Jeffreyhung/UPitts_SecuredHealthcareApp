@@ -1,4 +1,4 @@
- var userinfo, hashresult;
+ var userinfo, hashresult, hashresult2;
 
  function showPW() {
      var x = document.getElementById("password");
@@ -101,23 +101,37 @@
  function afterRTFS() {}
 
  function submit() {
-     hash(document.getElementById('password').value, document.getElementById('email').value);
+     hash1(document.getElementById('password').value, document.getElementById('email').value);
  }
 
- function hash(password, somesalt) {
+ function hash1(password, somesalt) {
      argon2.hash({ pass: password, salt: somesalt })
          .then(h => {
              hashresult = h.hashHex;
-             userinfo = '{ "email":"' + somesalt + '" , "password":"' + hashresult + '"}';
+             saveTemporaryFile("session", hashresult, TFS);
+         })
+         .catch(e => console.error(e.message, e.code))
+ }
+
+ function hash2(password, somesalt) {
+     argon2.hash({ pass: password, salt: somesalt })
+         .then(h => {
+             hashresult2 = h.hashHex;
+             userinfo = '{ "email":"' + somesalt + '" , "password":"' + hashresult2 + '"}';
              savePersistentFile("userinfo", userinfo, PFS);
          })
          .catch(e => console.error(e.message, e.code))
  }
 
- function savePersistentFileSuccess() {
-     saveTemporaryFile("session", hashresult, TFS);
+ function saveTemporaryFileSuccess() {
+     hash2(hashresult, document.getElementById('email').value);
  }
 
- function saveTemporaryFileSuccess() {
+ function savePersistentFileSuccess() {
+     hashresult,
+     hashresult2,
+     userinfo,
+     password,
+     somesalt = null;
      location.replace("home.html");
  }

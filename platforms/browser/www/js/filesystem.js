@@ -4,6 +4,7 @@ var TFS = null;
 function requestPFS() {
     window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
+    //window.requestFileSystem(PERSISTENT, 0, function(fs) {
         //PFS = fs;
         PFS = fs.root;
         afterRPFS(); //call after initFileSystem
@@ -13,6 +14,7 @@ function requestPFS() {
 function requestTFS() {
     window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
     window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function(fs) {
+    // window.requestFileSystem(TEMPORARY, 5 * 1024 * 1024, function(fs) {
         //TFS = fs;
         TFS = fs.root;
         afterRTFS(); //call after initFileSystem

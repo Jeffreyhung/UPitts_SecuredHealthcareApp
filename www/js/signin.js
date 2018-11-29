@@ -1,4 +1,4 @@
-var userinfo, hashresult;
+var userinfo, hashresult, hashresult2;
 
 function showPW() {
     var x = document.getElementById("password");
@@ -19,26 +19,35 @@ function afterRTFS() {
 
 function loadFileSuccess(filename, content) { //called when load file success
     userinfo = JSON.parse(content);
-    console.log(userinfo);
     document.getElementById("email").placeholder = "Email: " + userinfo.email;
 }
 
 function submit() {
-    hash(document.getElementById('password').value, userinfo.email);
+    hash1(document.getElementById('password').value, userinfo.email);
 }
 
-function hash(password, somesalt) {
-    var hashresult;
+function hash1(password, somesalt) {
     argon2.hash({ pass: password, salt: somesalt })
         .then(h => {
             hashresult = h.hashHex;
-            login(hashresult);
+            hash2(hashresult, userinfo.email);
+        })
+        .catch(e => console.error(e.message, e.code))
+}
+
+function hash2(password, somesalt) {
+    argon2.hash({ pass: password, salt: somesalt })
+        .then(h => {
+            hashresult2 = h.hashHex;
+
+
+            login(hashresult2);
         })
         .catch(e => console.error(e.message, e.code))
 }
 
 function login(hashresult) {
-    if (hashresult == userinfo.password) {
+    if (hashresult2 == userinfo.password) {
         saveTemporaryFile("session", hashresult, TFS);
     } else {
         alert("Password incorrect!")
@@ -46,5 +55,10 @@ function login(hashresult) {
 }
 
 function saveTemporaryFileSuccess() {
+    hashresult,
+    hashresult2,
+    userinfo,
+    password,
+    somesalt = null;
     location.replace("home.html");
 }
