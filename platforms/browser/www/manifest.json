@@ -1,0 +1,18 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "SecuredHealthcareApp",
+  "short_name": "SecuredHealthcareApp",
+  "version": "com.CHH162.SecuredHealthcareApp",
+  "description": "A secured Healthcare Mobile Application",
+  "author": "Chi-Heng Hung",
+  "icons": [
+    {
+      "src": "icon.png",
+      "type": "image/png",
+      "sizes": "undefinedxundefined"
+    }
+  ],
+  "orientation": "any",
+  "start_url": "index.html"
+}

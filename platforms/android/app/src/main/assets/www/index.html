@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<script src="cordova.js" type="text/javascript"></script>
+		<!-- <link href="css/loader.css" rel="stylesheet"> -->
+		<script src="js/filesystem.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			//start request after the device is ready
+			document.addEventListener("deviceready", requestTFS, false);	
+			function afterRTFS(){ // called on load
+				checkIfFileExists("session", TFS);
+			}
+			function checkIfFileExists(path, fsDir){
+				fsDir.getFile(path, { create: false }, fileExists, fileDoesNotExist);
+			}
+			function fileExists(fileEntry){
+				location.replace("signin.html");
+			}
+			function fileDoesNotExist(){
+				location.replace("signup.html");
+			}
+		</script>
+	</head>
+	<body>
+		<!-- <div id="loader"></div> -->
+	</body>
+</html>

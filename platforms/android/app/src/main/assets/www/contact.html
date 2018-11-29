@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Contact</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<script src="js/ratchet.js"></script>
+		<link href="css/ratchet.css" rel="stylesheet">
+		<link href="css/fontawesome.css" rel="stylesheet">
+		<link href="css/sidebar.css" rel="stylesheet">
+		<script src="cordova.js"></script>
+		<script src="js/filesystem.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+					requestPFS();
+				}
+		</script>
+	</head>
+	<body>
+
+    <!-- Make sure all your bars are the first things in your <body> -->
+		<header class="bar bar-nav">
+			<a class="icon icon-bars pull-left" onclick="SBtrigger()"></a>
+			<a class="icon icon-compose pull-right" onclick="window.location = 'contactEdit.html';"></a>
+			<h1 class="title"><b>Emergency Contact<b></h1>
+		</header>
+		<div id="Sidebar" class="sidebar">
+			<a href="setting.html"><i class="fas fa-cog"></i>&nbsp &nbsp Setting</a>
+			<a href="support.html"><i class="fas fa-headset"></i>&nbsp &nbsp Support</a>
+			<a href="#"><i class="fas fa-sign-out-alt"></i>&nbsp &nbsp Sign-out</a>
+		</div>
+
+		<!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
+		<div class="content" id="main">
+			<div class="card">
+				<form class="input-group">
+					<ul class="table-view">
+						<li class="table-view-cell table-view-divider">User Info</li>
+						<li class="input-row">
+							<label>Full name: </label>
+							<label id="name" style="width:61%;"></label>
+						</li>
+						<li class="input-row">
+							<label>D.o.B. : </label>
+							<label id="dob" style="width:61%;"></label>
+						</li>
+						<li class="input-row">
+							<label style="width:40%;">Blood Type:</label>
+							<label id="blood_type" style="width:60%;"></label>
+						</li>
+						<li class="input-row">
+							<label>Weight: </label>
+							<label id="weight" style="width:61%;"></label>
+						</li>
+						<li class="input-row">
+							<label>Height: </label>
+							<label id="height" style="width:61%;"></label>
+						</li>
+						<li class="input-row">
+							<label>Allergies: </label>
+							<label id="allergies" style="width:61%;"></label>
+						</li>
+						<li class="table-view-cell table-view-divider">Emergency Contact</li>
+						<li class="input-row">
+							<label>Name: </label>
+							<label id="contact_name" style="width:61%;"></label>
+						</li>
+						<li class="input-row">
+							<label>Phone: </label>
+							<label id="contact_phone" style="width:61%;"></label>
+						</li>
+					</ul>
+				</form>
+			</div>
+		</div>
+		
+		<nav class="bar bar-tab">
+			<a class="tab-item"  onclick="window.location = 'health.html';">
+				<i class="fas fa-hospital"></i>
+			</a>
+			<a class="tab-item" onclick="window.location = 'medical.html';">
+				<i class="fas fa-pills"></i>
+			</a>
+			<a class="tab-item " onclick="window.location = 'medical.html';">
+				<i class="fas fa-plus"></i>
+			</a>
+			<a class="tab-item" onclick="window.location = 'insurance.html';">
+				<i class="fas fa-money-check"></i>
+			</a>
+			<a class="tab-item active" onclick="window.location = 'contact.html';">
+				<i class="fas fa-address-book"></i>
+			</a>
+		</nav>
+		<script>
+			function SBtrigger() {
+				var sb = document.getElementById("Sidebar");
+				if (sb.style.width == '150px') {
+					document.getElementById("Sidebar").style.width = "0";
+					//document.getElementById("main").style.marginLeft= "0";
+				} else {
+					document.getElementById("Sidebar").style.width = "150px";
+					//document.getElementById("main").style.marginLeft = "150px";
+				}
+			}
+			function afterRPFS(){ // called after persistent file system loaded, check if contact file exist
+				PFS.getFile("contact", { create: false }, fileExists, fileDoesNotExist);
+			}			
+			function fileExists(fileEntry){
+				loadFile("contact", PFS);
+			}
+			function fileDoesNotExist(){
+				location.replace("contactEdit.html");
+			}
+			function loadFileSuccess(filename, content) { //called when load file success
+				var contact = JSON.parse(content);
+				document.getElementById("name").innerHTML = contact.name;
+				document.getElementById("dob").innerHTML = contact.dob;
+				document.getElementById("blood_type").innerHTML = contact.blood_type;
+				document.getElementById("weight").innerHTML = contact.weight_integer+'.'+contact.weight_decimal+' lbs';
+				document.getElementById("height").innerHTML = contact.height_ft+' \' '+contact.height_int+' \"';
+				document.getElementById("allergies").innerHTML = contact.allergies;
+				document.getElementById("contact_name").innerHTML = contact.contact_name;
+				document.getElementById("contact_phone").innerHTML = contact.contact_phone;
+			}
+		</script>
+	</body>
+</html>

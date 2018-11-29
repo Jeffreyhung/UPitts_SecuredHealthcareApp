@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Test</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<!-- 
+	<script src="cordova.js"></script>    
+	<script src="bower_components/argon2-browser/lib/argon2.js"></script>    
+	<script src="js/validation.js"></script>
+	<script src="js/ratchet.js"></script>
+	<link href="css/ratchet.css" rel="stylesheet">	 
+	-->
+	<script src="js/aes.js"></script>
+    <script type="text/javascript">
+		var plaintText = '{ "company":"UPMC" , "phone":"123-456-7890" , "policy":"Pro Plan" , "copay":"0 30" , "name":"Jeffrey Hung" , "memberId":"1234567890"}';
+		var key = 'bbbbbbbbbbbbbbbb'; // 一般key为一个字符串
+		var encryptedData = CryptoJS.AES.encrypt(plaintText, key);
+		console.log(encryptedData);
+		var encryptedStr = encryptedData.ciphertext.toString();
+		console.log("encryptedStr");
+		console.log(encryptedStr);
+		var decrypted = CryptoJS.AES.decrypt(encryptedData, key);
+		console.log(decrypted.toString(CryptoJS.enc.Utf8));
+	</script>
+  </head>
+  <body>
+    <div class="content" id="main">
+			HI
+	</div>
+  </body>
+</html>
