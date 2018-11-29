@@ -6,17 +6,12 @@
 	<script src="js/filesystem.js"></script>
     <script type="text/javascript" charset="utf-8">
 	//start request after the device is ready
-	document.addEventListener("deviceready", requestFS(), false);	
+	document.addEventListener("deviceready", requestPFS(), false);	
 	
-	function onLoadFunction(){ // called on load
+	function afterRTFS(){ // called on load
 		console.log("DIRENtry");
 		console.log(filesystem);
 		//listFiles();
-		setDirectory("UserData", afterSetDirectory);	
-	}
-	function afterSetDirectory() { // called when directory is set
-		listFiles();
-		saveFile("testfile1", "this is the content");
 	}
 	function saveFileSuccess(filename) { // called when saved file success 
 		console.log("saveFileSuccess");

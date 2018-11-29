@@ -24,7 +24,7 @@
 			function loadFileSuccess(filename, content) { //called when load file success
 				userinfo = JSON.parse(content);
 				console.log(userinfo);
-				document.getElementById("email").value = userinfo.email;
+				document.getElementById("email").innerHTML = "Email: " + userinfo.email;
 			}
 			function submit(){
 				hash(document.getElementById('password').value, document.getElementById('email').value);
@@ -50,11 +50,14 @@
 		</header>
 		<div class="content" id="main">
 		<p>
-			<form style="margin: 10px 10px 10px 10px ;" action="javascript:submit()">
-				<h3><center> Login <center></h3>
-				<label>Email: </label><p id="email"></p>
-				<br>
-				<input type="password" id="password" placeholder="Password"  required>
+			<h3><center> Login <center></h3>
+			<form class="input-group" style="margin: 10px 10px 10px 10px ;" action="javascript:submit()">
+				<div class="input-row">
+					<label id="email">Email: </label>
+				</div>
+				<div class="input-row">
+					<input type="password" id="password" placeholder="Password"  required>
+				</div>
 				<label class="switch">
 					<input type="checkbox" onclick="showPW()">
 					<span class="slider"></span>
