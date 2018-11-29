@@ -1,8 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="SecuredHealthcareApp" version="1.0.0" versionCode="" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>SecuredHealthcareApp		</name>
-    <description>Hello World sample application that responds to the deviceready event.		</description>
-    <author email="jeffreyhung@hotmail.com.tw" href="https://github.com/Jeffreyhung">Chi-Heng Hung		</author>
+<widget id="com.CHH162.SecuredHealthcareApp" version="1.0.0" versionCode="" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>
+		SecuredHealthcareApp
+	</name>
+    <description>
+		A secured Healthcare Mobile Application
+	</description>
+    <author email="jeffreyhung@hotmail.com.tw" href="https://github.com/Jeffreyhung">
+		Chi-Heng Hung
+	</author>
     <preference name="windows-identity-name" value="" />
     <icon src="icon.png" />
     <allow-intent href="http://*/*" />
