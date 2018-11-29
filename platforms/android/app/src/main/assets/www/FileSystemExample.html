@@ -1,35 +1,40 @@
 <!DOCTYPE HTML>
 <html>
-  <head>
+
+<head>
     <title>Test</title>
-	<script src="cordova.js"></script>
-	<script src="js/filesystem.js"></script>
+    <script src="cordova.js"></script>
+    <script src="js/filesystem.js"></script>
     <script type="text/javascript" charset="utf-8">
-	//start request after the device is ready
-	
-	function afterRTFS(){ // called on load
-		console.log("DIRENtry");
-		console.log(filesystem);
-		//listFiles();
-	}
-	function saveFileSuccess(filename) { // called when saved file success 
-		console.log("saveFileSuccess");
-		listFiles();
-		loadFile(filename);		
-	}
-	function loadFileSuccess(filename, content) { //called when load file success
-		deleteFile(filename)
-		console.log(content);
-	}
-	function deleteFileSuccess() { //called when file is deleted
-		console.log("deleteFileSuccess");
-		listFiles();
-	}
-	document.addEventListener("deviceready", requestPFS(), false);	
-	
+    //start request after the device is ready
+    document.addEventListener("deviceready", requestPFS(), false);
+
+    function afterRTFS() { // called on load
+        console.log("DIRENtry");
+        console.log(filesystem);
+        //listFiles();
+    }
+
+    function saveFileSuccess(filename) { // called when saved file success
+        console.log("saveFileSuccess");
+        listFiles();
+        loadFile(filename);
+    }
+
+    function loadFileSuccess(filename, content) { //called when load file success
+        deleteFile(filename)
+        console.log(content);
+    }
+
+    function deleteFileSuccess() { //called when file is deleted
+        console.log("deleteFileSuccess");
+        listFiles();
+    }
     </script>
-  </head>
-  <body>
+</head>
+
+<body>
     <h1>Example</h1>
-  </body>
+</body>
+
 </html>

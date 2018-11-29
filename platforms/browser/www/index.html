@@ -9,7 +9,9 @@
     <script src="js/filesystem.js"></script>
     <script type="text/javascript" charset="utf-8">
     //start request after the device is ready
-    document.addEventListener("deviceready", requestTFS, false);
+    window.onload = function() {
+        document.addEventListener("deviceready", requestTFS, false);
+    }
 
     function afterRTFS() { // called on load
         checkIfFileExists("session", TFS);

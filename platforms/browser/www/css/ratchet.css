@@ -71,7 +71,7 @@ strong {
 }
 
 dfn {
-  font-style: italic;
+  font-style: ;
 }
 
 h1 {
@@ -240,7 +240,7 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "Helvetica", Helvetica, sans-serif;
   font-size: 17px;
   line-height: 21px;
   color: #000;
