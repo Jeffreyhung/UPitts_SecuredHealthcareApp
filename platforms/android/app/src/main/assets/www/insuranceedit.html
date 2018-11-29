@@ -1,122 +1,96 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Contact</title>
-		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-		<script src="js/ratchet.js"></script>
-		<link href="css/ratchet.css" rel="stylesheet">
-		<link href="css/fontawesome.css" rel="stylesheet">
-		<link href="css/sidebar.css" rel="stylesheet">
-		<style>
-		.input-row label {
+
+<head>
+    <meta charset="utf-8">
+    <title>Contact</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <script src="js/ratchet.js"></script>
+    <link href="css/ratchet.css" rel="stylesheet">
+    <link href="css/fontawesome.css" rel="stylesheet">
+    <link href="css/sidebar.css" rel="stylesheet">
+    <style>
+        .input-row label {
 			width: 41%;
 		}
 		.input-row input {
 			width: 59%;
 		}
 		</style>
-		<script src="cordova.js"></script>
-		<script src="js/filesystem.js"></script>
-		<script src="js/validation.js"></script>
-		<script src="js/aes.js"></script>
-		<script type="text/javascript">
-			var insuranceInfo;
-			window.onload = function(){
-				document.addEventListener("deviceready", requestFS, false);
-			}
-			function onLoadFunction(){ // called on load
-				setDirectory("UserData");	
-			}
-			function afterSetDirectory(){
-				checkIfFileExists("insurance");
-			}
-			function checkIfFileExists(path){
-				dirEntry.getFile(path, { create: false }, fileExists, fileDoesNotExist);
-			}
-			function fileExists(fileEntry){
-				loadFile("insurance");
-			}
-			function fileDoesNotExist(){
-				console.log("error loading file");
-			}
-		</script>
-	</head>
-	<body>
-		<header class="bar bar-nav">
-			<a class="icon icon-bars pull-left" onclick="SBtrigger()"></a>
-			<h1 class="title"><b>Insurance Info<b></h1>
-		</header>
-		<div id="Sidebar" class="sidebar">
-			<a onclick="window.location = 'setting.html';"><i class="fas fa-cog"></i>&nbsp &nbsp Setting</a>
-			<a onclick="window.location = 'support.html';"><i class="fas fa-headset"></i>&nbsp &nbsp Support</a>
-			<a onclick="window.location = '#.html';"><i class="fas fa-sign-out-alt"></i>&nbsp &nbsp Sign-out</a>
-		</div>
+    <script src="cordova.js"></script>
+    <script src="js/filesystem.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/aes.js"></script>
+    <script type="text/javascript">
+    window.onload = function() {
+        requestPFS();
+    }
+    </script>
+</head>
 
-		<div class="content" id="main">
-			<div class="card">
-				<form class="input-group" name="contact_form">
-					<ul class="table-view">
-						<li class="table-view-cell table-view-divider">Company Info</li>
-						<li class="input-row">
-							<label >Company: </label>
-							<input type="text" id="company" placeholder="Company Name" required>
-						</li>
-						<li class="input-row">
-							<label >Phone: </label>
-							<input type="text" id="phone" placeholder="123-456-7890" required>
-						</li>
-						<li class="input-row">
-							<label >Policy Type: </label>
-							<input type="text" id="policy" placeholder="Type" required>
-						</li>
-						<li class="input-row">
-							<label >Co-pay: </label>
-							<input type="text" id="copay" placeholder="Co-pay" required>
-						</li>
-						<li class="table-view-cell table-view-divider">Member Info</li>
-						<li class="input-row">
-							<label >Name: </label>
-							<input type="text" id="name" placeholder="Full Name" required>
-						</li>
-						<li class="input-row">
-							<label >Member ID: </label>
-							<input type="text" id="memberId" placeholder="ID number" required>
-						</li>		
-					</ul>
-				</form>
-			</div>
-			<button class="btn btn-positive btn-block" id="save_button" type="submit"  onclick="validate()">Save</button>
-		</div>
-		
-		<nav class="bar bar-tab">
-			<a class="tab-item"  onclick="window.location = 'health.html';">
+<body>
+    <header class="bar bar-nav">
+        <a class="icon icon-bars pull-left" onclick="SBtrigger()"></a>
+        <h1 class="title"><b>Insurance Info<b></h1>
+    </header>
+    <div id="Sidebar" class="sidebar">
+        <a onclick="window.location = 'setting.html';"><i class="fas fa-cog"></i>&nbsp; &nbsp; Setting</a>
+        <a onclick="window.location = 'support.html';"><i class="fas fa-headset"></i>&nbsp; &nbsp; Support</a>
+        <a onclick="window.location = '#.html';"><i class="fas fa-sign-out-alt"></i>&nbsp; &nbsp; Sign-out</a>
+    </div>
+    <div class="content" id="main">
+        <div class="card">
+            <form class="input-group" name="contact_form">
+                <ul class="table-view">
+                    <li class="table-view-cell table-view-divider">Company Info</li>
+                    <li class="input-row">
+                        <label>Company: </label>
+                        <input type="text" id="company" placeholder="Company Name" required>
+                    </li>
+                    <li class="input-row">
+                        <label>Phone: </label>
+                        <input type="text" id="phone" placeholder="123-456-7890" required>
+                    </li>
+                    <li class="input-row">
+                        <label>Policy Type: </label>
+                        <input type="text" id="policy" placeholder="Type" required>
+                    </li>
+                    <li class="input-row">
+                        <label>Co-pay: </label>
+                        <input type="text" id="copay" placeholder="Co-pay" required>
+                    </li>
+                    <li class="table-view-cell table-view-divider">Member Info</li>
+                    <li class="input-row">
+                        <label>Name: </label>
+                        <input type="text" id="name" placeholder="Full Name" required>
+                    </li>
+                    <li class="input-row">
+                        <label>Member ID: </label>
+                        <input type="text" id="memberId" placeholder="ID number" required>
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <button class="btn btn-positive btn-block" id="save_button" type="submit" onclick="validate()">Save</button>
+    </div>
+    <nav class="bar bar-tab">
+        <a class="tab-item"  onclick="window.location = 'health.html';">
 				<i class="fas fa-hospital"></i>
 			</a>
-			<a class="tab-item" onclick="window.location = 'medical.html';">
+        <a class="tab-item" onclick="window.location = 'medical.html';">
 				<i class="fas fa-pills"></i>
 			</a>
-			<a class="tab-item " onclick="window.location = 'medical.html';">
+        <a class="tab-item " onclick="window.location = 'medical.html';">
 				<i class="fas fa-plus"></i>
 			</a>
-			<a class="tab-item active" onclick="window.location = 'insurance.html';">
+        <a class="tab-item active" onclick="window.location = 'insurance.html';">
 				<i class="fas fa-money-check"></i>
 			</a>
-			<a class="tab-item" onclick="window.location = 'contact.html';">
+        <a class="tab-item" onclick="window.location = 'contact.html';">
 				<i class="fas fa-address-book"></i>
 			</a>
-		</nav>
-		<script src="js/insuranceEdit.js"></script>
-		<script>
-			function loadFileSuccess(filename, content) { //called when load file success
-				var insurance = JSON.parse(content);
-				document.getElementById("company").innerHTML = insurance.company;
-				document.getElementById("phone").innerHTML = insurance.phone;
-				document.getElementById("policy").innerHTML = insurance.policy;
-				document.getElementById("copay").innerHTML = insurance.copay;
-				document.getElementById("name").innerHTML = insurance.name;
-				document.getElementById("memberId").innerHTML = insurance.memberId;
-			}
-		</script>
-	</body>
+    </nav>
+    <script src="js/insuranceEdit.js"></script>
+</body>
+
 </html>

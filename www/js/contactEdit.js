@@ -1,4 +1,4 @@
-function afterRPFS() { // called on load
+function afterRPFS() {
     PFS.getFile("contact", { create: false }, fileExists, fileDoesNotExist);
 }
 
