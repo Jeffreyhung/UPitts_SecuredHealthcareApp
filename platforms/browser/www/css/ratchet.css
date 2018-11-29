@@ -826,7 +826,7 @@ input,
 textarea,
 button,
 select {
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "Helvetica", Helvetica, sans-serif;
   font-size: 17px;
 }
 
@@ -909,7 +909,7 @@ select {
   float: left;
   width: 39%;
   padding: 8px 15px;
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "Helvetica", Helvetica, sans-serif;
   line-height: 1.1;
 }
 
