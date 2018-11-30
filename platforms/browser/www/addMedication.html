@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Add Medical Record</title>
+    <title>Add Medicatoin Record</title>
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
     <link href="css/ratchet.css" rel="stylesheet">
     <link href="css/fontawesome.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 <body>
     <header class="bar bar-nav">
         <a class="icon icon-bars pull-left" onclick="SBtrigger()"></a>
-        <h1 class="title"><b>Add Medical Record<b></h1>
+        <h1 class="title"><b>Add Medication Record<b></h1>
     </header>
     <div id="Sidebar" class="sidebar">
         <a onclick="window.location = 'setting.html';"><i class="fas fa-cog"></i>&nbsp; &nbsp; Setting</a>
@@ -34,38 +34,28 @@
         <div class="card">
             <form class="input-group">
                 <div class="input-row">
-                    <label>Date : </label>
-                    <input type="date" id="date">
+                    <label>Medicine: </label>
+                    <input type="text" id="medicine" placeholder="Medicine name" required>
                 </div>
                 <div class="input-row">
-                    <label>Hospital: </label>
-                    <input type="text" id="hospital" placeholder="" required>
+                    <label>Dosage: </label>
+                    <input type="text" id="dosage" placeholder="ex: 1 tablet" required>
                 </div>
                 <div class="input-row">
-                    <label>Doctor: </label>
-                    <input type="text" id="doctor" placeholder="" required>
+                    <label>Frequency: </label>
+                    <input type="text" id="frequency" placeholder="ex: 3 times a day" required>
+                </div>
+                <div class="input-row">
+                    <label>Start Date : </label>
+                    <input type="date" id="startDate" placeholder="ex: 3 times a day" required>
+                </div>
+                <div class="input-row">
+                    <label>End Date : </label>
+                    <input type="date" id="endDate" required>
                 </div>
                 <div class="input-row" style="height: 70px;">
-                    <label>Problems: </label>
-                    <textarea id="problem" placeholder="" style="height: 100%;"></textarea>
-                </div>
-                <div class="input-row" style="height: 70px;">
-                    <label>Threatments: </label>
-                    <textarea id="threatment" placeholder="" style="height: 100%;"></textarea>
-                </div>
-                <div class="input-row">
-                    <label style="width:61%;">Revisit Required?</label>
-                    <label style="width:39%;">
-                        <select id="revisit"  onchange="revisitShow(this.value)" required>
-                            <option value="" selected disabled hidden>Y/N</option>
-                            <option value='1'>Yes</option>
-                            <option value='0'>No</option>
-                        </select>
-                    </label>
-                </div>
-                <div class="input-row" id="revisitDate" style="display: none;">
-                    <label style="width:53%;">Revisit Date : </label>
-                    <input style="width:47%;" type="date" id="revisitDateValue" value="2018-12-31">
+                    <label>Note: </label>
+                    <textarea id="note" placeholder="Ex: Take before meals" style="height: 100%;"></textarea>
                 </div>
             </form>
         </div>
@@ -91,10 +81,10 @@
     <div id="popover" class="popover">
         <ul class="table-view">
             <li class="table-view-cell"><a href="addMedical.html">Add Medical Record</a></li>
-            <li class="table-view-cell"><a href="addMedication.html">Add Medication Record</a></li>
+            <li class="table-view-cell" style="color:#10ac84;"><a href="addMedication.html" >Add Medication Record</a></li>
         </ul>
     </div>
-    <script src="js/addMedical.js" type="text/javascript"></script>
+    <script src="js/addMedication.js" type="text/javascript"></script>
 </body>
 
 </html>

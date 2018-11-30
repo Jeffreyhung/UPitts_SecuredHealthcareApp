@@ -39,24 +39,24 @@
                 </div>
                 <div class="input-row">
                     <label>Hospital: </label>
-                    <input type="text" id="hospital" placeholder="" required>
+                    <input type="text" id="hospital" placeholder="Hospital Name" required>
                 </div>
                 <div class="input-row">
                     <label>Doctor: </label>
-                    <input type="text" id="doctor" placeholder="" required>
+                    <input type="text" id="doctor" placeholder="Doctor Name" required>
                 </div>
                 <div class="input-row" style="height: 70px;">
                     <label>Problems: </label>
-                    <textarea id="problem" placeholder="" style="height: 100%;"></textarea>
+                    <textarea id="problem" placeholder="Ex: Headache" style="height: 100%;"></textarea>
                 </div>
                 <div class="input-row" style="height: 70px;">
                     <label>Threatments: </label>
-                    <textarea id="threatment" placeholder="" style="height: 100%;"></textarea>
+                    <textarea id="threatment" placeholder="Ex: Pain Killer" style="height: 100%;"></textarea>
                 </div>
                 <div class="input-row">
                     <label style="width:61%;">Revisit Required?</label>
                     <label style="width:39%;">
-                        <select id="revisit"  onchange="revisitShow(this.value)" required>
+                        <select id="revisit" onchange="revisitShow(this.value)" required>
                             <option value="" selected disabled hidden>Y/N</option>
                             <option value='1'>Yes</option>
                             <option value='0'>No</option>
@@ -90,7 +90,7 @@
     </nav>
     <div id="popover" class="popover">
         <ul class="table-view">
-            <li class="table-view-cell"><a href="addMedical.html">Add Medical Record</a></li>
+            <li class="table-view-cell" style="color:#10ac84;"><a href="addMedical.html">Add Medical Record</a></li>
             <li class="table-view-cell"><a href="addMedication.html">Add Medication Record</a></li>
         </ul>
     </div>

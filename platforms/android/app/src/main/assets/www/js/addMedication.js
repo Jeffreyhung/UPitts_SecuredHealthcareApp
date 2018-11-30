@@ -1,24 +1,16 @@
 var data, addData, parsedInfo;
-var medicalInfo = { "data": [] };
-
-function revisitShow(choice) {
-    if (choice == '1') {
-        document.getElementById("revisitDate").style.display = 'block';
-    } else {
-        document.getElementById("revisitDate").style.display = 'none';
-    }
-}
+var medicationInfo = { "data": [] };
 
 function afterRPFS() {
     requestTFS();
 }
 
 function afterRTFS() {
-    PFS.getFile("medicalInfo", { create: false }, fileExists, fileDoesNotExist);
+    PFS.getFile("medicationInfo", { create: false }, fileExists, fileDoesNotExist);
 }
 
 function fileExists(fileEntry) {
-    loadFile("medicalInfo", PFS);
+    loadFile("medicationInfo", PFS);
 }
 
 function fileDoesNotExist() {}
@@ -42,59 +34,55 @@ function loadFileSuccess(filename, content) { //called when load file success
 function loadSessionSuccess(content) {
     var decrypted = CryptoJS.AES.decrypt(data, content);
     content = null;
-    medicalInfo = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
-    console.log(medicalInfo);
+    medicationInfo = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
+    console.log(medicationInfo);
 }
 
 function validate() {
-    var date = document.getElementById("date").value;
-    var hospital = document.getElementById("hospital").value;
-    var doctor = document.getElementById("doctor").value;
-    var problem = document.getElementById("problem").value;
-    var threatment = document.getElementById("threatment").value;
-    var revisit = document.getElementById("revisit").value;
-    var revisitDate = document.getElementById("revisitDateValue").value;
-    if (!validateDate(date)) {
-        alert("Date included invalid characters");
+    var medicine = document.getElementById("medicine").value;
+    var dosage = document.getElementById("dosage").value;
+    var frequency = document.getElementById("frequency").value;
+    var startDate = document.getElementById("startDate").value;
+    var endDate = document.getElementById("endDate").value;
+    var note = document.getElementById("note").value;
+    if (!validateStictInput(medicine)) {
+        alert("Medicine included invalid characters");
         return;
-    } else if (!validateInput(hospital)) {
-        alert("Hospital included invalid characters");
+    } else if (!validateInput(dosage)) {
+        alert("Dosage included invalid characters");
         return;
-    } else if (!validateStictInput(doctor)) {
-        alert("Doctor included invalid characters");
+    } else if (!validateInput(frequency)) {
+        alert("Frequency included invalid characters");
         return;
-    } else if (!validateInput(problem)) {
-        alert("Problem included invalid characters");
+    } else if (!validateDate(startDate)) {
+        alert("Start Date included invalid characters");
         return;
-    } else if (!validateStictInput(threatment)) {
-        alert("Threatment included invalid characters");
+    } else if (!validateDate(endDate)) {
+        alert("End Date included invalid characters");
         return;
-    } else if (!validateNumbers(revisit)) {
-        alert("Revisit included invalid characters");
-        return;
-    } else if (!validateDate(revisitDate)) {
-        alert("Revisit Date included invalid characters");
+    } else if (!validateInput(note)) {
+        alert("Note included invalid characters");
         return;
     } else {
-        complie(date, hospital, doctor, problem, threatment, revisit, revisitDate);
+        complie(medicine, dosage, frequency, startDate, endDate, note);
     }
 }
 
-function complie(date, hospital, doctor, problem, threatment, revisit, revisitDate) {
-    addData = { "date": date, "hospital": hospital, "doctor": doctor, "problem": problem, "threatment": threatment, "revisit": revisit, "revisitDate": revisitDate };
-    medicalInfo['data'].push(addData);
+function complie(medicine, dosage, frequency, startDate, endDate, note) {
+    addData = { "medicine": medicine, "dosage": dosage, "frequency": frequency, "startDate": startDate, "endDate": endDate, "note": note};
+    medicationInfo['data'].push(addData);
     addData=null;
-    console.log(medicalInfo);
-    parsedInfo = JSON.stringify(medicalInfo);
+    console.log(medicationInfo);
+    parsedInfo = JSON.stringify(medicationInfo);
     console.log(parsedInfo);
-    medicalInfo = null;
+    medicationInfo = null;
     loadSession(encrypt);
 }
 
 function encrypt(content) {
     var encryptedData = CryptoJS.AES.encrypt(parsedInfo, content);
     content = null;
-    savePersistentFile("medicalInfo", encryptedData);
+    savePersistentFile("medicationInfo", encryptedData);
     encryptedData, parsedInfo = null;
 }
 
