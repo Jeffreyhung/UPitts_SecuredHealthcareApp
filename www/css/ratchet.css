@@ -913,7 +913,8 @@ select {
   line-height: 1.1;
 }
 
-.input-row input {
+.input-group input,
+.input-group textarea {
   float: right;
   width: 61%;
   padding-left: 0;
@@ -1012,7 +1013,7 @@ select {
   left: 50%;
   z-index: 20;
   display: none;
-  width: 280px;
+  width: 260px;
   margin-left: -140px;
   background-color: white;
   border-radius: 6px;

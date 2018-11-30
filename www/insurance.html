@@ -76,7 +76,7 @@
         <a class="tab-item" onclick="window.location = 'medical.html';">
                 <i class="fas fa-pills"></i>
             </a>
-        <a class="tab-item" onclick="window.location = 'medical.html';">
+        <a class="tab-item" href="#popover">
                 <i class="fas fa-plus"></i>
             </a>
         <a class="tab-item active" onclick="window.location = 'insurance.html';">
@@ -86,6 +86,12 @@
                 <i class="fas fa-address-book"></i>
             </a>
     </nav>
+    <div id="popover" class="popover">
+        <ul class="table-view">
+            <li class="table-view-cell"><a href="addMedical.html">Add Medical Record</a></li>
+            <li class="table-view-cell"><a href="addMedication.html">Add Medication Record</a></li>
+        </ul>
+    </div>
     <script src="js/insurance.js" type="text/javascript"></script>
 </body>
 
