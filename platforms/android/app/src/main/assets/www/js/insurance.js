@@ -1,4 +1,5 @@
-var sessionKey;
+var sessionKey, data;
+
 function SBtrigger() {
     var sb = document.getElementById("Sidebar");
     if (sb.style.width == '150px') {
@@ -13,11 +14,6 @@ function afterRPFS() {
 }
 
 function afterRTFS() {
-    loadSession();
-}
-
-function loadSessionSuccess(session, content) {
-    sessionKey = content;
     PFS.getFile("insurance", { create: false }, fileExists, fileDoesNotExist);
 }
 
@@ -30,7 +26,13 @@ function fileDoesNotExist() {
 }
 
 function loadFileSuccess(filename, content) { //called when load file success
-    var decrypted = CryptoJS.AES.decrypt(content, sessionKey);
+    data = content;
+    loadSession(decryption);
+}
+
+function decryption(session) {
+    var decrypted = CryptoJS.AES.decrypt(data, session);
+    session=null;
     var insurance = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
     document.getElementById("company").innerHTML = insurance.company;
     document.getElementById("phone").innerHTML = insurance.phone;

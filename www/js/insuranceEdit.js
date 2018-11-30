@@ -1,4 +1,4 @@
-var insurnaceInfo, sessionKey ;
+var insurnaceInfo, sessionKey, data;
 
 function afterRPFS() {
     requestTFS();
@@ -12,9 +12,7 @@ function fileExists(fileEntry) {
     loadFile("insurance", PFS);
 }
 
-function fileDoesNotExist() {
-    console.log("no file found");
-}
+function fileDoesNotExist() { }
 
 function SBtrigger() {
     var sb = document.getElementById("Sidebar");
@@ -28,14 +26,21 @@ function SBtrigger() {
 }
 
 function loadFileSuccess(filename, content) { //called when load file success
-    var insurance = JSON.parse(content);
-    console.log(insurance);
+    data = content;
+    loadSession(loadSessionSuccess);
+}
+
+function loadSessionSuccess(content){
+    var decrypted = CryptoJS.AES.decrypt(data, content);
+    content=null;
+    var insurance = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
     document.getElementById("company").value = insurance.company;
     document.getElementById("phone").value = insurance.phone;
     document.getElementById("policy").value = insurance.policy;
     document.getElementById("copay").value = insurance.copay;
     document.getElementById("name").value = insurance.name;
     document.getElementById("memberId").value = insurance.memberId;
+    insurance=null;
 }
 
 function validate() {
@@ -76,26 +81,16 @@ function complie(company, phone, policy, copay, name, memberId) {
         '" , "name":"' + name +
         '" , "memberId":"' + memberId +
         '"}';
-    loadSession();
+    loadSession(encrypt);
 }
 
-function loadSessionSuccess(session, content) {
-    sessionKey = content;
-    encrypt(insurnaceInfo);
-}
-
-function encrypt(text) {
-    console.log(sessionKey);
-    var encryptedData = CryptoJS.AES.encrypt(text, sessionKey);
-    // console.log(encryptedData);
-    // var encryptedStr = encryptedData.ciphertext.toString();
-    // console.log("encryptedStr");
-    // console.log(encryptedStr);
-    // var decrypted = CryptoJS.AES.decrypt(encryptedData, sessionKey);
-    // console.log(JSON.parse(decrypted.toString(CryptoJS.enc.Utf8)));
-    sessionKey=null;
+function encrypt(content) {
+    var encryptedData = CryptoJS.AES.encrypt(insurnaceInfo, content);
+    content = null;
     savePersistentFile("insurance", encryptedData);
+    encryptedData, insurnaceInfo, company, phone, policy, copay, name, memberId = null;
 }
+
 function savePersistentFileSuccess(filename) {
     location.replace("insurance.html");
 }
