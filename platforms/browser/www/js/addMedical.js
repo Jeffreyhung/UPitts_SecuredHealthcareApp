@@ -1,5 +1,5 @@
-var sessionKey, data, addData, parsedInfo;
-var medicalInfo={"data":[]};
+var data, addData, parsedInfo;
+var medicalInfo = { "data": [] };
 
 function revisitShow(choice) {
     if (choice == '1') {
@@ -21,9 +21,7 @@ function fileExists(fileEntry) {
     loadFile("medicalInfo", PFS);
 }
 
-function fileDoesNotExist() {
-    console.log("not");
-}
+function fileDoesNotExist() {}
 
 function SBtrigger() {
     var sb = document.getElementById("Sidebar");
@@ -44,7 +42,7 @@ function loadFileSuccess(filename, content) { //called when load file success
 function loadSessionSuccess(content) {
     var decrypted = CryptoJS.AES.decrypt(data, content);
     content = null;
-    var medicalInfo = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
+    medicalInfo = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
     console.log(medicalInfo);
 }
 
@@ -78,30 +76,26 @@ function validate() {
         alert("Revisit Date included invalid characters");
         return;
     } else {
-        complie(date,hospital, doctor, problem, threatment, revisit, revisitDate);
+        complie(date, hospital, doctor, problem, threatment, revisit, revisitDate);
     }
 }
 
-function complie(date,hospital, doctor, problem, threatment, revisit, revisitDate) {
-    addData = '{ "date":"' + date +
-        '" , "hospital":"' + hospital +
-        '" , "doctor":"' + doctor +
-        '" , "problem":"' + problem +
-        '" , "threatment":"' + threatment +
-        '" , "revisit":"' + revisit +
-        '" , "revisitDate":"' + revisitDate +
-        '"}';
+function complie(date, hospital, doctor, problem, threatment, revisit, revisitDate) {
+    addData = { "date": date, "hospital": hospital, "doctor": doctor, "problem": problem, "threatment": threatment, "revisit": revisit, "revisitDate": revisitDate };
     medicalInfo['data'].push(addData);
+    addData=null;
+    console.log(medicalInfo);
     parsedInfo = JSON.stringify(medicalInfo);
+    console.log(parsedInfo);
+    medicalInfo = null;
     loadSession(encrypt);
 }
 
 function encrypt(content) {
-    console.log(parsedInfo);
     var encryptedData = CryptoJS.AES.encrypt(parsedInfo, content);
     content = null;
     savePersistentFile("medicalInfo", encryptedData);
-    encryptedData = null;
+    encryptedData, parsedInfo = null;
 }
 
 function savePersistentFileSuccess(filename) {
