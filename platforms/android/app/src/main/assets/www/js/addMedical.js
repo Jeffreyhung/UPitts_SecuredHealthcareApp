@@ -1,18 +1,29 @@
-var insurnaceInfo, sessionKey, data;
+var sessionKey, data, addData, parsedInfo;
+var medicalInfo={"data":[]};
+
+function revisitShow(choice) {
+    if (choice == '1') {
+        document.getElementById("revisitDate").style.display = 'block';
+    } else {
+        document.getElementById("revisitDate").style.display = 'none';
+    }
+}
 
 function afterRPFS() {
     requestTFS();
 }
 
 function afterRTFS() {
-    PFS.getFile("insurance", { create: false }, fileExists, fileDoesNotExist);
+    PFS.getFile("medicalInfo", { create: false }, fileExists, fileDoesNotExist);
 }
 
 function fileExists(fileEntry) {
-    loadFile("insurance", PFS);
+    loadFile("medicalInfo", PFS);
 }
 
-function fileDoesNotExist() { }
+function fileDoesNotExist() {
+    console.log("not");
+}
 
 function SBtrigger() {
     var sb = document.getElementById("Sidebar");
@@ -30,67 +41,69 @@ function loadFileSuccess(filename, content) { //called when load file success
     loadSession(loadSessionSuccess);
 }
 
-function loadSessionSuccess(content){
+function loadSessionSuccess(content) {
     var decrypted = CryptoJS.AES.decrypt(data, content);
-    content=null;
-    var insurance = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
-    document.getElementById("company").value = insurance.company;
-    document.getElementById("phone").value = insurance.phone;
-    document.getElementById("policy").value = insurance.policy;
-    document.getElementById("copay").value = insurance.copay;
-    document.getElementById("name").value = insurance.name;
-    document.getElementById("memberId").value = insurance.memberId;
-    insurance=null;
+    content = null;
+    var medicalInfo = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
+    console.log(medicalInfo);
 }
 
 function validate() {
-    var company = document.getElementById("company").value;
-    var phone = document.getElementById("phone").value;
-    var policy = document.getElementById("policy").value;
-    var copay = document.getElementById("copay").value;
-    var name = document.getElementById("name").value;
-    var memberId = document.getElementById("memberId").value;
-    if (!validateInput(company)) {
-        alert("Company included invalid characters");
+    var date = document.getElementById("date").value;
+    var hospital = document.getElementById("hospital").value;
+    var doctor = document.getElementById("doctor").value;
+    var problem = document.getElementById("problem").value;
+    var threatment = document.getElementById("threatment").value;
+    var revisit = document.getElementById("revisit").value;
+    var revisitDate = document.getElementById("revisitDateValue").value;
+    if (!validateDate(date)) {
+        alert("Date included invalid characters");
         return;
-    } else if (!validatePhone(phone)) {
-        alert("Phone included invalid characters");
+    } else if (!validateInput(hospital)) {
+        alert("Hospital included invalid characters");
         return;
-    } else if (!validateInput(policy)) {
-        alert("Policy included invalid characters");
+    } else if (!validateStictInput(doctor)) {
+        alert("Doctor included invalid characters");
         return;
-    } else if (!validateInput(copay)) {
-        alert("Copay included invalid characters");
+    } else if (!validateInput(problem)) {
+        alert("Problem included invalid characters");
         return;
-    } else if (!validateStictInput(name)) {
-        alert("Name included invalid characters");
+    } else if (!validateStictInput(threatment)) {
+        alert("Threatment included invalid characters");
         return;
-    } else if (!validateInput(memberId)) {
-        alert("Member ID included invalid characters");
+    } else if (!validateNumbers(revisit)) {
+        alert("Revisit included invalid characters");
+        return;
+    } else if (!validateDate(revisitDate)) {
+        alert("Revisit Date included invalid characters");
         return;
     } else {
-        complie(company, phone, policy, copay, name, memberId);
+        complie(date,hospital, doctor, problem, threatment, revisit, revisitDate);
     }
 }
 
-function complie(company, phone, policy, copay, name, memberId) {
-    insurnaceInfo = '{ "company":"' + company +
-        '" , "phone":"' + phone +
-        '" , "policy":"' + policy +
-        '" , "copay":"' + copay +
-        '" , "name":"' + name +
-        '" , "memberId":"' + memberId +
+function complie(date,hospital, doctor, problem, threatment, revisit, revisitDate) {
+    addData = '{ "date":"' + date +
+        '" , "hospital":"' + hospital +
+        '" , "doctor":"' + doctor +
+        '" , "problem":"' + problem +
+        '" , "threatment":"' + threatment +
+        '" , "revisit":"' + revisit +
+        '" , "revisitDate":"' + revisitDate +
         '"}';
+    medicalInfo['data'].push(addData);
+    parsedInfo = JSON.stringify(medicalInfo);
     loadSession(encrypt);
 }
 
 function encrypt(content) {
-    var encryptedData = CryptoJS.AES.encrypt(insurnaceInfo, content);
+    console.log(parsedInfo);
+    var encryptedData = CryptoJS.AES.encrypt(parsedInfo, content);
     content = null;
-    savePersistentFile("insurance", encryptedData);
-    encryptedData, insurnaceInfo, company, phone, policy, copay, name, memberId = null;
+    savePersistentFile("medicalInfo", encryptedData);
+    encryptedData = null;
 }
 
 function savePersistentFileSuccess(filename) {
-    location.replace("insurance.html");
+    //location.replace("home.html");
 }
