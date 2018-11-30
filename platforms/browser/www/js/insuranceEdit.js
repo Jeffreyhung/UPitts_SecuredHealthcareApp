@@ -1,10 +1,10 @@
-var insuranceInfo;
+var insurnaceInfo, sessionKey ;
 
 function afterRPFS() {
-	requestTFS();
+    requestTFS();
 }
 
-function afterRTFS(){
+function afterRTFS() {
     PFS.getFile("insurance", { create: false }, fileExists, fileDoesNotExist);
 }
 
@@ -29,7 +29,7 @@ function SBtrigger() {
 
 function loadFileSuccess(filename, content) { //called when load file success
     var insurance = JSON.parse(content);
-	console.log(insurance);
+    console.log(insurance);
     document.getElementById("company").value = insurance.company;
     document.getElementById("phone").value = insurance.phone;
     document.getElementById("policy").value = insurance.policy;
@@ -64,12 +64,11 @@ function validate() {
         alert("Member ID included invalid characters");
         return;
     } else {
-        save(company, phone, policy, copay, name, memberId);
+        complie(company, phone, policy, copay, name, memberId);
     }
 }
 
-function save(company, phone, policy, copay, name, memberId) {
-    var insurnaceInfo;
+function complie(company, phone, policy, copay, name, memberId) {
     insurnaceInfo = '{ "company":"' + company +
         '" , "phone":"' + phone +
         '" , "policy":"' + policy +
@@ -77,9 +76,26 @@ function save(company, phone, policy, copay, name, memberId) {
         '" , "name":"' + name +
         '" , "memberId":"' + memberId +
         '"}';
-    savePersistentFile("insurance", insurnaceInfo);
+    loadSession();
 }
 
+function loadSessionSuccess(session, content) {
+    sessionKey = content;
+    encrypt(insurnaceInfo);
+}
+
+function encrypt(text) {
+    console.log(sessionKey);
+    var encryptedData = CryptoJS.AES.encrypt(text, sessionKey);
+    // console.log(encryptedData);
+    // var encryptedStr = encryptedData.ciphertext.toString();
+    // console.log("encryptedStr");
+    // console.log(encryptedStr);
+    // var decrypted = CryptoJS.AES.decrypt(encryptedData, sessionKey);
+    // console.log(JSON.parse(decrypted.toString(CryptoJS.enc.Utf8)));
+    sessionKey=null;
+    savePersistentFile("insurance", encryptedData);
+}
 function savePersistentFileSuccess(filename) {
     location.replace("insurance.html");
 }

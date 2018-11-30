@@ -70,12 +70,12 @@ function loadFile(filename, fsDir) { // read file
     }, errorHandler);
 }
 
-function loadSession(fsDir) { // read file
-    fsDir.getFile(session, {}, function(fileEntry) {
+function loadSession() { // read file
+    TFS.getFile("session", {}, function(fileEntry) {
         fileEntry.file(function(file) {
             var reader = new FileReader();
             reader.onload = function(e) {
-                loadSessionSuccessSuccess(session, this.result); //called after loadSession
+                loadSessionSuccess("session", this.result); //called after loadSession
             };
             reader.readAsText(file);
         }, errorHandler);
