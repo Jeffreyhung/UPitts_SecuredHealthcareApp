@@ -16,6 +16,7 @@
     window.onload = function() {
         document.addEventListener("deviceready", requestPFS, false);
     }
+
     function afterRPFS() {
         requestTFS();
     }
@@ -52,21 +53,33 @@
     </div>
     <nav class="bar bar-tab">
         <a class="tab-item"  onclick="window.location = 'health.html';">
-				<i class="fas fa-hospital"></i>
-			</a>
+                <i class="fas fa-hospital"></i>
+            </a>
         <a class="tab-item" onclick="window.location = 'medical.html';">
-				<i class="fas fa-pills"></i>
-			</a>
-        <a class="tab-item" onclick="window.location = '#.html';">
-				<i class="fas fa-plus"></i>
-			</a>
+                <i class="fas fa-pills"></i>
+            </a>
+        <a class="tab-item" href="#popover">
+                <i class="fas fa-plus"></i>
+            </a>
         <a class="tab-item" onclick="window.location = 'insurance.html';">
-				<i class="fas fa-money-check"></i>
-			</a>
+                <i class="fas fa-money-check"></i>
+            </a>
         <a class="tab-item" onclick="window.location = 'contact.html';">
-				<i class="fas fa-address-book"></i>
-			</a>
+                <i class="fas fa-address-book"></i>
+            </a>
     </nav>
+    <div id="popover" class="popover">
+        <ul class="table-view">
+            <li class="table-view-cell">Item1</li>
+            <li class="table-view-cell">Item2</li>
+            <li class="table-view-cell">Item3</li>
+            <li class="table-view-cell">Item4</li>
+            <li class="table-view-cell">Item5</li>
+            <li class="table-view-cell">Item6</li>
+            <li class="table-view-cell">Item7</li>
+            <li class="table-view-cell">Item8</li>
+        </ul>
+    </div>
     <script type="text/javascript" src="js/general.js"></script>
 </body>
 

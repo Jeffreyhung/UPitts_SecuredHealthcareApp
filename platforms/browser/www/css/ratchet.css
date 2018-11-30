@@ -1008,7 +1008,7 @@ select {
 
 .popover {
   position: fixed;
-  top: 55px;
+  bottom: 55px;
   left: 50%;
   z-index: 20;
   display: none;
@@ -1028,14 +1028,14 @@ select {
 }
 .popover:before {
   position: absolute;
-  top: -15px;
+  bottom: -15px;
   left: 50%;
   width: 0;
   height: 0;
   margin-left: -15px;
   content: '';
   border-right: 15px solid transparent;
-  border-bottom: 15px solid white;
+  border-top: 15px solid white;
   border-left: 15px solid transparent;
 }
 .popover.visible {
