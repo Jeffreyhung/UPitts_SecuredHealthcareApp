@@ -87,5 +87,5 @@ function encrypt(content) {
 }
 
 function savePersistentFileSuccess(filename) {
-    //location.replace("home.html");
+    location.replace("home.html");
 }

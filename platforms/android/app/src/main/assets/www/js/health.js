@@ -1,4 +1,4 @@
-var data, addData, medicalInfo;
+var data, addData;
 function afterRPFS() {
     requestTFS();
 }
@@ -9,10 +9,11 @@ function afterRTFS() {
 
 function fileExists(fileEntry) {
     loadFile("medicalInfo", PFS);
+    document.getElementById("defaultMessage").style.display = 'block';
 }
 
 function fileDoesNotExist() {
-    console.log("no file found");
+    document.getElementById("defaultMessage").style.display = 'block';
 }
 
 function SBtrigger() {
@@ -34,7 +35,19 @@ function loadFileSuccess(filename, content) { //called when load file success
 function loadSessionSuccess(content) {
     var decrypted = CryptoJS.AES.decrypt(data, content);
     content = null;
-    medicalInfo = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
+    var medicalInfo = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
     decrypt=null;
     console.log(medicalInfo);
+    showData(medicalInfo);
+}
+
+function showData(info) {
+    var ul = document.getElementById("dataTable");
+    for (i in info.data) {
+        console.log(info.data[i]);
+        var li = document.createElement("li");
+        li.className  = "table-view-cell";
+        li.appendChild(document.createTextNode(info.data[i]));
+        ul.appendChild(li);
+    }
 }
