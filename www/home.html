@@ -33,6 +33,17 @@
 
     function loadFileSuccess(filename, content) { //called when load file success
     }
+
+    function SBtrigger() {
+        var sb = document.getElementById("Sidebar");
+        if (sb.style.width == '150px') {
+            document.getElementById("Sidebar").style.width = "0";
+            //document.getElementById("main").style.marginLeft= "0";
+        } else {
+            document.getElementById("Sidebar").style.width = "150px";
+            //document.getElementById("main").style.marginLeft = "150px";
+        }
+    }
     </script>
 </head>
 
@@ -71,7 +82,6 @@
             <li class="table-view-cell"><a onclick="window.location = 'addMedication.html';">Add Medication Record</a></li>
         </ul>
     </div>
-    <!-- <script type="text/javascript" src="js/general.js"></script> -->
 </body>
 
 </html>

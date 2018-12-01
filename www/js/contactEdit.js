@@ -6,9 +6,7 @@ function fileExists(fileEntry) {
     loadFile("contact", PFS);
 }
 
-function fileDoesNotExist() {
-    console.log("fail");
-}
+function fileDoesNotExist() { }
 
 var select = document.getElementById('weight_integer');
 for (var i = 0; i <= 400; i++) {
