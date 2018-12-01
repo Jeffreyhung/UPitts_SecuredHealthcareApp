@@ -5,11 +5,11 @@ function afterRPFS() {
 }
 
 function afterRTFS() {
-    PFS.getFile("medicalInfo", { create: false }, fileExists, fileDoesNotExist);
+    PFS.getFile("medicationInfo", { create: false }, fileExists, fileDoesNotExist);
 }
 
 function fileExists(fileEntry) {
-    loadFile("medicalInfo", PFS);
+    loadFile("medicationInfo", PFS);
     document.getElementById("defaultMessage").style.display = 'none';
 }
 
@@ -36,34 +36,36 @@ function loadFileSuccess(filename, content) { //called when load file success
 function loadSessionSuccess(content) {
     var decrypted = CryptoJS.AES.decrypt(data, content);
     content = null;
-    var medicalInfo = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
+    var medicationInfo = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
     decrypt = null;
-    showData(medicalInfo);
-    medicalInfo = null;
+    console.log(medicationInfo);
+    showData(medicationInfo);
+    medicationInfo = null;
 }
 
 function showData(info) {
     var ul = document.getElementById("dataTable");
     var temp = "";
     for (i in info.data) {
+        console.log(info.data[i]);
         var li = document.createElement("li");
         var p = document.createElement("p");
         li.className = "table-view-cell";
-        li.appendChild(document.createTextNode(info.data[i].date));
+        li.appendChild(document.createTextNode(info.data[i].medicine));
 
-        temp = "Hospital : " + info.data[i].hospital;
+        temp = "Dosage : " + info.data[i].dosage;
         p.appendChild(document.createTextNode('\u00A0\u00A0\u00A0'));
         p.appendChild(document.createTextNode(temp));
         p.appendChild(document.createElement("br"));
-        temp = "Doctor : " + info.data[i].doctor;
+        temp = "Frequency : " + info.data[i].frequency;
         p.appendChild(document.createTextNode('\u00A0\u00A0\u00A0'));
         p.appendChild(document.createTextNode(temp));
         p.appendChild(document.createElement("br"));
-        temp = "Problem : " + info.data[i].problem;
+        temp = "Time : " + info.data[i].startDate + " ~ " + info.data[i].endDate;
         p.appendChild(document.createTextNode('\u00A0\u00A0\u00A0'));
         p.appendChild(document.createTextNode(temp));
         p.appendChild(document.createElement("br"));
-        temp = "Threatmeat : " + info.data[i].threatment;
+        temp = "Note : " + info.data[i].note;
         p.appendChild(document.createTextNode('\u00A0\u00A0\u00A0'));
         p.appendChild(document.createTextNode(temp));
         p.appendChild(document.createElement("br"));

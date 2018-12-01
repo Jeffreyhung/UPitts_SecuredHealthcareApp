@@ -1,4 +1,5 @@
 var data, addData;
+
 function afterRPFS() {
     requestTFS();
 }
@@ -36,19 +37,18 @@ function loadSessionSuccess(content) {
     var decrypted = CryptoJS.AES.decrypt(data, content);
     content = null;
     var medicalInfo = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
-    decrypt=null;
-    console.log(medicalInfo);
+    decrypt = null;
     showData(medicalInfo);
+    medicalInfo = null;
 }
 
 function showData(info) {
     var ul = document.getElementById("dataTable");
-    var temp="";
+    var temp = "";
     for (i in info.data) {
-        console.log(info.data[i]);
         var li = document.createElement("li");
         var p = document.createElement("p");
-        li.className  = "table-view-cell";
+        li.className = "table-view-cell";
         li.appendChild(document.createTextNode(info.data[i].date));
 
         temp = "Hospital : " + info.data[i].hospital;
@@ -67,8 +67,9 @@ function showData(info) {
         p.appendChild(document.createTextNode('\u00A0\u00A0\u00A0'));
         p.appendChild(document.createTextNode(temp));
         p.appendChild(document.createElement("br"));
-        var temp =null;
+        temp = null;
         li.appendChild(p);
         ul.appendChild(li);
     }
+    p, li, ul, temp = null;
 }
