@@ -69,9 +69,9 @@ function validate() {
 }
 
 function complie(medicine, dosage, frequency, startDate, endDate, note) {
-    addData = { "medicine": medicine, "dosage": dosage, "frequency": frequency, "startDate": startDate, "endDate": endDate, "note": note};
+    addData = { "medicine": medicine, "dosage": dosage, "frequency": frequency, "startDate": startDate, "endDate": endDate, "note": note };
     medicationInfo['data'].push(addData);
-    addData=null;
+    addData = null;
     console.log(medicationInfo);
     parsedInfo = JSON.stringify(medicationInfo);
     console.log(parsedInfo);

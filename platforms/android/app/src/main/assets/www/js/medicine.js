@@ -38,7 +38,6 @@ function loadSessionSuccess(content) {
     content = null;
     var medicationInfo = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
     decrypt = null;
-    console.log(medicationInfo);
     showData(medicationInfo);
     medicationInfo = null;
 }
@@ -47,7 +46,6 @@ function showData(info) {
     var ul = document.getElementById("dataTable");
     var temp = "";
     for (i in info.data) {
-        console.log(info.data[i]);
         var li = document.createElement("li");
         var p = document.createElement("p");
         li.className = "table-view-cell";

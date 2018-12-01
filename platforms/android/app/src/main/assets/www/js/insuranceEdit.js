@@ -9,8 +9,7 @@ function afterRTFS() {
 }
 
 function fileExists(fileEntry) {
-    loadFile("insurance", PFS);
-}
+    loadFile("insurance", PFS);}
 
 function fileDoesNotExist() { }
 

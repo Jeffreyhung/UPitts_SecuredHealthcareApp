@@ -32,7 +32,7 @@ function loadFileSuccess(filename, content) { //called when load file success
 
 function decryption(session) {
     var decrypted = CryptoJS.AES.decrypt(data, session);
-    session=null;
+    session = null;
     var insurance = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
     document.getElementById("company").innerHTML = insurance.company;
     document.getElementById("phone").innerHTML = insurance.phone;

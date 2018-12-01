@@ -4,8 +4,7 @@ var TFS = null;
 function requestPFS() {
     window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
-    //window.requestFileSystem(PERSISTENT, 0, function(fs) {
-        //PFS = fs;
+        //window.requestFileSystem(PERSISTENT, 0, function(fs) {
         PFS = fs.root;
         afterRPFS(); //call after initFileSystem
     }, errorHandler);
@@ -14,27 +13,26 @@ function requestPFS() {
 function requestTFS() {
     window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
     window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function(fs) {
-    // window.requestFileSystem(TEMPORARY, 5 * 1024 * 1024, function(fs) {
-        //TFS = fs;
+        // window.requestFileSystem(TEMPORARY, 5 * 1024 * 1024, function(fs) {
         TFS = fs.root;
         afterRTFS(); //call after initFileSystem
     }, errorHandler);
 }
-
-function setDirectory(dir) { //set directory
+//set directory
+function setDirectory(dir) {
     filesystem.root.getDirectory(dir, { create: true }, function(entry) {
-        dirEntry = entry; //set directory
+        dirEntry = entry;
         afterSetDirectory(); //called after setDirectory
     }, errorHandler);
 }
-
-function savePersistentFile(filename, content) { //save file
+//save persistent file
+function savePersistentFile(filename, content) {
     PFS.getFile(filename, { create: true, exclusive: false }, function(fileEntry) {
         fileEntry.createWriter(function(fileWriter) {
             fileWriter.onwriteend = function(e) {
                 savePersistentFileSuccess(filename); //called after saveFile
             };
-            fileWriter.onerror = function(e) { //error
+            fileWriter.onerror = function(e) {
                 console.log('Write error: ' + e.toString());
                 alert('Unable to save file');
             };
@@ -42,14 +40,14 @@ function savePersistentFile(filename, content) { //save file
         }, errorHandler);
     }, errorHandler);
 }
-
-function saveTemporaryFile(filename, content) { //save file
+//save temporary file
+function saveTemporaryFile(filename, content) {
     TFS.getFile(filename, { create: true, exclusive: false }, function(fileEntry) {
         fileEntry.createWriter(function(fileWriter) {
             fileWriter.onwriteend = function(e) {
                 saveTemporaryFileSuccess(filename); //called after saveFile
             };
-            fileWriter.onerror = function(e) { //error
+            fileWriter.onerror = function(e) {
                 console.log('Write error: ' + e.toString());
                 alert('Unable to save file');
             };
@@ -57,8 +55,8 @@ function saveTemporaryFile(filename, content) { //save file
         }, errorHandler);
     }, errorHandler);
 }
-
-function loadFile(filename, fsDir) { // read file
+//read file
+function loadFile(filename, fsDir) {
     fsDir.getFile(filename, {}, function(fileEntry) {
         fileEntry.file(function(file) {
             var reader = new FileReader();
@@ -69,71 +67,29 @@ function loadFile(filename, fsDir) { // read file
         }, errorHandler);
     }, errorHandler);
 }
-
-function loadSession(callFunction) { // read file
+// load session file in temporary file system
+function loadSession(callFunction) {
     TFS.getFile("session", {}, function(fileEntry) {
         fileEntry.file(function(file) {
             var reader = new FileReader();
             reader.onload = function(e) {
-            	callFunction(this.result); //called after loadSession
+                callFunction(this.result); //called after loadSession
             };
             reader.readAsText(file);
         }, errorHandler);
     }, errorHandler);
 }
-
-function deleteFile(filename, fsDir) { //delete file
+//delete file
+function deleteFile(filename, fsDir) {
     fsDir.getFile(filename, { create: false }, function(fileEntry) {
         fileEntry.remove(function(e) {
             deleteFileSuccess(); //called after deletefile
         }, errorHandler);
     }, errorHandler);
 }
-
-function listFiles(fsDir) { // list filesa
-    var dirReader = fsDir.createReader();
-    var entries = [];
-
-    var fetchEntries = function() {
-        dirReader.readEntries(function(results) {
-            if (!results.length) { //finish reading
-                displayEntries(entries); //called after listFiles returns Entry array
-            } else {
-                entries = entries.concat(results);
-                fetchEntries(); //read next item
-            }
-        }, errorHandler);
-    };
-
-    fetchEntries();
-}
-
-function displayEntries(entries) { //called when listfiles is success
-    var waitDir = [];
-    console.log("listfiles");
-    console.log(entries);
-    entries.forEach(function(entry, i) {
-        if (!entry.isFile) waitDir.push(entry.name); //儲存目錄
-        else {
-            //列出檔案
-            console.log(entry.isFile) //此entry是否為檔案
-            console.log(entry.name) //取得名稱
-            console.log(entry.toURL()) //取得位置
-            //$("#fileList").append("<li><a onClick=\"#\"><h3>"+entry.name+"</h3><p>"+entry.toURL()+"</p></li>");
-        }
-    });
-    if (waitDir.length != 0) { //有目錄未讀取
-        dir = waitDir.pop(); //取出未讀取目錄
-        setDirectory(dir); //指定檔案目錄
-    } else {
-        //結束讀取檔案清單
-        //$("#fileList").listview('refresh');
-    }
-}
-
+// error handler
 function errorHandler(error) {
     var message = '';
-
     switch (error.code) {
         case FileError.SECURITY_ERR:
             message = 'Security Error';

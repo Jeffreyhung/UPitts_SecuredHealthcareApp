@@ -83,7 +83,7 @@ function validate() {
 function complie(date, hospital, doctor, problem, threatment, revisit, revisitDate) {
     addData = { "date": date, "hospital": hospital, "doctor": doctor, "problem": problem, "threatment": threatment, "revisit": revisit, "revisitDate": revisitDate };
     medicalInfo['data'].push(addData);
-    addData=null;
+    addData = null;
     console.log(medicalInfo);
     parsedInfo = JSON.stringify(medicalInfo);
     console.log(parsedInfo);
