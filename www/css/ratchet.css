@@ -564,7 +564,7 @@ input[type="button"] {
   text-align: center;
   vertical-align: middle;
 }
-.bar-tab .tab-item.active, .bar-tab .tab-item:active {
+.bar-tab .tab-item.active, .bar-tab .tab-item:active, .table-view-cell:active {
   color: #10ac84;
 }
 .bar-tab .tab-item .icon {
@@ -921,6 +921,7 @@ select {
   padding-left: 0;
   margin-bottom: 0;
   border: 0;
+  margin-top:5px;
 }
 
 .segmented-control {

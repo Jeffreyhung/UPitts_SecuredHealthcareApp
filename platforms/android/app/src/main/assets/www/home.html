@@ -5,16 +5,15 @@
     <meta charset="utf-8">
     <title>Home</title>
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
-    <script src="js/ratchet.js"></script>
     <link href="css/ratchet.css" rel="stylesheet">
     <link href="css/fontawesome.css" rel="stylesheet">
     <link href="css/sidebar.css" rel="stylesheet">
+    <script src="js/ratchet.js" type="text/javascript"></script>
     <script src="cordova.js" type="text/javascript"></script>
-    <script src="js/filesystem.js"></script>
-    <style> </style>
+    <script src="js/filesystem.js" type="text/javascript"></script>
     <script type="text/javascript">
     window.onload = function() {
-        document.addEventListener("deviceready", requestPFS, false);
+        requestPFS();
     }
 
     function afterRPFS() {
@@ -38,7 +37,6 @@
 </head>
 
 <body>
-    <!-- Make sure all your bars are the first things in your <body> -->
     <header class="bar bar-nav">
         <a class="icon icon-bars pull-left" onclick="SBtrigger()"></a>
         <h1 class="title"><b>Healthcare App</b></h1>
@@ -48,7 +46,6 @@
         <a onclick="window.location = 'support.html';"><i class="fas fa-headset"></i>&nbsp; &nbsp; Support</a>
         <a onclick="window.location = '#.html';"><i class="fas fa-sign-out-alt"></i>&nbsp; &nbsp; Sign-out</a>
     </div>
-    <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
     <div class="content" id="main">
     </div>
     <nav class="bar bar-tab">
@@ -70,11 +67,11 @@
     </nav>
     <div id="popover" class="popover">
         <ul class="table-view">
-            <li class="table-view-cell"><a href="addMedical.html">Add Medical Record</a></li>
-            <li class="table-view-cell"><a href="addMedication.html">Add Medication Record</a></li>
+            <li class="table-view-cell"><a onclick="window.location = 'addMedical.html';">Add Medical Record</a></li>
+            <li class="table-view-cell"><a onclick="window.location = 'addMedication.html';">Add Medication Record</a></li>
         </ul>
     </div>
-    <script type="text/javascript" src="js/general.js"></script>
+    <!-- <script type="text/javascript" src="js/general.js"></script> -->
 </body>
 
 </html>

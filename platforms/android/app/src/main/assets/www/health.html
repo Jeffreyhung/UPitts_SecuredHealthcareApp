@@ -15,24 +15,6 @@
     window.onload = function() {
         requestPFS();
     }
-
-    function afterRPFS() {
-        requestTFS();
-    }
-
-    function afterRTFS() {
-        loadFile("session", TFS);
-        loadFile("userinfo", PFS);
-    }
-
-    function saveFileSuccess(filename) { // called when saved file success
-        console.log("saveFileSuccess");
-        listFiles();
-        loadFile(filename);
-    }
-
-    function loadFileSuccess(filename, content) { //called when load file success
-    }
     </script>
 </head>
 
@@ -71,7 +53,7 @@
             <li class="table-view-cell"><a onclick="window.location = 'addMedication.html';">Add Medication Record</a></li>
         </ul>
     </div>
-    <!-- <script type="text/javascript" src="js/general.js"></script> -->
+    <script type="text/javascript" src="js/health.js"></script>
 </body>
 
 </html>
