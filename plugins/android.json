@@ -18,6 +18,9 @@
     },
     "cordova-plugin-media-capture": {
       "PACKAGE_NAME": "com.CHH162.SecuredHealthcareApp"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.CHH162.SecuredHealthcareApp"
     }
   },
   "dependent_plugins": {
