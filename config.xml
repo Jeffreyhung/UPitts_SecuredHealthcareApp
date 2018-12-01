@@ -1,49 +1,17 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.CHH162.SecuredHealthcareApp" version="1.0.0" versionCode="" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>
-		SecuredHealthcareApp
-	</name>
+        SecuredHealthcareApp
+    </name>
     <description>
-		A secured Healthcare Mobile Application
-	</description>
+        A secured Healthcare Mobile Application
+    </description>
     <author email="jeffreyhung@hotmail.com.tw" href="https://github.com/Jeffreyhung">
-		Chi-Heng Hung
-	</author>
-    <feature name="http://api.phonegap.com/1.0/file" />
-    <feature name="http://api.phonegap.com/1.0/network" />
-    <feature name="http://api.phonegap.com/1.0/notification" />
-    <preference name="phonegap-version" value="cli-6.5.0" />
-    <preference name="android-build-tool" value="gradle" />
-    <preference name="orientation" value="default" />
-    <preference name="fullscreen" value="false" />
-    <preference name="target-device" value="universal" />
-    <preference name="webviewbounce" value="true" />
-    <preference name="prerendered-icon" value="false" />
-    <preference name="stay-in-webview" value="true" />
-    <preference name="ios-statusbarstyle" value="default" />
-    <preference name="detect-data-types" value="true" />
-    <preference name="exit-on-suspend" value="true" />
-    <preference name="show-splash-screen-spinner" value="true" />
-    <preference name="auto-hide-splash-screen" value="true" />
-    <preference name="FadeSplashScreen " value="true" />
-    <preference name="EnableViewportScale" value="false" />
-    <preference name="MediaPlaybackRequiresUserAction" value="false" />
-    <preference name="AllowInlineMediaPlayback" value="true" />
-    <preference name="BackupWebStorage" value="none" />
-    <preference name="TopActivityIndicator" value="white" />
-    <preference name="KeyboardDisplayRequiresUserAction" value="true" />
-    <preference name="KeyboardShrinksView " value="true" />
-    <preference name="HideKeyboardFormAccessoryBar" value="true" />
-    <preference name="SuppressesIncrementalRendering" value="false" />
-    <preference name="windows-identity-name" value="" />
-    <preference name="android-minSdkVersion" value="14" />
-    <preference name="android-installLocation" value="auto" />
-    <preference name="SplashScreenDelay" value="2000" />
-    <preference name="ErrorUrl" value="null" />
-    <preference name="BackgroundColor" value="0x000000" />
+        Chi-Heng Hung
+    </author>
+    <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="LoadingDialog" value="," />
-    <preference name="LoadUrlTimeoutValue" value="null" />
+    <preference name="android-minSdkVersion" value="14" />
     <platform name="ios">
         <icon height="1024" src="res/icon/ios/icon-1024.png" width="1024" />
         <icon height="29" src="res/icon/ios/icon-small.png" width="29" />
@@ -89,6 +57,7 @@
         <splash density="port-xxxhdpi" src="res/screen/android/splash-port-xxxhdpi.png" />
     </platform>
     <icon src="icon.png" />
+    <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -100,8 +69,6 @@
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
-    </platform>
-    <platform name="ios">
         <allow-intent href="itms-apps:*" />
     </platform>
     <engine name="android" spec="~7.1.4" />
