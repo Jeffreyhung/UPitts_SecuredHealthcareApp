@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src *; object-src *; style-src *; img-src *; font-src *">
     <script src="cordova.js" type="text/javascript"></script>
     <!-- <link href="css/loader.css" rel="stylesheet"> -->
     <script src="js/filesystem.js"></script>
@@ -21,7 +22,8 @@
     }
 
     function fileDoesNotExist() {
-        location.replace("signup.html");
+        location.replace("support.html");
+        // location.replace("signup.html");
     }
     </script>
 </head>

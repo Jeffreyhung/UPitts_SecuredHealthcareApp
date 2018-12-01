@@ -7,12 +7,6 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-battery-status": {
-      "PACKAGE_NAME": "SecuredHealthcareApp"
-    },
-    "cordova-plugin-camera": {
-      "PACKAGE_NAME": "SecuredHealthcareApp"
-    },
     "cordova-plugin-media-capture": {
       "PACKAGE_NAME": "SecuredHealthcareApp"
     },
@@ -22,19 +16,7 @@
     "cordova-plugin-dialogs": {
       "PACKAGE_NAME": "SecuredHealthcareApp"
     },
-    "cordova-plugin-geolocation": {
-      "PACKAGE_NAME": "SecuredHealthcareApp"
-    },
-    "cordova-plugin-globalization": {
-      "PACKAGE_NAME": "SecuredHealthcareApp"
-    },
     "cordova-plugin-inappbrowser": {
-      "PACKAGE_NAME": "SecuredHealthcareApp"
-    },
-    "cordova-plugin-network-information": {
-      "PACKAGE_NAME": "SecuredHealthcareApp"
-    },
-    "cordova-plugin-vibration": {
       "PACKAGE_NAME": "SecuredHealthcareApp"
     }
   },
