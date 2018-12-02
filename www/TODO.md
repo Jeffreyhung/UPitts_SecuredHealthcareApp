@@ -7,4 +7,3 @@ device return handle
 Setting
 	remove all data
 	download all data
-	
