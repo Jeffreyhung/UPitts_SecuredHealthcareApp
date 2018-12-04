@@ -273,6 +273,14 @@ module.exports = [
     "file": "plugins/cordova-plugin-media-capture/www/android/init.js",
     "pluginId": "cordova-plugin-media-capture",
     "runs": true
+  },
+  {
+    "id": "cordova-plugin-splashscreen.SplashScreen",
+    "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+    "pluginId": "cordova-plugin-splashscreen",
+    "clobbers": [
+      "navigator.splashscreen"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -283,7 +291,8 @@ module.exports.metadata =
   "cordova-plugin-file": "4.3.3",
   "cordova-plugin-inappbrowser": "1.7.2",
   "cordova-plugin-media-capture": "1.4.3",
-  "cordova-plugin-whitelist": "1.3.3"
+  "cordova-plugin-whitelist": "1.3.3",
+  "cordova-plugin-splashscreen": "5.0.3-dev"
 };
 // BOTTOM OF METADATA
 });
