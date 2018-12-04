@@ -35,7 +35,6 @@ function loadSessionSuccess(content) {
     var decrypted = CryptoJS.AES.decrypt(data, content);
     content = null;
     medicationInfo = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
-    console.log(medicationInfo);
 }
 
 function validate() {
@@ -72,9 +71,7 @@ function complie(medicine, dosage, frequency, startDate, endDate, note) {
     addData = {"medicine":"Painkiller","dosage":"1 tablet","frequency":"3 per day","startDate":"2018-12-01","endDate":"2018-12-12","note":"Take before meal"};
     medicationInfo['data'].push(addData);
     addData = null;
-    console.log(medicationInfo);
     parsedInfo = JSON.stringify(medicationInfo);
-    console.log(parsedInfo);
     medicationInfo = null;
     loadSession(encrypt);
 }

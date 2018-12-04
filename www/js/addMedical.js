@@ -43,7 +43,6 @@ function loadSessionSuccess(content) {
     var decrypted = CryptoJS.AES.decrypt(data, content);
     content = null;
     medicalInfo = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
-    console.log(medicalInfo);
 }
 
 function validate() {
@@ -84,9 +83,7 @@ function complie(date, hospital, doctor, problem, threatment, revisit, revisitDa
     addData = { "date": date, "hospital": hospital, "doctor": doctor, "problem": problem, "threatment": threatment, "revisit": revisit, "revisitDate": revisitDate };
     medicalInfo['data'].push(addData);
     addData = null;
-    console.log(medicalInfo);
     parsedInfo = JSON.stringify(medicalInfo);
-    console.log(parsedInfo);
     medicalInfo = null;
     loadSession(encrypt);
 }
