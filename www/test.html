@@ -11,32 +11,7 @@
     <link href="css/ratchet.css" rel="stylesheet">
     <script src="js/aes.js"></script>-->
     <script type="text/javascript">
-    var plaintText = '{ "company":"UPMC" , "phone":"123-456-7890" , "policy":"Pro Plan" , "copay":"0 30" , "name":"Jeffrey Hung" , "memberId":"1234567890"}';
-    window.onload = function() {
-        document.addEventListener('deviceready', function() {
-            alert("tst");
-            cordova.plugins.email.isAvailable(
-                function(isAvailable) {
-                    alert("is email mobile available? " + (isAvailable ? "Yes" : "No"));
-                    if (isAvailable) {
-                        window.plugin.email.open({
-                            to: 'test@test.com',
-                            subject: 'Greetings',
-                            body: 'How are you? Nice greetings from Leipzig'
-                        }, callback, scope);
-                    }
-                }
-            );
-        }, false);
-    }
 
-    function callback() {
-        console.log("callback function");
-    }
-
-    function scope() {
-        console.log("scope function");
-    }
 
     function afterRTFS() {
         console.log("fileSystem.root.toURL()=" + TFS.toURL());

@@ -44,6 +44,7 @@ function loadFile(filename, fsDir, callFunction) {
 
 function afterSession(content) {
     session = content;
+    content = null;
     loadFile("medicalInfo", PFS, loadOneSuccess);
     loadFile("medicationInfo", PFS);
     loadFile("insurance", PFS);
@@ -60,7 +61,7 @@ function loadTwoSuccess() {
 function loadThreeSuccess() {
     var StringData = JSON.stringify(backupData);
     console.log(StringData);
-    console.log(backupData);
+    session, backupData = null;
     cordova.plugins.email.isAvailable(
         function(isAvailable) {
             if (isAvailable) {
@@ -74,6 +75,7 @@ function loadThreeSuccess() {
 }
 
 function callback() {
+    StringData = null;
     alert("Backup completed!")
 }
 

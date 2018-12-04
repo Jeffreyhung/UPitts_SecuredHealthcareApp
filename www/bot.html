@@ -22,10 +22,14 @@ function afterSession(content) {
 function afterRPFS() { // called on load
     addData = { "date": "2018-12-01", "hospital": "UPMC", "doctor": "Austin", "problem": "Headache", "threatment": "Pain Killer", "revisit": "0", "revisitDate": "2018-12-31" };
     medicalInfo['data'].push(addData);
+    addData = { "date": "2018-11-31", "hospital": "UPMC", "doctor": "Austin", "problem": "Stomach Ache", "threatment": "Rest", "revisit": "0", "revisitDate": "2018-12-31" };
+    medicalInfo['data'].push(addData);
     parsedInfo = JSON.stringify(medicalInfo);
     var encryptedData = CryptoJS.AES.encrypt(parsedInfo, session);
     savePersistentFile("medicalInfo", encryptedData);
     addData = { "medicine": "Painkiller", "dosage": "1 tablet", "frequency": "3 per day", "startDate": "2018-12-01", "endDate": "2018-12-12", "note": "Take before meal" };
+    medicationInfo['data'].push(addData);
+    addData = { "medicine": "Flu tablet", "dosage": "1 tablet", "frequency": "2 per day", "startDate": "2018-11-01", "endDate": "2018-11-14", "note": "Take after meal" };
     medicationInfo['data'].push(addData);
     parsedInfo = JSON.stringify(medicationInfo);
     var encryptedData = CryptoJS.AES.encrypt(parsedInfo, session);
@@ -36,11 +40,11 @@ function afterRPFS() { // called on load
     var encryptedData = CryptoJS.AES.encrypt(insurnaceInfo, session);
     savePersistentFile("insurance", encryptedData);
     setTimeout(function() {
-    	window.location = 'home.html';
+        window.location = 'home.html';
     }, 3000);
 }
 
 function savePersistentFileSuccess(filename) {
-    // location.replace("home.html");
+    console.log("save " + filename + " success");
 }
 </script>
