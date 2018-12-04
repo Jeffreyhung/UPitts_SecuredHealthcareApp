@@ -7,16 +7,10 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-media-capture": {
-      "PACKAGE_NAME": "SecuredHealthcareApp"
-    },
     "cordova-plugin-device": {
       "PACKAGE_NAME": "SecuredHealthcareApp"
     },
     "cordova-plugin-dialogs": {
-      "PACKAGE_NAME": "SecuredHealthcareApp"
-    },
-    "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "SecuredHealthcareApp"
     },
     "cordova-plugin-whitelist": {
@@ -24,13 +18,16 @@
     },
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "com.CHH162.SecuredHealthcareApp"
+    },
+    "cordova-plugin-email-composer": {
+      "PACKAGE_NAME": "com.CHH162.SecuredHealthcareApp"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.CHH162.SecuredHealthcareApp"
     }
   },
   "dependent_plugins": {
     "cordova-plugin-compat": {
-      "PACKAGE_NAME": "SecuredHealthcareApp"
-    },
-    "cordova-plugin-file": {
       "PACKAGE_NAME": "SecuredHealthcareApp"
     }
   }

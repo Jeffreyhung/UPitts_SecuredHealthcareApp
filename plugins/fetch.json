@@ -2,25 +2,17 @@
   "cordova-plugin-compat": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-compat@^1.1.0"
+      "id": "cordova-plugin-compat@^1.0.0"
     },
     "is_top_level": false,
-    "variables": {}
-  },
-  "cordova-plugin-media-capture": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-media-capture@~1.4.3"
-    },
-    "is_top_level": true,
     "variables": {}
   },
   "cordova-plugin-file": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-file@^4.0.0"
+      "id": "cordova-plugin-file@~4.3.3"
     },
-    "is_top_level": false,
+    "is_top_level": true,
     "variables": {}
   },
   "cordova-plugin-device": {
@@ -39,14 +31,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-inappbrowser": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-inappbrowser@~1.7.1"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-whitelist": {
     "source": {
       "type": "registry",
@@ -59,6 +43,14 @@
     "source": {
       "type": "registry",
       "id": "https://github.com/apache/cordova-plugin-splashscreen.git"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-email-composer": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-email-composer"
     },
     "is_top_level": true,
     "variables": {}
