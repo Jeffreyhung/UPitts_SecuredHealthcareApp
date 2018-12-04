@@ -49,32 +49,31 @@ function afterSession(content) {
     loadFile("insurance", PFS);
 }
 
-function loadOneSuccess(){
+function loadOneSuccess() {
     loadFile("medicationInfo", PFS, loadTwoSuccess);
 }
 
-function loadTwoSuccess(){
+function loadTwoSuccess() {
     loadFile("insurance", PFS, loadThreeSuccess);
 }
 
-function loadThreeSuccess(){
+function loadThreeSuccess() {
     var StringData = JSON.stringify(backupData);
     console.log(StringData);
     console.log(backupData);
     cordova.plugins.email.isAvailable(
-     function(isAvailable) {
-         if (isAvailable) {
-             window.plugin.email.open({
-                 subject: 'Backup data of Secured Health App',
-                 body: StringData
-             }, callback, scope);
-         }
-     }
- );
+        function(isAvailable) {
+            if (isAvailable) {
+                window.plugin.email.open({
+                    subject: 'Backup data of Secured Health App',
+                    body: StringData
+                }, callback, scope);
+            }
+        }
+    );
 }
 
 function callback() {
-    console.log("callback function");
     alert("Backup completed!")
 }
 

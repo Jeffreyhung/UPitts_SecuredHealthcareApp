@@ -122,6 +122,7 @@ function save(name, dob, blood_type, weight_integer, weight_decimal, height_ft, 
         '" , "contact_name":"' + contact_name +
         '" , "contact_phone":"' + contact_phone +
         '"}';
+        console.log(contactinfo);
     savePersistentFile("contact", contactinfo);
 }
 
@@ -129,5 +130,5 @@ function savePersistentFileSuccess(filename) { // called when saved file success
     //console.log("saveFileSuccess");
     //listFiles();
     //loadFile(filename);
-    location.replace("contact.html");
+    // location.replace("contact.html");
 }

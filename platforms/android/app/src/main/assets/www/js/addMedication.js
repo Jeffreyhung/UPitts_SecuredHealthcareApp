@@ -69,7 +69,7 @@ function validate() {
 }
 
 function complie(medicine, dosage, frequency, startDate, endDate, note) {
-    addData = { "medicine": medicine, "dosage": dosage, "frequency": frequency, "startDate": startDate, "endDate": endDate, "note": note };
+    addData = {"medicine":"Painkiller","dosage":"1 tablet","frequency":"3 per day","startDate":"2018-12-01","endDate":"2018-12-12","note":"Take before meal"};
     medicationInfo['data'].push(addData);
     addData = null;
     console.log(medicationInfo);
@@ -87,5 +87,5 @@ function encrypt(content) {
 }
 
 function savePersistentFileSuccess(filename) {
-    location.replace("home.html");
+    // location.replace("home.html");
 }

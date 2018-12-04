@@ -7,9 +7,13 @@
     <script src="js/filesystem.js"></script>
     <script type="text/javascript" charset="utf-8">
     //start request after the device is ready
-    var temp=0;
+    var temp = 0;
     window.onload = function() {
-        document.addEventListener("deviceready", requestPFS, false);
+        document.addEventListener("deviceready", requestTFS, false);
+    }
+
+    function afterRTFS(){
+        requestPFS();
     }
 
     function afterRPFS() { // called on load
@@ -23,14 +27,18 @@
 
     function deleteFileSuccess() { //called when file is deleted
         console.log("deleteFileSuccess");
-        temp+=1;
+        temp += 1;
         checkStatus();
     }
-    function checkstatus() {
-        if(temp==5){
+
+    function checkStatus() {
+        if (temp == 5) {
+            alert("All data deleted Successfully");
             window.location = 'signup.html';
-        }else{
-            checkstatus();
+        } else {
+            setTimeout(function() {
+                checkStatus();
+            }, 2000);
         }
     }
     </script>

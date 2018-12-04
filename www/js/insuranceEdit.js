@@ -80,6 +80,7 @@ function complie(company, phone, policy, copay, name, memberId) {
         '" , "name":"' + name +
         '" , "memberId":"' + memberId +
         '"}';
+        console.log(insurnaceInfo);
     loadSession(encrypt);
 }
 
