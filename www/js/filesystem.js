@@ -12,8 +12,8 @@ function requestPFS() {
 //Request TEMPORARY File System
 function requestTFS() {
     window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
-    window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function(fs) {
-        // window.requestFileSystem(TEMPORARY, 5 * 1024 * 1024, function(fs) {
+    // window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function(fs) {
+    window.requestFileSystem(LocalFileSystem.TEMPORARY, 5 * 1024 * 1024, function(fs) {
         TFS = fs.root;
         afterRTFS(); //call after initFileSystem
     }, errorHandler);

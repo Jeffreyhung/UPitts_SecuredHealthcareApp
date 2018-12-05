@@ -39,18 +39,18 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-splashscreen": {
-    "source": {
-      "type": "registry",
-      "id": "https://github.com/apache/cordova-plugin-splashscreen.git"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-email-composer": {
     "source": {
       "type": "registry",
       "id": "cordova-plugin-email-composer"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-splashscreen": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-splashscreen@5.0.2"
     },
     "is_top_level": true,
     "variables": {}

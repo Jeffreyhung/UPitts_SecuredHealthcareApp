@@ -1,24 +1,27 @@
 {
-  "_from": "git+https://github.com/apache/cordova-plugin-splashscreen.git",
-  "_id": "cordova-plugin-splashscreen@5.0.3-dev",
+  "_from": "cordova-plugin-splashscreen@5.0.2",
+  "_id": "cordova-plugin-splashscreen@5.0.2",
   "_inBundle": false,
-  "_integrity": "",
+  "_integrity": "sha1-dH509W4gHNWFvGLRS8oZ9oZ/8e0=",
   "_location": "/cordova-plugin-splashscreen",
   "_phantomChildren": {},
   "_requested": {
-    "type": "git",
-    "raw": "https://github.com/apache/cordova-plugin-splashscreen.git",
-    "rawSpec": "https://github.com/apache/cordova-plugin-splashscreen.git",
-    "saveSpec": "git+https://github.com/apache/cordova-plugin-splashscreen.git",
-    "fetchSpec": "https://github.com/apache/cordova-plugin-splashscreen.git",
-    "gitCommittish": null
+    "type": "version",
+    "registry": true,
+    "raw": "cordova-plugin-splashscreen@5.0.2",
+    "name": "cordova-plugin-splashscreen",
+    "escapedName": "cordova-plugin-splashscreen",
+    "rawSpec": "5.0.2",
+    "saveSpec": null,
+    "fetchSpec": "5.0.2"
   },
   "_requiredBy": [
     "#USER",
     "/"
   ],
-  "_resolved": "git+https://github.com/apache/cordova-plugin-splashscreen.git#95f91bf50c0d354edef5d271488fccff6a06f80f",
-  "_spec": "https://github.com/apache/cordova-plugin-splashscreen.git",
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-splashscreen/-/cordova-plugin-splashscreen-5.0.2.tgz",
+  "_shasum": "747e74f56e201cd585bc62d14bca19f6867ff1ed",
+  "_spec": "cordova-plugin-splashscreen@5.0.2",
   "_where": "D:\\DSS_Final\\SecuredHealthcareApp",
   "author": {
     "name": "Apache Software Foundation"
@@ -76,5 +79,5 @@
     "test": "npm run jshint"
   },
   "types": "./types/index.d.ts",
-  "version": "5.0.3-dev"
+  "version": "5.0.2"
 }

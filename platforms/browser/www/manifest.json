@@ -8,6 +8,36 @@
   "author": "Chi-Heng Hung",
   "icons": [
     {
+      "src": "res/icon/android/ldpi.png",
+      "type": "image/png",
+      "sizes": "undefinedxundefined"
+    },
+    {
+      "src": "res/icon/android/mdpi.png",
+      "type": "image/png",
+      "sizes": "undefinedxundefined"
+    },
+    {
+      "src": "res/icon/android/hdpi.png",
+      "type": "image/png",
+      "sizes": "undefinedxundefined"
+    },
+    {
+      "src": "res/icon/android/xhdpi.png",
+      "type": "image/png",
+      "sizes": "undefinedxundefined"
+    },
+    {
+      "src": "res/icon/android/xxhdpi.png",
+      "type": "image/png",
+      "sizes": "undefinedxundefined"
+    },
+    {
+      "src": "res/icon/android/xxxhdpi.png",
+      "type": "image/png",
+      "sizes": "undefinedxundefined"
+    },
+    {
       "src": "icon.png",
       "type": "image/png",
       "sizes": "undefinedxundefined"

@@ -108,7 +108,7 @@
      argon2.hash({ pass: password, salt: somesalt })
          .then(h => {
              hashresult = h.hashHex;
-             saveTemporaryFile("session", hashresult, TFS);
+             saveTemporaryFile("session", hashresult);
          })
          .catch(e => console.error(e.message, e.code))
  }
@@ -118,7 +118,7 @@
          .then(h => {
              hashresult2 = h.hashHex;
              userinfo = '{ "email":"' + somesalt + '" , "password":"' + hashresult2 + '"}';
-             savePersistentFile("userinfo", userinfo, PFS);
+             savePersistentFile("userinfo", userinfo);
          })
          .catch(e => console.error(e.message, e.code))
  }
