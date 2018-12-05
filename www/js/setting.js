@@ -12,8 +12,19 @@ function SBtrigger() {
     }
 }
 
+function deletefile(){
+    var repley = confirm("By doing this, you will delete all the data saved in the app. Are you sure you want to delete them?");
+    if(repley ==ture) {
+        window.location = 'delete.html';
+    }else{}
+}
+
 function download() {
-    requestPFS();
+    alert("test");
+    var repley = confirm("These files include your sensitive data that need to be taken carefully! Are you sure you want to download?");
+    if (repley == true) {
+        requestPFS();
+    } else {}
 }
 
 function afterRPFS() {
