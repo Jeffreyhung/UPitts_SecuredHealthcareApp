@@ -10,21 +10,12 @@
         Chi-Heng Hung
     </author>
     <content src="index.html" />
-    <icon platform="android" qualifier="ldpi" src="res/icon/android/ldpi.png" />
-    <icon platform="android" qualifier="mdpi" src="res/icon/android/mdpi.png" />
-    <icon platform="android" qualifier="hdpi" src="res/icon/android/hdpi.png" />
-    <icon platform="android" qualifier="xhdpi" src="res/icon/android/xhdpi.png" />
-    <icon platform="android" qualifier="xxhdpi" src="res/icon/android/xxhdpi.png" />
-    <icon platform="android" qualifier="xxxhdpi" src="res/icon/android/xxxhdpi.png" />
     <icon src="icon.png" />
     <access launch-external="yes" origin="*" />
     <allow-navigation href="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
-    <allow-intent href="tel:*" />
-    <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
-    <allow-intent href="geo:*" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
