@@ -26,12 +26,6 @@
         loadFile("userinfo", PFS);
     }
 
-    function saveFileSuccess(filename) { // called when saved file success
-        console.log("saveFileSuccess");
-        listFiles();
-        loadFile(filename);
-    }
-
     function loadFileSuccess(filename, content) { //called when load file success
     }
 
@@ -46,6 +40,28 @@
         }
     }
     </script>
+    <style type="text/css">
+    .btn-half-block {
+        display: inline;
+        width: 49%;
+        padding: 15px 0;
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: #10ac84;
+        background-color: #10ac84;
+        border: 1px solid #10ac84;
+        background-color: transparent;
+    }
+    .btn-block {
+        /*color: #929292;*/
+    }
+    .fas {
+        line-height: 150%;
+    }
+    .popover {
+        bottom: 100px;
+    }
+    </style>
 </head>
 
 <body>
@@ -58,24 +74,29 @@
         <a onclick="window.location = 'support.html';"><i class="fas fa-headset"></i>&nbsp; &nbsp; Support</a>
     </div>
     <div class="content" id="main">
+        <div class="card">
+            <h1>Welcome</h1>
+        </div>
+        <div style="position: absolute;  bottom: 0; left:2%; right:2%;">
+            <center>
+                <button class="btn btn-half-block" onclick="window.location = 'health.html';">
+                        <i class="fas fa-hospital"><br>Medical Data</i>
+                </button>
+                <button class="btn btn-half-block" onclick="window.location = 'medicine.html';">
+                        <i class="fas fa-pills"><br>Medication Data</i>
+                </button>
+                <button class="btn btn-half-block" onclick="window.location = 'insurance.html';">
+                        <i class="fas fa-money-check"><br>Insurance Data</i>
+                </button>
+                <button class="btn btn-half-block" onclick="window.location = 'contact.html';">
+                        <i class="fas fa-address-book"><br>Emergency Contact</i>
+                </button>
+                <a class="btn btn-positive btn-block btn-outlined" href="#popover">
+                        <i class="fas fa-plus"><br>Add new medical / medication data</i>
+                </a>
+            </center>
+        </div>
     </div>
-    <nav class="bar bar-tab">
-        <a class="tab-item"  onclick="window.location = 'health.html';">
-                <i class="fas fa-hospital"></i>
-            </a>
-        <a class="tab-item" onclick="window.location = 'medical.html';">
-                <i class="fas fa-pills"></i>
-            </a>
-        <a class="tab-item" href="#popover">
-                <i class="fas fa-plus"></i>
-            </a>
-        <a class="tab-item" onclick="window.location = 'insurance.html';">
-                <i class="fas fa-money-check"></i>
-            </a>
-        <a class="tab-item" onclick="window.location = 'contact.html';">
-                <i class="fas fa-address-book"></i>
-            </a>
-    </nav>
     <div id="popover" class="popover">
         <ul class="table-view">
             <li class="table-view-cell"><a onclick="window.location = 'addMedical.html';">Add Medical Record</a></li>
