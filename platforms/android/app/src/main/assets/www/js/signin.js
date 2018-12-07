@@ -15,6 +15,7 @@ function afterRPFS() {
 
 function afterRTFS() {
     loadFile("userinfo", PFS);
+    PFS.getFile("contact", { create: false }, fileExists, fileDoesNotExist);
 }
 
 function loadFileSuccess(filename, content) { //called when load file success
@@ -61,4 +62,12 @@ function saveTemporaryFileSuccess() {
     password,
     somesalt = null;
     location.replace("home.html");
+}
+
+function fileExists() {
+    document.getElementById("emergency").style.display = 'block';
+}
+
+function fileDoesNotExist() {
+    document.getElementById("emergency").style.display = 'none';
 }
