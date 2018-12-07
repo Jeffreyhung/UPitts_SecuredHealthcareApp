@@ -18,7 +18,7 @@ function afterRTFS() {
     PFS.getFile("contact", { create: false }, fileExists, fileDoesNotExist);
 }
 
-function loadFileSuccess(filename, content) { //called when load file success
+function loadFileSuccess(filename, content) {
     userinfo = JSON.parse(content);
     document.getElementById("email").placeholder = "Email: " + userinfo.email;
 }

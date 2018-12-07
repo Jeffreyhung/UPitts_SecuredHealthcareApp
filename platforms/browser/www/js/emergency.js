@@ -20,4 +20,5 @@ function loadFileSuccess(filename, content) { //called when load file success
     document.getElementById("allergies").innerHTML = contact.allergies;
     document.getElementById("contact_name").innerHTML = contact.contact_name;
     document.getElementById("contact_phone").innerHTML = contact.contact_phone;
+    contact = null;
 }
