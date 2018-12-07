@@ -1,10 +1,6 @@
 var insurnaceInfo, sessionKey, data;
 
-function afterRPFS() {
-    requestTFS();
-}
-
-function afterRTFS() {
+function userinfoExists() {
     PFS.getFile("insurance", { create: false }, fileExists, fileDoesNotExist);
 }
 

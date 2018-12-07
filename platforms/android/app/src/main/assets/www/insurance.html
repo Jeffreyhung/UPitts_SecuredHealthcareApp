@@ -20,7 +20,9 @@
     <script src="js/aes.js" type="text/javascript"></script>
     <script>
     window.onload = function() {
-        requestPFS();
+        requestTFS();
+        document.addEventListener("pause", onPause, false);
+        document.addEventListener("resume", onResume, false);
     }
     </script>
 </head>
@@ -92,8 +94,8 @@
             <li class="table-view-cell"><a onclick="window.location = 'addMedication.html';">Add Medication Record</a></li>
         </ul>
     </div>
-    <script src="js/insurance.js" type="text/javascript"></script>
     <script src="js/general.js" type="text/javascript"></script>
+    <script src="js/insurance.js" type="text/javascript"></script>
 </body>
 
 </html>

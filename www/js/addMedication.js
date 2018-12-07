@@ -1,11 +1,7 @@
 var data, addData, parsedInfo;
 var medicationInfo = { "data": [] };
 
-function afterRPFS() {
-    requestTFS();
-}
-
-function afterRTFS() {
+function userinfoExists() {
     PFS.getFile("medicationInfo", { create: false }, fileExists, fileDoesNotExist);
 }
 

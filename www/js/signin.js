@@ -8,12 +8,11 @@ function showPW() {
         x.type = "password";
     }
 }
-
-function afterRPFS() {
-    requestTFS();
+function afterRTFS() {
+    requestPFS();
 }
 
-function afterRTFS() {
+function afterRPFS() {
     loadFile("userinfo", PFS);
     PFS.getFile("contact", { create: false }, fileExists, fileDoesNotExist);
 }
@@ -36,12 +35,10 @@ function hash1(password, somesalt) {
         .catch(e => console.error(e.message, e.code))
 }
 
-function hash2(password, somesalt) {
-    argon2.hash({ pass: password, salt: somesalt })
+function hash2(password2, somesalt2) {
+    argon2.hash({ pass: password2, salt: somesalt2 })
         .then(h => {
             hashresult2 = h.hashHex;
-
-
             login(hashresult2);
         })
         .catch(e => console.error(e.message, e.code))

@@ -6,3 +6,33 @@ function SBtrigger() {
         document.getElementById("Sidebar").style.width = "150px";
     }
 }
+
+function afterRTFS() {
+	console.log("TFS success");
+	requestPFS();
+}
+
+function afterRPFS() {
+	console.log("PFS success");
+	TFS.getFile("session", { create: false }, sessionExists, sessionDoesNotExist);
+}
+
+function onPause() {
+	deleteFile("session", TFS);
+}
+
+function onResume() {
+    window.location = 'signin.html';
+}
+
+function sessionExists() {
+	PFS.getFile("userinfo", { create: false }, userinfoExists, userinfoDoesNotExist);
+}
+
+function sessionDoesNotExist() {
+	window.location = 'signin.html';
+}
+
+function userinfoDoesNotExist() {
+	window.location = 'signup.html';
+}

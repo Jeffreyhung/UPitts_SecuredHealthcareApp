@@ -11,17 +11,11 @@ function deletefile(){
 function download() {
     var repley = confirm("These files include your sensitive data that need to be taken carefully! Are you sure you want to download?");
     if (repley == true) {
-        requestPFS();
+        loadSession(afterSession);
     } else {}
 }
 
-function afterRPFS() {
-    requestTFS();
-}
-
-function afterRTFS() {
-    loadSession(afterSession);
-}
+function userinfoExists() {}
 
 function loadFile(filename, fsDir, callFunction) {
     fsDir.getFile(filename, {}, function(fileEntry) {

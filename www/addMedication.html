@@ -16,7 +16,9 @@
     <script src="js/aes.js" type="text/javascript"></script>
     <script type="text/javascript">
     window.onload = function() {
-        requestPFS();
+        requestTFS();
+        document.addEventListener("pause", onPause, false);
+        document.addEventListener("resume", onResume, false);
     }
     </script>
 </head>
@@ -85,8 +87,8 @@
             <li class="table-view-cell" style="color:#10ac84;"><a onclick="window.location = 'addMedication.html';">Add Medication Record</a></li>
         </ul>
     </div>
-    <script src="js/addMedication.js" type="text/javascript"></script>
     <script src="js/general.js" type="text/javascript"></script>
+    <script src="js/addMedication.js" type="text/javascript"></script>
 </body>
 
 </html>

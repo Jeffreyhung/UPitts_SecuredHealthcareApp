@@ -1,10 +1,6 @@
 var sessionKey, data;
 
-function afterRPFS() {
-    requestTFS();
-}
-
-function afterRTFS() {
+function userinfoExists() {
     PFS.getFile("insurance", { create: false }, fileExists, fileDoesNotExist);
 }
 
@@ -31,4 +27,5 @@ function decryption(session) {
     document.getElementById("copay").innerHTML = insurance.copay;
     document.getElementById("name").innerHTML = insurance.name;
     document.getElementById("memberId").innerHTML = insurance.memberId;
+    var insurance = null;
 }

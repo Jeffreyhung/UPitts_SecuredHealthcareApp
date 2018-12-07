@@ -1,10 +1,6 @@
 var data, addData;
 
-function afterRPFS() {
-    requestTFS();
-}
-
-function afterRTFS() {
+function userinfoExists() {
     PFS.getFile("medicationInfo", { create: false }, fileExists, fileDoesNotExist);
 }
 

@@ -9,11 +9,7 @@ function revisitShow(choice) {
     }
 }
 
-function afterRPFS() {
-    requestTFS();
-}
-
-function afterRTFS() {
+function userinfoExists() {
     PFS.getFile("medicalInfo", { create: false }, fileExists, fileDoesNotExist);
 }
 

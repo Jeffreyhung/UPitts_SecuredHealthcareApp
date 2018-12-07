@@ -13,6 +13,13 @@
     <script src="js/aes.js" type="text/javascript"></script>
     <script src="cordova.js" type="text/javascript"></script>
     <script src="js/filesystem.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    window.onload = function() {
+        requestTFS();
+        document.addEventListener("pause", onPause, false);
+        document.addEventListener("resume", onResume, false);
+    }
+    </script>
 </head>
 
 <body>
@@ -68,8 +75,8 @@
             <li class="table-view-cell"><a onclick="window.location = 'addMedication.html';">Add Medication Record</a></li>
         </ul>
     </div>
-    <script src="js/setting.js" type="text/javascript"></script>
     <script src="js/general.js" type="text/javascript"></script>
+    <script src="js/setting.js" type="text/javascript"></script>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 var userinfo;
-function afterRPFS() {
+function userinfoExists() {
     PFS.getFile("contact", { create: false }, fileExists, fileDoesNotExist);
 }
 
