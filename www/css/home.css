@@ -1,0 +1,23 @@
+.btn-half-block {
+    display: inline;
+    width: 49%;
+    padding: 15px 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #10ac84;
+    background-color: #10ac84;
+    border: 1px solid #10ac84;
+    background-color: transparent;
+}
+
+.fas {
+    line-height: 150%;
+}
+
+.popover {
+    bottom: 100px;
+}
+
+.card {
+    border: none;
+}

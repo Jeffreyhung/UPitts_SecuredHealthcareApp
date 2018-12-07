@@ -1,3 +1,4 @@
+var userinfo;
 function afterRPFS() {
     PFS.getFile("contact", { create: false }, fileExists, fileDoesNotExist);
 }
@@ -37,18 +38,7 @@ for (var i = 0; i <= 11; i++) {
     select.appendChild(opt);
 }
 
-function SBtrigger() {
-    var sb = document.getElementById("Sidebar");
-    if (sb.style.width == '150px') {
-        document.getElementById("Sidebar").style.width = "0";
-        //document.getElementById("main").style.marginLeft= "0";
-    } else {
-        document.getElementById("Sidebar").style.width = "150px";
-        //document.getElementById("main").style.marginLeft = "150px";
-    }
-}
-
-function loadFileSuccess(filename, content) { //called when load file success
+function loadFileSuccess(filename, content) {
     console.log("load success");
     var contact = JSON.parse(content);
     document.getElementById("name").value = contact.name;
@@ -125,9 +115,6 @@ function save(name, dob, blood_type, weight_integer, weight_decimal, height_ft, 
     savePersistentFile("contact", contactinfo);
 }
 
-function savePersistentFileSuccess(filename) { // called when saved file success
-    //console.log("saveFileSuccess");
-    //listFiles();
-    //loadFile(filename);
-    // location.replace("contact.html");
+function savePersistentFileSuccess(filename) {
+    location.replace("contact.html");
 }

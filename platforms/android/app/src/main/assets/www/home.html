@@ -9,62 +9,15 @@
     <link href="css/ratchet.css" rel="stylesheet">
     <link href="css/fontawesome.css" rel="stylesheet">
     <link href="css/sidebar.css" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
     <script src="js/ratchet.js" type="text/javascript"></script>
     <script src="cordova.js" type="text/javascript"></script>
     <script src="js/filesystem.js" type="text/javascript"></script>
     <script type="text/javascript">
     window.onload = function() {
-        requestPFS();
-    }
 
-    function afterRPFS() {
-        requestTFS();
-    }
-
-    function afterRTFS() {
-        loadFile("session", TFS);
-        loadFile("userinfo", PFS);
-    }
-
-    function loadFileSuccess(filename, content) { //called when load file success
-    }
-
-    function SBtrigger() {
-        var sb = document.getElementById("Sidebar");
-        if (sb.style.width == '150px') {
-            document.getElementById("Sidebar").style.width = "0";
-            //document.getElementById("main").style.marginLeft= "0";
-        } else {
-            document.getElementById("Sidebar").style.width = "150px";
-            //document.getElementById("main").style.marginLeft = "150px";
-        }
     }
     </script>
-    <style type="text/css">
-    .btn-half-block {
-        display: inline;
-        width: 49%;
-        padding: 15px 0;
-        margin-bottom: 10px;
-        font-size: 18px;
-        color: #10ac84;
-        background-color: #10ac84;
-        border: 1px solid #10ac84;
-        background-color: transparent;
-    }
-    .btn-block {
-        /*color: #929292;*/
-    }
-    .fas {
-        line-height: 150%;
-    }
-    .popover {
-        bottom: 100px;
-    }
-    .card {
-        border: none;
-    }
-    </style>
 </head>
 
 <body>
@@ -109,6 +62,7 @@
             <li class="table-view-cell"><a onclick="window.location = 'addMedication.html';">Add Medication Record</a></li>
         </ul>
     </div>
+    <script src="js/general.js" type="text/javascript"></script>
 </body>
 
 </html>

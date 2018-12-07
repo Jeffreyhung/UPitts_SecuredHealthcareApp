@@ -1,15 +1,4 @@
-function SBtrigger() {
-    var sb = document.getElementById("Sidebar");
-    if (sb.style.width == '150px') {
-        document.getElementById("Sidebar").style.width = "0";
-        //document.getElementById("main").style.marginLeft= "0";
-    } else {
-        document.getElementById("Sidebar").style.width = "150px";
-        //document.getElementById("main").style.marginLeft = "150px";
-    }
-}
-
-function afterRPFS() { // called after persistent file system loaded, check if contact file exist
+function afterRPFS() {
     PFS.getFile("contact", { create: false }, fileExists, fileDoesNotExist);
 }
 
@@ -21,7 +10,7 @@ function fileDoesNotExist() {
     location.replace("contactEdit.html");
 }
 
-function loadFileSuccess(filename, content) { //called when load file success
+function loadFileSuccess(filename, content) {
     var contact = JSON.parse(content);
     document.getElementById("name").innerHTML = contact.name;
     document.getElementById("dob").innerHTML = contact.dob;

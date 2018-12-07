@@ -10,7 +10,7 @@ function fileDoesNotExist() {
     location.replace("signin.html");
 }
 
-function loadFileSuccess(filename, content) { //called when load file success
+function loadFileSuccess(filename, content) {
     var contact = JSON.parse(content);
     document.getElementById("name").innerHTML = contact.name;
     document.getElementById("dob").innerHTML = contact.dob;

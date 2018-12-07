@@ -6,7 +6,7 @@ function requestPFS() {
     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
         //window.requestFileSystem(PERSISTENT, 0, function(fs) {
         PFS = fs.root;
-        afterRPFS(); //call after initFileSystem
+        afterRPFS();
     }, errorHandler);
 }
 //Request TEMPORARY File System
@@ -15,14 +15,14 @@ function requestTFS() {
     // window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function(fs) {
     window.requestFileSystem(LocalFileSystem.TEMPORARY, 5 * 1024 * 1024, function(fs) {
         TFS = fs.root;
-        afterRTFS(); //call after initFileSystem
+        afterRTFS();
     }, errorHandler);
 }
 //set directory
 function setDirectory(dir) {
     filesystem.root.getDirectory(dir, { create: true }, function(entry) {
         dirEntry = entry;
-        afterSetDirectory(); //called after setDirectory
+        afterSetDirectory();
     }, errorHandler);
 }
 //save persistent file
@@ -30,13 +30,13 @@ function savePersistentFile(filename, content) {
     PFS.getFile(filename, { create: true, exclusive: false }, function(fileEntry) {
         fileEntry.createWriter(function(fileWriter) {
             fileWriter.onwriteend = function(e) {
-                savePersistentFileSuccess(filename); //called after saveFile
+                savePersistentFileSuccess(filename);
             };
             fileWriter.onerror = function(e) {
                 console.log('Write error: ' + e.toString());
                 alert('Unable to save file');
             };
-            fileWriter.write(content); //start writing
+            fileWriter.write(content);
         }, errorHandler);
     }, errorHandler);
 }
@@ -45,13 +45,13 @@ function saveTemporaryFile(filename, content) {
     TFS.getFile(filename, { create: true, exclusive: false }, function(fileEntry) {
         fileEntry.createWriter(function(fileWriter) {
             fileWriter.onwriteend = function(e) {
-                saveTemporaryFileSuccess(filename); //called after saveFile
+                saveTemporaryFileSuccess(filename);
             };
             fileWriter.onerror = function(e) {
                 console.log('Write error: ' + e.toString());
                 alert('Unable to save file');
             };
-            fileWriter.write(content); //start writing
+            fileWriter.write(content);
         }, errorHandler);
     }, errorHandler);
 }
@@ -61,7 +61,7 @@ function loadFile(filename, fsDir) {
         fileEntry.file(function(file) {
             var reader = new FileReader();
             reader.onload = function(e) {
-                loadFileSuccess(filename, this.result); //called after loadFile
+                loadFileSuccess(filename, this.result);
             };
             reader.readAsText(file);
         }, errorHandler);
@@ -73,7 +73,7 @@ function loadSession(callFunction) {
         fileEntry.file(function(file) {
             var reader = new FileReader();
             reader.onload = function(e) {
-                callFunction(this.result); //called after loadSession
+                callFunction(this.result);
             };
             reader.readAsText(file);
         }, errorHandler);
@@ -83,7 +83,7 @@ function loadSession(callFunction) {
 function deleteFile(filename, fsDir) {
     fsDir.getFile(filename, { create: false }, function(fileEntry) {
         fileEntry.remove(function(e) {
-            deleteFileSuccess(); //called after deletefile
+            deleteFileSuccess();
         }, errorHandler);
     }, errorHandler);
 }

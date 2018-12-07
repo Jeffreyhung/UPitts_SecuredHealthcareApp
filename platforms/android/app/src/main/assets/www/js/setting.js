@@ -1,17 +1,6 @@
 var backupData = {};
 var session = null;
 
-function SBtrigger() {
-    var sb = document.getElementById("Sidebar");
-    if (sb.style.width == '150px') {
-        document.getElementById("Sidebar").style.width = "0";
-        //document.getElementById("main").style.marginLeft= "0";
-    } else {
-        document.getElementById("Sidebar").style.width = "150px";
-        //document.getElementById("main").style.marginLeft = "150px";
-    }
-}
-
 function deletefile(){
     var repley = confirm("By doing this, you will delete all the data saved in the app. Are you sure you want to delete them?");
     if(repley ==true) {
@@ -70,7 +59,6 @@ function loadTwoSuccess() {
 
 function loadThreeSuccess() {
     var StringData = JSON.stringify(backupData);
-    console.log(StringData);
     session, backupData = null;
     cordova.plugins.email.isAvailable(
         function(isAvailable) {

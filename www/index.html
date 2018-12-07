@@ -11,7 +11,7 @@
         document.addEventListener("deviceready", requestPFS, false);
     }
 
-    function afterRPFS() { // called on load
+    function afterRPFS() {
         PFS.getFile("userinfo", { create: false }, fileExists, fileDoesNotExist);
     }
 
@@ -26,7 +26,6 @@
 </head>
 
 <body>
-    <!-- <div id="loader"></div> -->
 </body>
 
 </html>

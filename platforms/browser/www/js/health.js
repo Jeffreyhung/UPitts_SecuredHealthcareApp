@@ -17,18 +17,7 @@ function fileDoesNotExist() {
     document.getElementById("defaultMessage").style.display = 'block';
 }
 
-function SBtrigger() {
-    var sb = document.getElementById("Sidebar");
-    if (sb.style.width == '150px') {
-        document.getElementById("Sidebar").style.width = "0";
-        //document.getElementById("main").style.marginLeft= "0";
-    } else {
-        document.getElementById("Sidebar").style.width = "150px";
-        //document.getElementById("main").style.marginLeft = "150px";
-    }
-}
-
-function loadFileSuccess(filename, content) { //called when load file success
+function loadFileSuccess(filename, content) {
     data = content;
     loadSession(loadSessionSuccess);
 }

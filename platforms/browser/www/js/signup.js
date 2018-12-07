@@ -16,12 +16,10 @@
  var length = document.getElementById("length");
  var symbol = document.getElementById("special");
 
- // When the user clicks on the password field, show the message box
  userInput.onfocus = function() {
      document.getElementById("message").style.display = "block";
  }
 
- // When the user clicks outside of the password field, hide the message box
  userInput.onblur = function() {
      document.getElementById("message").style.display = "none";
  }

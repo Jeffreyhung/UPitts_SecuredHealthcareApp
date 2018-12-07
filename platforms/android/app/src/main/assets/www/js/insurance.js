@@ -1,14 +1,5 @@
 var sessionKey, data;
 
-function SBtrigger() {
-    var sb = document.getElementById("Sidebar");
-    if (sb.style.width == '150px') {
-        document.getElementById("Sidebar").style.width = "0";
-    } else {
-        document.getElementById("Sidebar").style.width = "150px";
-    }
-}
-
 function afterRPFS() {
     requestTFS();
 }
@@ -25,7 +16,7 @@ function fileDoesNotExist() {
     location.replace("insuranceEdit.html");
 }
 
-function loadFileSuccess(filename, content) { //called when load file success
+function loadFileSuccess(filename, content) {
     data = content;
     loadSession(decryption);
 }
