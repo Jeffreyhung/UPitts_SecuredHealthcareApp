@@ -8,12 +8,10 @@ function SBtrigger() {
 }
 
 function afterRTFS() {
-	console.log("TFS success");
 	requestPFS();
 }
 
 function afterRPFS() {
-	console.log("PFS success");
 	TFS.getFile("session", { create: false }, sessionExists, sessionDoesNotExist);
 }
 

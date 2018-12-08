@@ -1,5 +1,27 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.CHH162.SecuredHealthcareApp" version="1.1.0" versionCode="10" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="Notification">
+        <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
+    </feature>
+    <feature name="EmailComposer">
+        <param name="android-package" value="de.appplant.cordova.emailcomposer.EmailComposer" />
+    </feature>
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+        <param name="onload" value="true" />
+    </feature>
+    <allow-navigation href="cdvfile:*" />
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
     <name>
         Secured Healthcare App
     </name>
@@ -37,7 +59,7 @@
     <preference name="loglevel" value="DEBUG" />
     <preference name="phonegap-version" value="cli-8.1.1" />
     <preference name="AndroidPersistentFileLocation" value="Internal" />
-    <preference name="android-minSdkVersion" value="10" />
+    <preference name="android-minSdkVersion" value="19" />
     <preference name="SplashMaintainAspectRatio" value="true" />
     <preference name="SplashShowOnlyFirstTime" value="true" />
 </widget>

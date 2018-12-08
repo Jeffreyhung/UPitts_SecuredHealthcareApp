@@ -17,5 +17,5 @@
     <allow-intent href="mailto:*" />
     <preference name="phonegap-version" value="cli-8.1.1" />
     <preference name="AndroidPersistentFileLocation" value="Internal" />
-    <preference name="android-minSdkVersion" value="10" />
+    <preference name="android-minSdkVersion" value="19" />
 </widget>
