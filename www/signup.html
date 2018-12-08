@@ -10,7 +10,7 @@
     <link href=" css/signup.css" rel="stylesheet">
     <script src="js/ratchet.js" type="text/javascript"></script>
     <script src="cordova.js"></script>
-    <script src="bower_components/argon2-browser/lib/argon2.js" type="text/javascript"></script>
+    <script src="js/argon2.js" type="text/javascript"></script>
     <script src="js/filesystem.js" type="text/javascript"></script>
 </head>
 
@@ -43,16 +43,6 @@
         </p>
     </div>
     <script src="js/signup.js" type="text/javascript"></script>
-    <script type="text/javascript">
-    function showPW() {
-        var x = document.getElementById("password");
-        if (x.type === "password") {
-            x.type = "text";
-        } else {
-            x.type = "password";
-        }
-    }
-    </script>
 </body>
 
 </html>

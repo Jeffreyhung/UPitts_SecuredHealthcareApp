@@ -1,5 +1,5 @@
  var userinfo, hashresult, hashresult2;
- 
+
  window.onload = function() {
      requestPFS();
  }
