@@ -1,7 +1,7 @@
 var userinfo, hashresult, hashresult2;
 
 window.onload = function() {
-    requestTFS();
+    document.addEventListener("deviceready", requestTFS, false);
 }
 
 function showPW() {

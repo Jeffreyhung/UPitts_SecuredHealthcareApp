@@ -1,7 +1,7 @@
  var userinfo, hashresult, hashresult2;
 
  window.onload = function() {
-     requestPFS();
+    requestPFS();
  }
 
  function showPW() {
@@ -97,10 +97,10 @@
  }
 
  function afterRPFS() {
-     requestTFS();
+    requestTFS();
  }
 
- function afterRTFS() {}
+ function afterRTFS() {
 
  function submit() {
      hash1(document.getElementById('password').value, document.getElementById('email').value);
@@ -126,7 +126,7 @@
  }
 
  function saveTemporaryFileSuccess() {
-     hash2(hashresult, document.getElementById('email').value);
+    hash2(hashresult, document.getElementById('email').value);
  }
 
  function savePersistentFileSuccess() {
