@@ -1,3 +1,7 @@
+window.onload = function() {
+    requestPFS();
+}
+
 function afterRPFS() {
     PFS.getFile("contact", { create: false }, fileExists, fileDoesNotExist);
 }

@@ -1,4 +1,8 @@
  var userinfo, hashresult, hashresult2;
+ 
+ window.onload = function() {
+     requestPFS();
+ }
 
  function showPW() {
      var x = document.getElementById("password");

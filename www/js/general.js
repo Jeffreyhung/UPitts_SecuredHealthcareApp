@@ -1,3 +1,9 @@
+window.onload = function() {
+    requestTFS();
+    document.addEventListener("pause", onPause, false);
+    document.addEventListener("resume", onResume, false);
+}
+
 function SBtrigger() {
     var sb = document.getElementById("Sidebar");
     if (sb.style.width == '150px') {
@@ -8,15 +14,15 @@ function SBtrigger() {
 }
 
 function afterRTFS() {
-	requestPFS();
+    requestPFS();
 }
 
 function afterRPFS() {
-	TFS.getFile("session", { create: false }, sessionExists, sessionDoesNotExist);
+    TFS.getFile("session", { create: false }, sessionExists, sessionDoesNotExist);
 }
 
 function onPause() {
-	deleteFile("session", TFS);
+    deleteFile("session", TFS);
 }
 
 function onResume() {
@@ -24,13 +30,13 @@ function onResume() {
 }
 
 function sessionExists() {
-	PFS.getFile("userinfo", { create: false }, userinfoExists, userinfoDoesNotExist);
+    PFS.getFile("userinfo", { create: false }, userinfoExists, userinfoDoesNotExist);
 }
 
 function sessionDoesNotExist() {
-	window.location = 'signin.html';
+    window.location = 'signin.html';
 }
 
 function userinfoDoesNotExist() {
-	window.location = 'signup.html';
+    window.location = 'signup.html';
 }

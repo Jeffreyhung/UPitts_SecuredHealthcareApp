@@ -35,7 +35,7 @@ function afterRPFS() { // called on load
     parsedInfo = JSON.stringify(medicationInfo);
     var encryptedData = CryptoJS.AES.encrypt(parsedInfo, session);
     savePersistentFile("medicationInfo", encryptedData);
-    var contactinfo = '{ "name":"Jeffrey Hung" , "dob":"2008-07-09" , "blood_type":"O-positive" , "weight_integer":"52" , "weight_decimal":"8" , "height_ft":"7" , "height_int":"4" , "allergies":"No" , "contact_name":"Carol" , "contact_phone":"123-456-7890"}';
+    var contactinfo = '{ "name":"Jeffrey Hung" , "dob":"2008-07-09" , "blood_type":"O-positive" , "weight_integer":"52" , "weight_decimal":"8" , "height_ft":"7" , "height_int":"4" , "allergies":"No" , "contact_name":"Dante" , "contact_phone":"123-456-7890"}';
     savePersistentFile("contact", contactinfo);
     var insurnaceInfo = '{ "company":"UPMC" , "phone":"123-456-7890" , "policy":"Pro Plan" , "copay":"0 30" , "name":"Jeffrey Hung" , "memberId":"1234567890"}';
     var encryptedData = CryptoJS.AES.encrypt(insurnaceInfo, session);

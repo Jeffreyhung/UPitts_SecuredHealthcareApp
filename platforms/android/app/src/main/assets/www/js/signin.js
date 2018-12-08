@@ -1,5 +1,9 @@
 var userinfo, hashresult, hashresult2;
 
+window.onload = function() {
+    requestTFS();
+}
+
 function showPW() {
     var x = document.getElementById("password");
     if (x.type === "password") {
@@ -8,6 +12,7 @@ function showPW() {
         x.type = "password";
     }
 }
+
 function afterRTFS() {
     requestPFS();
 }
