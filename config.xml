@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.CHH162.SecuredHealthcareApp" version="1.0.0" versionCode="" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.CHH162.SecuredHealthcareApp" version="1.1.0" versionCode="10" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>
-        SecuredHealthcareApp
+        Secured Healthcare App
     </name>
     <description>
         A secured Healthcare Mobile Application
@@ -9,30 +9,34 @@
     <author email="jeffreyhung@hotmail.com.tw" href="https://github.com/Jeffreyhung">
         Chi-Heng Hung
     </author>
-    <content src="index.html" />
+    <content src="index.html"></content>
     <preference name="phonegap-version" value="cli-8.1.1" />
-    <preference name="DisallowOverscroll" value="true" />
-    <preference name="android-minSdkVersion" value="14" />
-    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    <preference name="AndroidPersistentFileLocation" value="Internal" />
+	<preference name="android-minSdkVersion" value="10" />
     <platform name="android">
         <allow-intent href="market:*" />
         <preference name="SplashMaintainAspectRatio" value="true" />
         <preference name="SplashShowOnlyFirstTime" value="true" />
-        <splash density="port-ldpi" src="res/screen/android/splash-port-ldpi.png" />
-        <splash density="port-mdpi" src="res/screen/android/splash-port-mdpi.png" />
-        <splash density="port-hdpi" src="res/screen/android/splash-port-hdpi.png" />
-        <splash density="port-xhdpi" src="res/screen/android/splash-port-xhdpi.png" />
-        <splash density="port-xxhdpi" src="res/screen/android/splash-port-xxhdpi.png" />
-        <splash density="port-xxxhdpi" src="res/screen/android/splash-port-xxxhdpi.png" />
-        <icon qualifier="ldpi" src="res/icon/android/ldpi.png" />
-        <icon qualifier="mdpi" src="res/icon/android/mdpi.png" />
-        <icon qualifier="hdpi" src="res/icon/android/hdpi.png" />
-        <icon qualifier="xhdpi" src="res/icon/android/xhdpi.png" />
-        <icon qualifier="xxhdpi" src="res/icon/android/xxhdpi.png" />
-        <icon qualifier="xxxhdpi" src="res/icon/android/xxxhdpi.png" />
+        <icon qualifier="ldpi" src="www/res/icons/android/drawable-ldpi-icon.png" />
+        <icon qualifier="mdpi" src="www/res/icons/android/drawable-mdpi-icon.png" />
+        <icon qualifier="hdpi" src="www/res/icons/android/drawable-hdpi-icon.png" />
+        <icon qualifier="xhdpi" src="www/res/icons/android/drawable-xhdpi-icon.png" />
+        <icon qualifier="xxhdpi" src="www/res/icons/android/drawable-xxhdpi-icon.png" />
+        <icon qualifier="xxxhdpi" src="www/res/icons/android/drawable-xxxhdpi-icon.png" />
+        <splash qualifier="land-ldpi" src="www/res/screens/android/drawable-land-ldpi-screen.png" />
+        <splash qualifier="land-mdpi" src="www/res/screens/android/drawable-land-mdpi-screen.png" />
+        <splash qualifier="land-hdpi" src="www/res/screens/android/drawable-land-hdpi-screen.png" />
+        <splash qualifier="land-xhdpi" src="www/res/screens/android/drawable-land-xhdpi-screen.png" />
+        <splash qualifier="land-xxhdpi" src="www/res/screens/android/drawable-land-xxhdpi-screen.png" />
+        <splash qualifier="land-xxxhdpi" src="www/res/screens/android/drawable-land-xxxhdpi-screen.png" />
+        <splash qualifier="port-ldpi" src="www/res/screens/android/drawable-port-ldpi-screen.png" />
+        <splash qualifier="port-mdpi" src="www/res/screens/android/drawable-port-mdpi-screen.png" />
+        <splash qualifier="port-hdpi" src="www/res/screens/android/drawable-port-hdpi-screen.png" />
+        <splash qualifier="port-xhdpi" src="www/res/screens/android/drawable-port-xhdpi-screen.png" />
+        <splash qualifier="port-xxhdpi" src="www/res/screens/android/drawable-port-xxhdpi-screen.png" />
+        <splash qualifier="port-xxxhdpi" src="www/res/screens/android/drawable-port-xxxhdpi-screen.png" />
     </platform>
-    <icon src="icon.png" />
-    <access launch-external="yes" origin="*" />
+    <icon src="www/icon.png" />
     <allow-navigation href="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -40,7 +44,6 @@
     <plugin name="cordova-plugin-device" spec="~1.1.6" />
     <plugin name="cordova-plugin-dialogs" spec="~1.3.3" />
     <plugin name="cordova-plugin-file" spec="~4.3.3" />
-    <plugin name="cordova-plugin-whitelist" spec="1.3.3" />
     <plugin name="cordova-plugin-email-composer" spec="0.8.15" />
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
 </widget>

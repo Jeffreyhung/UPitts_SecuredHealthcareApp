@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.CHH162.SecuredHealthcareApp" version="1.0.0" versionCode="" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.CHH162.SecuredHealthcareApp" version="1.1.0" versionCode="10" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>
-        SecuredHealthcareApp
+        Secured Healthcare App
     </name>
     <description>
         A secured Healthcare Mobile Application
@@ -10,14 +10,12 @@
         Chi-Heng Hung
     </author>
     <content src="index.html" />
-    <icon src="icon.png" />
-    <access launch-external="yes" origin="*" />
+    <icon src="www/icon.png" />
     <allow-navigation href="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="mailto:*" />
     <preference name="phonegap-version" value="cli-8.1.1" />
-    <preference name="DisallowOverscroll" value="true" />
-    <preference name="android-minSdkVersion" value="14" />
-    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    <preference name="AndroidPersistentFileLocation" value="Internal" />
+    <preference name="android-minSdkVersion" value="10" />
 </widget>

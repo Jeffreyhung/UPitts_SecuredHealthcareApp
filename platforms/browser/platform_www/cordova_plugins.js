@@ -245,7 +245,6 @@ module.exports.metadata =
     "cordova-plugin-compat": "1.2.0",
     "cordova-plugin-device": "1.1.7",
     "cordova-plugin-dialogs": "1.3.4",
-    "cordova-plugin-whitelist": "1.3.3",
     "cordova-plugin-email-composer": "0.8.15",
     "cordova-plugin-file": "4.3.3",
     "cordova-plugin-splashscreen": "5.0.2"
