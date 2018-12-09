@@ -10,7 +10,7 @@
         Chi-Heng Hung
     </author>
     <content src="index.html" />
-    <icon src="www/icon.png" />
+    <icon src="www/img/icon.png" />
     <allow-navigation href="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
