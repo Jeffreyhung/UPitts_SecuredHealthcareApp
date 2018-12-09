@@ -18,9 +18,9 @@ function loadFileSuccess(filename, content) {
     loadSession(loadSessionSuccess);
 }
 
-function loadSessionSuccess(content) {
-    var decrypted = CryptoJS.AES.decrypt(data, content);
-    content = null;
+function loadSessionSuccess(session) {
+    var decrypted = CryptoJS.AES.decrypt(data, session);
+    session = null;
     var medicalInfo = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
     decrypt = null;
     showData(medicalInfo);

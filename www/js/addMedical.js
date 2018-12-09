@@ -73,9 +73,10 @@ function complie(date, hospital, doctor, problem, threatment, revisit, revisitDa
     loadSession(encrypt);
 }
 
-function encrypt(content) {
-    var encryptedData = CryptoJS.AES.encrypt(parsedInfo, content);
-    content = null;
+function encrypt(session) {
+    var encryptedData = CryptoJS.AES.encrypt(parsedInfo, session);
+    alert(encryptedData);
+    session = null;
     savePersistentFile("medicalInfo", encryptedData);
     encryptedData, parsedInfo = null;
 }

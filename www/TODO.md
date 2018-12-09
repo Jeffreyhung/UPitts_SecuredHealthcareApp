@@ -2,4 +2,5 @@ TODO LIST:
 
 problem to fix:
 
-aes not working
+save encrypted file to persistant to working
+(save unencrypted to persistant works)
