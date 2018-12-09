@@ -1,4 +1,4 @@
-var userinfo, hashresult, hashresult2;
+var userinfo;
 
 window.onload = function() {
     document.addEventListener("deviceready", requestTFS, false);
@@ -32,25 +32,20 @@ function submit() {
 }
 
 function hash1(password, somesalt) {
-    argon2.hash({ pass: password, salt: somesalt })
-        .then(h => {
-            hashresult = h.hashHex;
-            hash2(hashresult, userinfo.email);
-        })
-        .catch(e => console.error(e.message, e.code))
+    var hashresult = CryptoJS.SHA256(password + somesalt);
+    hashresult = hashresult.toString();
+    hash2(hashresult, userinfo.email);
 }
 
 function hash2(password2, somesalt2) {
-    argon2.hash({ pass: password2, salt: somesalt2 })
-        .then(h => {
-            hashresult2 = h.hashHex;
-            login(hashresult2);
-        })
-        .catch(e => console.error(e.message, e.code))
+     var hashresult2 = CryptoJS.SHA256(password2 + somesalt2);
+     hashresult2 = hashresult2.toString();
+     password2, somesalt2 = null;
+     login(hashresult2);
 }
 
 function login(hashresult) {
-    if (hashresult2 == userinfo.password) {
+    if (hashresult == userinfo.password) {
         saveTemporaryFile("session", hashresult, TFS);
     } else {
         alert("Password incorrect!")
@@ -58,8 +53,6 @@ function login(hashresult) {
 }
 
 function saveTemporaryFileSuccess() {
-    hashresult,
-    hashresult2,
     userinfo,
     password,
     somesalt = null;

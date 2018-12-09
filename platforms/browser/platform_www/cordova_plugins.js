@@ -237,6 +237,12 @@ module.exports = [
         "merges": [
             "window.FileSystem"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-promise/libs/bluebird-3.5.0.min.js",
+        "id": "cordova-plugin-promise.PromisePlugin",
+        "pluginId": "cordova-plugin-promise",
+        "runs": true
     }
 ];
 module.exports.metadata = 
@@ -248,7 +254,8 @@ module.exports.metadata =
     "cordova-plugin-device": "1.1.7",
     "cordova-plugin-dialogs": "1.3.4",
     "cordova-plugin-compat": "1.2.0",
-    "cordova-plugin-file": "4.3.3"
+    "cordova-plugin-file": "4.3.3",
+    "cordova-plugin-promise": "1.0.0"
 }
 // BOTTOM OF METADATA
 });

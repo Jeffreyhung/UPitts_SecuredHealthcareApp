@@ -1,7 +1,7 @@
  var userinfo, hashresult, hashresult2;
 
  window.onload = function() {
-    requestPFS();
+     document.addEventListener("deviceready", requestPFS, false);
  }
 
  function showPW() {
@@ -97,43 +97,39 @@
  }
 
  function afterRPFS() {
-    requestTFS();
+     requestTFS();
  }
 
  function afterRTFS() {
+     // alert("Test3");
+ }
 
  function submit() {
      hash1(document.getElementById('password').value, document.getElementById('email').value);
  }
 
  function hash1(password, somesalt) {
-     argon2.hash({ pass: password, salt: somesalt })
-         .then(h => {
-             hashresult = h.hashHex;
-             saveTemporaryFile("session", hashresult);
-         })
-         .catch(e => console.error(e.message, e.code))
+     hashresult = CryptoJS.SHA256(password + somesalt);
+     hashresult = hashresult.toString();
+     password, somesalt = null;
+     saveTemporaryFile("session", hashresult);
  }
 
- function hash2(password, somesalt) {
-     argon2.hash({ pass: password, salt: somesalt })
-         .then(h => {
-             hashresult2 = h.hashHex;
-             userinfo = '{ "email":"' + somesalt + '" , "password":"' + hashresult2 + '"}';
-             savePersistentFile("userinfo", userinfo);
-         })
-         .catch(e => console.error(e.message, e.code))
+ function hash2(password2, somesalt2) {
+     hashresult2 = CryptoJS.SHA256(password2 + somesalt2);
+     hashresult2 = hashresult2.toString();
+     userinfo = '{ "email":"' + somesalt2 + '" , "password":"' + hashresult2 + '"}';
+     password2, somesalt2 = null;
+     savePersistentFile("userinfo", userinfo);
  }
 
  function saveTemporaryFileSuccess() {
-    hash2(hashresult, document.getElementById('email').value);
+     hash2(hashresult, document.getElementById('email').value);
  }
 
  function savePersistentFileSuccess() {
      hashresult,
      hashresult2,
-     userinfo,
-     password,
-     somesalt = null;
+     userinfo = null;
      location.replace("home.html");
  }

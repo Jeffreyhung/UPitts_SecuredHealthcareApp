@@ -54,5 +54,13 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "cordova-plugin-promise": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-promise"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

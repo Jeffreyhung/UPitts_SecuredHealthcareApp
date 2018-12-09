@@ -24,6 +24,9 @@
     },
     "cordova-plugin-file": {
       "PACKAGE_NAME": "com.CHH162.SecuredHealthcareApp"
+    },
+    "cordova-plugin-promise": {
+      "PACKAGE_NAME": "com.CHH162.SecuredHealthcareApp"
     }
   },
   "dependent_plugins": {

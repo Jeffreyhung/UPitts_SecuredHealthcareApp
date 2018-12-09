@@ -12,7 +12,8 @@
       "cordova-plugin-whitelist": {},
       "cordova-plugin-device": {},
       "cordova-plugin-dialogs": {},
-      "cordova-plugin-file": {}
+      "cordova-plugin-file": {},
+      "cordova-plugin-promise": {}
     }
   },
   "dependencies": {
@@ -22,6 +23,7 @@
     "cordova-plugin-dialogs": "1.3.4",
     "cordova-plugin-email-composer": "0.8.15",
     "cordova-plugin-file": "4.3.3",
+    "cordova-plugin-promise": "1.0.0",
     "cordova-plugin-splashscreen": "5.0.2",
     "cordova-plugin-whitelist": "1.3.3",
     "whitelist": "1.0.2"

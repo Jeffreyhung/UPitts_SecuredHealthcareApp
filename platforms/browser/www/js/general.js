@@ -1,5 +1,5 @@
 window.onload = function() {
-    requestTFS();
+    document.addEventListener("deviceready", requestTFS, false)
     document.addEventListener("pause", onPause, false);
     document.addEventListener("resume", onResume, false);
 }
