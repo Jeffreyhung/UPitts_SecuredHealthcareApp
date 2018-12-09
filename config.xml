@@ -17,26 +17,26 @@
         <allow-intent href="market:*" />
         <preference name="SplashMaintainAspectRatio" value="true" />
         <preference name="SplashShowOnlyFirstTime" value="true" />
-        <icon qualifier="ldpi" src="www/res/icons/android/drawable-ldpi-icon.png" />
-        <icon qualifier="mdpi" src="www/res/icons/android/drawable-mdpi-icon.png" />
-        <icon qualifier="hdpi" src="www/res/icons/android/drawable-hdpi-icon.png" />
-        <icon qualifier="xhdpi" src="www/res/icons/android/drawable-xhdpi-icon.png" />
-        <icon qualifier="xxhdpi" src="www/res/icons/android/drawable-xxhdpi-icon.png" />
-        <icon qualifier="xxxhdpi" src="www/res/icons/android/drawable-xxxhdpi-icon.png" />
-        <splash qualifier="land-ldpi" src="www/res/screens/android/drawable-land-ldpi-screen.png" />
-        <splash qualifier="land-mdpi" src="www/res/screens/android/drawable-land-mdpi-screen.png" />
-        <splash qualifier="land-hdpi" src="www/res/screens/android/drawable-land-hdpi-screen.png" />
-        <splash qualifier="land-xhdpi" src="www/res/screens/android/drawable-land-xhdpi-screen.png" />
-        <splash qualifier="land-xxhdpi" src="www/res/screens/android/drawable-land-xxhdpi-screen.png" />
-        <splash qualifier="land-xxxhdpi" src="www/res/screens/android/drawable-land-xxxhdpi-screen.png" />
-        <splash qualifier="port-ldpi" src="www/res/screens/android/drawable-port-ldpi-screen.png" />
-        <splash qualifier="port-mdpi" src="www/res/screens/android/drawable-port-mdpi-screen.png" />
-        <splash qualifier="port-hdpi" src="www/res/screens/android/drawable-port-hdpi-screen.png" />
-        <splash qualifier="port-xhdpi" src="www/res/screens/android/drawable-port-xhdpi-screen.png" />
-        <splash qualifier="port-xxhdpi" src="www/res/screens/android/drawable-port-xxhdpi-screen.png" />
-        <splash qualifier="port-xxxhdpi" src="www/res/screens/android/drawable-port-xxxhdpi-screen.png" />
+        <icon qualifier="ldpi" src="www/img/icons/android/drawable-ldpi-icon.png" />
+        <icon qualifier="mdpi" src="www/img/icons/android/drawable-mdpi-icon.png" />
+        <icon qualifier="hdpi" src="www/img/icons/android/drawable-hdpi-icon.png" />
+        <icon qualifier="xhdpi" src="www/img/icons/android/drawable-xhdpi-icon.png" />
+        <icon qualifier="xxhdpi" src="www/img/icons/android/drawable-xxhdpi-icon.png" />
+        <icon qualifier="xxxhdpi" src="www/img/icons/android/drawable-xxxhdpi-icon.png" />
+        <splash qualifier="land-ldpi" src="www/img/screens/android/drawable-land-ldpi-screen.png" />
+        <splash qualifier="land-mdpi" src="www/img/screens/android/drawable-land-mdpi-screen.png" />
+        <splash qualifier="land-hdpi" src="www/img/screens/android/drawable-land-hdpi-screen.png" />
+        <splash qualifier="land-xhdpi" src="www/img/screens/android/drawable-land-xhdpi-screen.png" />
+        <splash qualifier="land-xxhdpi" src="www/img/screens/android/drawable-land-xxhdpi-screen.png" />
+        <splash qualifier="land-xxxhdpi" src="www/img/screens/android/drawable-land-xxxhdpi-screen.png" />
+        <splash qualifier="port-ldpi" src="www/img/screens/android/drawable-port-ldpi-screen.png" />
+        <splash qualifier="port-mdpi" src="www/img/screens/android/drawable-port-mdpi-screen.png" />
+        <splash qualifier="port-hdpi" src="www/img/screens/android/drawable-port-hdpi-screen.png" />
+        <splash qualifier="port-xhdpi" src="www/img/screens/android/drawable-port-xhdpi-screen.png" />
+        <splash qualifier="port-xxhdpi" src="www/img/screens/android/drawable-port-xxhdpi-screen.png" />
+        <splash qualifier="port-xxxhdpi" src="www/img/screens/android/drawable-port-xxxhdpi-screen.png" />
     </platform>
-    <icon src="www/icon.png" />
+    <icon src="www/img/icon.png" />
     <allow-navigation href="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
