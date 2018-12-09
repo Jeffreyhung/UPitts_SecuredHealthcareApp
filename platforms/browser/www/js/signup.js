@@ -2,6 +2,7 @@
 
  window.onload = function() {
      document.addEventListener("deviceready", requestPFS, false);
+     document.addEventListener("backbutton", onBackKeyDown, false);
  }
 
  function showPW() {
@@ -12,6 +13,8 @@
          x.type = "password";
      }
  }
+
+ function onBackKeyDown() { }
 
  var userInput = document.getElementById("password");
  var letter = document.getElementById("letter");

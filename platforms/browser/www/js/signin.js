@@ -2,6 +2,7 @@ var userinfo;
 
 window.onload = function() {
     document.addEventListener("deviceready", requestTFS, false);
+    document.addEventListener("backbutton", onBackKeyDown, false);
 }
 
 function showPW() {
@@ -12,6 +13,8 @@ function showPW() {
         x.type = "password";
     }
 }
+
+function onBackKeyDown() {}
 
 function afterRTFS() {
     requestPFS();
@@ -38,10 +41,10 @@ function hash1(password, somesalt) {
 }
 
 function hash2(password2, somesalt2) {
-     var hashresult2 = CryptoJS.SHA256(password2 + somesalt2);
-     hashresult2 = hashresult2.toString();
-     password2, somesalt2 = null;
-     login(hashresult2);
+    var hashresult2 = CryptoJS.SHA256(password2 + somesalt2);
+    hashresult2 = hashresult2.toString();
+    password2, somesalt2 = null;
+    login(hashresult2);
 }
 
 function login(hashresult) {

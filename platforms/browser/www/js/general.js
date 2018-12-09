@@ -2,6 +2,8 @@ window.onload = function() {
     document.addEventListener("deviceready", requestTFS, false)
     document.addEventListener("pause", onPause, false);
     document.addEventListener("resume", onResume, false);
+    document.addEventListener("menubutton", onPause, false);
+    document.addEventListener("backbutton", onBackKeyDown, false);
 }
 
 function SBtrigger() {
@@ -12,6 +14,8 @@ function SBtrigger() {
         document.getElementById("Sidebar").style.width = "150px";
     }
 }
+
+function onBackKeyDown() { }
 
 function afterRTFS() {
     requestPFS();

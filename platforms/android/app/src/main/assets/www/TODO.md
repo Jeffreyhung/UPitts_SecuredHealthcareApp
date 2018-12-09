@@ -2,6 +2,5 @@ TODO LIST:
 
 problem to fix:
 
-Uncaught ReferenceError: LocalFileSystem is not defined
-
-javascript not working on Android
+event: return button handle
+aes not working

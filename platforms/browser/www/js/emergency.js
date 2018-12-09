@@ -1,5 +1,5 @@
 window.onload = function() {
-    document.addEventListener("deviceready", requestPFS, false)
+    document.addEventListener("deviceready", requestPFS, false);
 }
 
 function afterRPFS() {
