@@ -1,51 +1,62 @@
-<!-- <meta http-equiv="Content-Security-Policy" content="default-src *"/> -->
+<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'self'"/>
 <script src="cordova.js" type="text/javascript"></script>
 <script src="js/filesystem.js" type="text/javascript"></script>
 <script src="js/aes.js" type="text/javascript"></script>
-<script type="text/javascript">
-var session;
-var medicalInfo = { "data": [] };
-var medicationInfo = { "data": [] };
 
-window.onload = function() {
-    document.addEventListener("deviceready", requestTFS, false);
-}
+<body>
+    <div id="divID">
+    </div>
+    <script type="text/javascript">
+    var session;
+    var medicalInfo = { "data": [] };
+    var medicationInfo = { "data": [] };
+    var div = document.getElementById('divID');
+    div.innerHTML += "<h1> Start";
 
-function afterRTFS() {
-    loadSession(afterSession);
-}
+    window.onload = function() {
+        document.addEventListener("deviceready", requestTFS, false);
+    }
 
-function afterSession(content) {
-    session = content;
-    requestPFS();
-}
+    function afterRTFS() {
+        div.innerHTML += "<h1> TFS success";
+        loadSession(afterSession);
+    }
 
-function afterRPFS() { // called on load
-    addData = { "date": "2018-12-01", "hospital": "UPMC", "doctor": "Austin", "problem": "Headache", "threatment": "Pain Killer", "revisit": "0", "revisitDate": "2018-12-31" };
-    medicalInfo['data'].push(addData);
-    addData = { "date": "2018-11-31", "hospital": "UPMC", "doctor": "Austin", "problem": "Stomach Ache", "threatment": "Rest", "revisit": "0", "revisitDate": "2018-12-31" };
-    medicalInfo['data'].push(addData);
-    parsedInfo = JSON.stringify(medicalInfo);
-    var encryptedData = CryptoJS.AES.encrypt(parsedInfo, session);
-    savePersistentFile("medicalInfo", encryptedData.toString());
-    addData = { "medicine": "Painkiller", "dosage": "1 tablet", "frequency": "3 per day", "startDate": "2018-12-01", "endDate": "2018-12-12", "note": "Take before meal" };
-    medicationInfo['data'].push(addData);
-    addData = { "medicine": "Flu tablet", "dosage": "1 tablet", "frequency": "2 per day", "startDate": "2018-11-01", "endDate": "2018-11-14", "note": "Take after meal" };
-    medicationInfo['data'].push(addData);
-    parsedInfo = JSON.stringify(medicationInfo);
-    var encryptedData = CryptoJS.AES.encrypt(parsedInfo, session);
-    savePersistentFile("medicationInfo", encryptedData.toString());
-    var contactinfo = '{ "name":"Jeffrey Hung" , "dob":"2008-07-09" , "blood_type":"O-positive" , "weight_integer":"52" , "weight_decimal":"8" , "height_ft":"7" , "height_int":"4" , "allergies":"No" , "contact_name":"Dante" , "contact_phone":"123-456-7890"}';
-    savePersistentFile("contact", contactinfo);
-    var insurnaceInfo = '{ "company":"UPMC" , "phone":"123-456-7890" , "policy":"Pro Plan" , "copay":"0 30" , "name":"Jeffrey Hung" , "memberId":"1234567890"}';
-    var encryptedData = CryptoJS.AES.encrypt(insurnaceInfo, session);
-    savePersistentFile("insurance", encryptedData.toString());
-    setTimeout(function() {
-        //window.location = 'home.html';
-    }, 3000);
-}
+    function afterSession(content) {
+        div.innerHTML += "<h1> session success";
+        session = content;
+        requestPFS();
+    }
 
-function savePersistentFileSuccess(filename) {
-    console.log("save " + filename + " success");
-}
-</script>
+    function afterRPFS() {
+        div.innerHTML += "<h1> PFS success";
+        addData = { "date": "2018-12-01", "hospital": "UPMC", "doctor": "Austin", "problem": "Headache", "threatment": "Pain Killer", "revisit": "0", "revisitDate": "2018-12-31" };
+        medicalInfo['data'].push(addData);
+        addData = { "date": "2018-11-31", "hospital": "UPMC", "doctor": "Austin", "problem": "Stomach Ache", "threatment": "Rest", "revisit": "0", "revisitDate": "2018-12-31" };
+        medicalInfo['data'].push(addData);
+        parsedInfo = JSON.stringify(medicalInfo);
+        var encryptedData = CryptoJS.AES.encrypt(parsedInfo, session);
+        savePersistentFile("medicalInfo", encryptedData.toString());
+        addData = { "medicine": "Painkiller", "dosage": "1 tablet", "frequency": "3 per day", "startDate": "2018-12-01", "endDate": "2018-12-12", "note": "Take before meal" };
+        medicationInfo['data'].push(addData);
+        addData = { "medicine": "Flu tablet", "dosage": "1 tablet", "frequency": "2 per day", "startDate": "2018-11-01", "endDate": "2018-11-14", "note": "Take after meal" };
+        medicationInfo['data'].push(addData);
+        parsedInfo = JSON.stringify(medicationInfo);
+        var encryptedData = CryptoJS.AES.encrypt(parsedInfo, session);
+        savePersistentFile("medicationInfo", encryptedData.toString());
+        var contactinfo = '{ "name":"Jeffrey Hung" , "dob":"2008-07-09" , "blood_type":"O-positive" , "weight_integer":"132" , "weight_decimal":"8" , "height_ft":"5" , "height_int":"10" , "allergies":"No" , "contact_name":"Dante" , "contact_phone":"123-456-7890"}';
+        savePersistentFile("contact", contactinfo);
+        var insurnaceInfo = '{ "company":"UPMC" , "phone":"123-456-7890" , "policy":"Pro Plan" , "copay":"0 30" , "name":"Jeffrey Hung" , "memberId":"1234567890"}';
+        var encryptedData = CryptoJS.AES.encrypt(insurnaceInfo, session);
+        savePersistentFile("insurance", encryptedData.toString());
+        setTimeout(function() {
+            //window.location = 'home.html';
+        }, 3000);
+    }
+
+    function savePersistentFileSuccess(filename) {
+        div.innerHTML += "<h1>save " + filename + " success</h1><br>";
+        console.log("save " + filename + " success");
+    }
+    </script>
+</body>
