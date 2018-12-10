@@ -8,6 +8,10 @@
     <meta http-equiv="Content-Security-Policy" content="default-src none; script-src 'self' 'unsafe-inline'; style-src 'self'  'unsafe-inline'; img-src 'self' ; font-src 'self' ; connect-src * 'self' ">
     <link href="css/ratchet.css" rel="stylesheet">
     <link href=" css/signup.css" rel="stylesheet">
+    <script src="js/ratchet.js" type="text/javascript"></script>
+    <!-- <script src="cordova.js"></script> -->
+    <script src="js/filesystem.js" type="text/javascript"></script>
+    <script src="js/sha256.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -15,34 +19,53 @@
         <h1 class="title"><b>Secured Health App<b></h1>
     </header>
     <div class="content" id="main">
-        <p>
-            <form style="margin: 10px 10px 10px 10px;" action="javascript:submit()">
-                <h3><center> Create account <center></h3>
-                <input type="email" id="email" placeholder="E-mail" required>
-                <input type="password" id="password" placeholder="Password" required>
-                <label class="switch">
-                    <input type="checkbox" onclick="showPW()">
-                    <span class="slider"></span>
-                </label>
-                <label>Show Password</label>
-                <br><br>
-                <div id="message">
-                    <h5>Password must contain the following:</h5>
-                    <h5 id="letter" class="invalid">A <b>lowercase</b> letter</h5>
-                    <h5 id="capital" class="invalid">A <b>capital (uppercase)</b> letter</h5>
-                    <h5 id="number" class="invalid">A <b>number</b></h5>
-                    <h5 id="special" class="invalid">A <b>Special</b> character</h5>
-                    <h5 id="length" class="invalid">Minimum <b>8 characters</b></h5>
-                </div>
-                <button class="btn btn-positive btn-block disable" id="submitButton">Submit</button>
-            </form>
-        </p>
+        <form style="margin: 10px 10px 10px 10px;" action="javascript:submit()">
+            <h3><center> Create account <center></h3>
+            <input type="email" id="email" placeholder="E-mail" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <label class="switch">
+                <input type="checkbox" onclick="showPW()">
+                <span class="slider"></span>
+            </label>
+            <label>Show Password</label>
+            <br><br>
+            <div id="message">
+                <h5>Password must contain the following:</h5>
+                <h5 id="letter" class="invalid">A <b>lowercase</b> letter</h5>
+                <h5 id="capital" class="invalid">A <b>capital (uppercase)</b> letter</h5>
+                <h5 id="number" class="invalid">A <b>number</b></h5>
+                <h5 id="special" class="invalid">A <b>Special</b> character</h5>
+                <h5 id="length" class="invalid">Minimum <b>8 characters</b></h5>
+            </div>
+            <br>
+            <button class="btn btn-positive btn-block disable" id="submitButton">Create Account</button>
+            <p style="font-size: 10px">By Clicking the button, you agree the "Terms and Agreement"</p>
+        </form>
+        <div style="bottom: 10px;">
+            <center>
+                <a href="#agreement" class="btn"">Terms and Agreement</a>
+            </center>
+        </div>
     </div>
-    <script src="js/ratchet.js" type="text/javascript"></script>
-    <script src="cordova.js"></script>
-    <script src="js/filesystem.js" type="text/javascript"></script>
-    <script src="js/sha256.js" type="text/javascript"></script>
-    <script src="js/signup.js" type="text/javascript"></script>
+    <div id="agreement" class="modal">
+        <header class="bar bar-nav">
+            <a class="icon icon-close pull-right" href="#agreement"></a>
+                <h1 class="title">Terms and Agreement</h1>
+                </header>
+                <div class="content">
+                    <p class="content-padded">
+                        Permitted Uses and Disclosures by Business Associate<br>
+                        (a) Business associate may only use or disclose protected health information including personal data, health data, medical data, emergency contact data that are input by user.<br>
+                        (b) Business associate may use or disclose protected health information as required by law.<br>
+                        (c) Business associate agrees to make uses and disclosures and requests for protected health information consistent with covered entity’s minimum necessary policies and procedures.<br>
+                        (d) Business associate may not use or disclose protected health information in a manner that would violate Subpart E of 45 CFR Part 164 if done by covered entity [if the Agreement permits the business associate to use or disclose protected health information for its own management and administration and legal responsibilities or for data aggregation services as set forth in optional provisions (e), (f), or (g) below, then add “, except for the specific uses and disclosures set forth below.”]<br>
+                        (e) Business associate may use protected health information for the proper management and administration of the business associate or to carry out the legal responsibilities of the business associate.<br>
+                        (f) Business associate may disclose protected health information for the proper management and administration of business associate or to carry out the legal responsibilities of the business associate, provided the disclosures are required by law, or business associate obtains reasonable assurances from the person to whom the information is disclosed that the information will remain confidential and used or further disclosed only as required by law or for the purposes for which it was disclosed to the person, and the person notifies business associate of any instances of which it is aware in which the confidentiality of the information has been breached.<br>
+                        (g) Business associate may provide data aggregation services relating to the health care operations of the covered entity.
+                    </p>
+                </div>
+        </div>
+        <script src="js/signup.js" type="text/javascript"></script>
 </body>
 
 </html>
