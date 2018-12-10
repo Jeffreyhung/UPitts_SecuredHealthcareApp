@@ -16,6 +16,7 @@
     <allow-intent href="https://*/*" />
     <allow-intent href="mailto:*" />
     <preference name="phonegap-version" value="cli-8.1.1" />
-    <preference name="AndroidPersistentFileLocation" value="Internal" />
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    <preference name="AndroidExtraFilesystems" value="files,cache, sdcard, cache-external, files-external" />
     <preference name="android-minSdkVersion" value="19" />
 </widget>

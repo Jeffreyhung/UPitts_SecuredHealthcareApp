@@ -64,7 +64,7 @@ function complie(medicine, dosage, frequency, startDate, endDate, note) {
 function encrypt(content) {
     var encryptedData = CryptoJS.AES.encrypt(parsedInfo, content);
     content = null;
-    savePersistentFile("medicationInfo", encryptedData);
+    savePersistentFile("medicationInfo", encryptedData.toString());
     encryptedData, parsedInfo = null;
 }
 

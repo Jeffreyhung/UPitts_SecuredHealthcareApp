@@ -11,7 +11,8 @@
     </author>
     <content src="index.html" />
     <preference name="phonegap-version" value="cli-8.1.1" />
-    <preference name="AndroidPersistentFileLocation" value="Internal" />
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    <preference name="AndroidExtraFilesystems" value="files,cache, sdcard, cache-external, files-external" />
     <preference name="android-minSdkVersion" value="19" />
     <platform name="android">
         <allow-intent href="market:*" />
@@ -48,5 +49,4 @@
     <plugin name="cordova-plugin-device" spec="1.1.7" />
     <plugin name="cordova-plugin-dialogs" spec="1.3.4" />
     <plugin name="cordova-plugin-file" spec="4.3.3" />
-    <plugin name="cordova-plugin-promise" spec="1.0.0" />
 </widget>

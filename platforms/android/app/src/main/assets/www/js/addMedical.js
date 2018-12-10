@@ -24,11 +24,13 @@ function loadFileSuccess(filename, content) {
     loadSession(loadSessionSuccess);
 }
 
-function loadSessionSuccess(content) {
-    var decrypted = CryptoJS.AES.decrypt(data, content);
-    content = null;
+function loadSessionSuccess(session) {
+    var decrypted = CryptoJS.AES.decrypt(data, session);
+    session = null;
     medicalInfo = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8));
 }
+
+function deleteFileSuccess() {}
 
 function validate() {
     var date = document.getElementById("date").value;
@@ -73,14 +75,29 @@ function complie(date, hospital, doctor, problem, threatment, revisit, revisitDa
     loadSession(encrypt);
 }
 
+function savePersistentFile(filename, content) {
+    PFS.getFile(filename, { create: true, exclusive: false }, function(fileEntry) {
+        fileEntry.createWriter(function(fileWriter) {
+            fileWriter.onwriteend = function(e) {
+                savePersistentFileSuccess(filename);
+            };
+            fileWriter.onerror = function(e) {
+                console.log('Write error: ' + e.toString());
+                alert('Unable to save file');
+            };
+            fileWriter.write(content);
+        }, errorHandler);
+    }, errorHandler);
+}
+
 function encrypt(session) {
     var encryptedData = CryptoJS.AES.encrypt(parsedInfo, session);
-    alert(encryptedData);
     session = null;
-    savePersistentFile("medicalInfo", encryptedData);
+    savePersistentFile("medicalInfo", encryptedData.toString());
     encryptedData, parsedInfo = null;
 }
 
 function savePersistentFileSuccess(filename) {
+    // alert("write success");
     location.replace("home.html");
 }

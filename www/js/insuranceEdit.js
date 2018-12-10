@@ -72,7 +72,7 @@ function complie(company, phone, policy, copay, name, memberId) {
 function encrypt(content) {
     var encryptedData = CryptoJS.AES.encrypt(insurnaceInfo, content);
     content = null;
-    savePersistentFile("insurance", encryptedData);
+    savePersistentFile("insurance", encryptedData.toString());
     encryptedData, insurnaceInfo, company, phone, policy, copay, name, memberId = null;
 }
 
