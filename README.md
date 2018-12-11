@@ -171,9 +171,9 @@ Once user have signup and create emergency contact in the application, an emerge
 
 Every time the user switch between apps or return to the menu on their phone, the session that is used in this application will be deleted and will require the user to login again to regain the access permission to the information in this application.
 
-## 3.2Software Development Lifecycle
+## 3.2  Software Development Lifecycle
 
-### 3.2.1Overview
+### 3.2.1  Overview
 
 Considering that this is a small project with only one developer, we choose to use the waterfall software development lifecycle. In order to ensure the security features are implemented in an efficient manner, we took security features into consideration in each steps of the lifecycle.
 
@@ -199,18 +199,18 @@ In this part, we followed the design in previous step to implement them one by o
 
 In this part, we reviewed the requirements that is identified and listed in stage 1 to ensure that every requirement is fulfilled. We also tried all the functions designed in stage 2 are properly implemented and no unwanted functions are implemented. We do find some bugs and unexpected feature and have them fixed or removed in this stage.
 
-## 3.3Application Screenshot
+## 3.3  Application Screenshot
 Please see [Final Project Report.pdf](https://github.com/Jeffreyhung/SecuredHealthcareApp/blob/master/Final%20Project%20Report.pdf)  for report with figure
 
-# 4.Project Experiences
+# 4.  Project Experiences
 
 In this part of the report, we will talk about the things we learned and some future works of this project.
 
-## 4.1Positive Experiences
+## 4.1  Positive Experiences
 
 The main experience we learn from this project is how to build an application using a secured software development lifecycle, in the past we do work on several different projects before, but security is always not the main goal. In this project, we lean to think in a security aspect during every process of the development in order to make sure that security mechanisms are properly implemented in every detail of the application. We also learn how to build a web-based mobile application through this project, we learn to use the tools like Cordova, PhoneGap, which we have never tried before.
 
-## 4.2Improvement Possibilities
+## 4.2  Improvement Possibilities
 
 For the software developing process, we appeared to be not so familiar with the lifecycle and spent some time getting familiar with it, in the future if we are using the same secured software developing lifecycle, we can surely get handy in a short time and improve the efficiency throughout the process.
 
