@@ -1,10 +1,7 @@
 Please see [Final Project Report.pdf](https://github.com/Jeffreyhung/SecuredHealthcareApp/blob/master/Final%20Project%20Report.pdf)  for report with figure
 
 # Developing Secure Software
-
-#
 # Final Project Report
-
 # Secured Healthcare Manage Application
 
 
