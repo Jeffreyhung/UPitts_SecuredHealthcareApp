@@ -38,11 +38,11 @@ Table of Contents
 | 4.1        Positive Experiences        |
 | 4.2        Improvement Possibilities        |
 
-# 1 Introduction
+# 1  Introduction
 
 The Secured Healthcare Manage Application is a mobile application that we designed for user to store and organize their healthcare information. Our main goal is to develop a healthcare application using a secured software developing lifecycle in order to ensure that the user&#39;s information that are processed in this application is are handled safely and the information stored in the application is properly encrypted, so that user can store their healthcare data in this application and don&#39;t need to worry the confidentiality, integrity and privacy of their data.
 
-## 1.1Timeframe
+## 1.1  Timeframe
 
 |     | Description of Work | Time |
 | --- | --- | --- |
@@ -51,11 +51,11 @@ The Secured Healthcare Manage Application is a mobile application that we design
 | Implementation | Implementation the system design into code | 11/26-12/09 |
 | Testing | Make sure that the code is working as expected and ensure the requirements and regulations are met | 12/10-12/15 |
 
-## 1.2Scope
+## 1.2  Scope
 
 The project is aimed to use a secured software developing lifecycle to develop a healthcare application for Android system with proper security features, like hash function and encryption, to secure user&#39;s information. The application should be able to let the user manage medical records, medication records, insurance information and emergency contact information.
 
-## 1.3References
+## 1.3  References
 
 -  U.S. Department of Health &amp; Human Services [www.hhs.gov/hipaa](http://www.hhs.gov/hipaa)
 -  Adobe PhoneGap [phonegap.com](https://phonegap.com/)
@@ -64,28 +64,28 @@ The project is aimed to use a secured software developing lifecycle to develop a
 -  CryptoJS [code.google.com/archive/p/crypto-js/](https://code.google.com/archive/p/crypto-js/)
 -  Font-awesome [fontawesome.com](https://fontawesome.com/)
 
-# 2.Background and Objectives
+# 2.  Background and Objectives
 
 As the progress of technology, people start to store data in digital copy instead of paper copy, including their healthcare data. However, healthcare data includes lots of sensitive data that should be taken cate carefully to protect user&#39;s privacy, therefore we are planning on developing a mobile application that can enable users to manage their health records and medical records in which users does not need to concern the privacy of their data that is stored in the application.
 
-## 2.1Customer
+## 2.1  Customer
 
 Any customer that is looking for a mobile application to manage their healthcare information but also want to ensure the security and privacy of their healthcare data.
 
-## 2.2Objective
+## 2.2  Objective
 
 - .Develop an application that user can manage health records and medical records
 - .Provide an interface to show user&#39;s emergency contact for emergency situations
 - .Develop the application using a Secured Software Develop Life Cycle to insure security in the application
 - .Insure the application meets the regulations of HIPAA (Health Insurance Portability and Accountability Act)
 
-# 3.Project Results
+# 3.  Project Results
 
 In this part we will show the project results by going through the requirements and explain them one by one in detail, then show how we develop this application by going through the software development lifecycle.
 
-## 3.1Requirements
+## 3.1  Requirements
 
-### 3.1.1Requirement Compliance Matrix
+### 3.1.1  Requirement Compliance Matrix
 
 | **ID** | **Requirement Description** | **Completed** |
 | --- | --- | --- |
@@ -105,7 +105,7 @@ In this part we will show the project results by going through the requirements 
 | R13 | Emergency access procedures | Yes |
 | R14 | Passcode requirements | Yes |
 
-### 3.1.2Requirements Compliance Summary
+### 3.1.2  Requirements Compliance Summary
 
 | Total number of requirements | 14 |
 | --- | --- |
@@ -113,61 +113,61 @@ In this part we will show the project results by going through the requirements 
 | Requirements partially fulfilled | 1 |
 | Requirements not fulfilled | 0 |
 
-### 3.1.3 **Requirements explanation**
+### 3.1.3 Requirements explanation
 
-R1: **Manage health records**
+**R1: Manage health records**
 
 Enable user to record health information that includes the date, hospital, doctor, problems, treatments and revisit date. User can add the health records and view it in an organized manner afterward.
 
-R2: **Manage medication records**
+**R2: Manage medication records**
 
 Enable user to record medication information that includes the medicine, dosage, frequency, start and end date. User can add the medication records and view it in an organized manner afterward.
 
-R3: **Manage insurance information**
+**R3: Manage insurance information**
 
 Enable user to save insurance information that includes the company name, company phone, policy type, co-pay information, member name and member ID. User can add the insurance information and view it or edit at any time.
 
-R4: **Interface for emergency contact information**
+**R4: Interface for emergency contact information**
 
 Enable user to save emergency contact information that includes name, date of birth, blood type, weight, height, allergies, contact name and contact phone. User can add the emergency contact information and view it or edit at any time. The emergency contact information can also be viewed in the sign-in page that does not requires sign-in to view.
 
-R5: **Developing using secured SDLC**
+**R5: Developing using secured SDLC**
 
 The application is developed under a secured waterfall software developing lifecycle, the details of each stage in the lifecycle will be discussed in section 3.2.
 
-R6: **User Authentication**
+**R6: User Authentication**
 
 User is required to use the password they set up to gain access to the application every time. The password is required to have at least 8 characters with at least one lowercase letter, one uppercase letter, one number and one special characters. The password is hashed and stored in the application for future authentication use.
 
-R7: **Encrypted communications**
+**R7: Encrypted communications**
 
 The application is designed to work offline, without internet connection, therefore there will not be communication part that requires encryption. The only communication is the backup process that allows user to back up their data with email function of the Android device, so the security depends on the email function of the Android device, not on us, therefore this requirement is marked as partially completed.
 
-R8: **PHI in used protection**
+**R8: PHI in used protection**
 
 The PHI that is in used in this application are decrypted from the storage every time it is called and will not be stored in plaintext after used.
 
-R9: **PHI at rest protection**
+**R9: PHI at rest protection**
 
 The PHI that is at rest in this application is fully decrypted using AES with 256 bits key at all time, excepted the emergency contact information, which is not encrypted because of the purpose of these information are to be accessible under emergency circumstances.
 
-R10: **PHI in transit**
+**R10: PHI in transit**
 
 The PHI that is used in this application are stored offline and are not transit to any other user, application or server.
 
-R11: **Minimum use and sharing of PHI**
+**R11: Minimum use and sharing of PHI**
 
 The PHI that is used in this application will not be shared with any other user, server or application.
 
-R12: **Agreements in place**
+**R12: Agreements in place**
 
 We provided a terms and agreement that includes the permitted uses and disclosures by business associate on the sign-up page and provided a clear instruction on the sign-up page that they must agree the terms and agreement to use this application
 
-R13: **Emergency access procedures**
+**R13: Emergency access procedures**
 
 Once user have signup and create emergency contact in the application, an emergency contact button will appear in the sign-in page that allow users to access without login. This can provide other user to access the emergency contact under emergency that the user might not be able to sign-in the application.
 
-R14: **Passcode requirements**
+**R14: Passcode requirements**
 
 Every time the user switch between apps or return to the menu on their phone, the session that is used in this application will be deleted and will require the user to login again to regain the access permission to the information in this application.
 
@@ -200,6 +200,7 @@ In this part, we followed the design in previous step to implement them one by o
 In this part, we reviewed the requirements that is identified and listed in stage 1 to ensure that every requirement is fulfilled. We also tried all the functions designed in stage 2 are properly implemented and no unwanted functions are implemented. We do find some bugs and unexpected feature and have them fixed or removed in this stage.
 
 ## 3.3Application Screenshot
+Please see [Final Project Report.pdf](https://github.com/Jeffreyhung/SecuredHealthcareApp/blob/master/Final%20Project%20Report.pdf)  for report with figure
 
 # 4.Project Experiences
 
