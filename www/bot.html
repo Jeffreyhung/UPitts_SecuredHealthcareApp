@@ -30,9 +30,9 @@
 
     function afterRPFS() {
         div.innerHTML += "<h1> PFS success";
-        addData = { "date": "2018-12-01", "hospital": "UPMC", "doctor": "Austin", "problem": "Headache", "threatment": "Pain Killer", "revisit": "0", "revisitDate": "2018-12-31" };
+        addData = { "date": "2018-12-01", "hospital": "UPMC", "doctor": "Austin", "problem": "Headache", "treatments": "Pain Killer", "revisit": "0", "revisitDate": "2018-12-31" };
         medicalInfo['data'].push(addData);
-        addData = { "date": "2018-11-31", "hospital": "UPMC", "doctor": "Austin", "problem": "Stomach Ache", "threatment": "Rest", "revisit": "0", "revisitDate": "2018-12-31" };
+        addData = { "date": "2018-11-31", "hospital": "UPMC", "doctor": "Austin", "problem": "Stomach Ache", "treatments": "Rest", "revisit": "0", "revisitDate": "2018-12-31" };
         medicalInfo['data'].push(addData);
         parsedInfo = JSON.stringify(medicalInfo);
         var encryptedData = CryptoJS.AES.encrypt(parsedInfo, session);

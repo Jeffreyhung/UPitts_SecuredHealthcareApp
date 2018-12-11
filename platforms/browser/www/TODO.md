@@ -2,8 +2,6 @@ TODO LIST:
 
 problem to fix:
 
-save encrypted file to persistant to working
-(save unencrypted to persistant works)
-
+add password enter limit
 
 openssl dgst -sha384 -binary ###.js | openssl base64 -A

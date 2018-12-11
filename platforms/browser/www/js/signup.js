@@ -14,7 +14,7 @@
      }
  }
 
- function onBackKeyDown() { }
+ function onBackKeyDown() {}
 
  var userInput = document.getElementById("password");
  var letter = document.getElementById("letter");

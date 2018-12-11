@@ -47,7 +47,7 @@ function showData(info) {
         p.appendChild(document.createTextNode('\u00A0\u00A0\u00A0'));
         p.appendChild(document.createTextNode(temp));
         p.appendChild(document.createElement("br"));
-        temp = "Threatmeat : " + info.data[i].threatment;
+        temp = "Threatmeat : " + info.data[i].treatments;
         p.appendChild(document.createTextNode('\u00A0\u00A0\u00A0'));
         p.appendChild(document.createTextNode(temp));
         p.appendChild(document.createElement("br"));

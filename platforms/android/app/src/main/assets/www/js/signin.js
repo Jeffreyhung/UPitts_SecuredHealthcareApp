@@ -1,4 +1,5 @@
 var userinfo;
+var count =0;
 
 window.onload = function() {
     document.addEventListener("deviceready", requestTFS, false);
@@ -51,7 +52,14 @@ function login(hashresult) {
     if (hashresult == userinfo.password) {
         saveTemporaryFile("session", hashresult, TFS);
     } else {
-        alert("Password incorrect!")
+        alert("Password incorrect!");
+        count +=1;
+        if (count == 4){
+            alert("You have enter the password wrong for 4 time, if you enter the password wrong again, all the data will be deleted!!");
+        }else if(count == 5){
+            alert("You have enter the password wrong for 5 time, all data will be deleted.");
+            location.replace("delete.html");
+        }
     }
 }
 
