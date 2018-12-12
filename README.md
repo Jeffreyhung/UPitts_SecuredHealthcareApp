@@ -2,7 +2,7 @@ Please see [Final Project Report.pdf](https://github.com/Jeffreyhung/SecuredHeal
 
 # Developing Secure Software
 # Final Project Report
-# Secured Healthcare Manage Application
+# Secured Healthcare Management Application
 
 
 University of Pittsburgh
