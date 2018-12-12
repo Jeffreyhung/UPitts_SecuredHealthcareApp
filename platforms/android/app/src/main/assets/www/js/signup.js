@@ -103,9 +103,7 @@
      requestTFS();
  }
 
- function afterRTFS() {
-     // alert("Test3");
- }
+ function afterRTFS() { }
 
  function submit() {
      hash1(document.getElementById('password').value, document.getElementById('email').value);
