@@ -7,8 +7,6 @@ University of Pittsburgh
 School of Computing and Information
 INSFCI 2620 Developing Secure Systems
 Final Project Report
-Chi-Heng Hung CHH162
-
 
 Table of Contents
 
